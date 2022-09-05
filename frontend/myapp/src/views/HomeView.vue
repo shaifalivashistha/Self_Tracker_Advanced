@@ -1,6 +1,6 @@
-<template class="container">
+<template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/Background.jpeg" /> -->
+    <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
@@ -16,12 +16,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-.container {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-image: url("~@/assets/Background.jpeg");
-}
-</style>

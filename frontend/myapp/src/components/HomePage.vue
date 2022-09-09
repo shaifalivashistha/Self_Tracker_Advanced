@@ -4,6 +4,8 @@
       <b-navbar-brand href="/">Home</b-navbar-brand>
       <b-navbar-nav>
         <b-nav-item href="/about">About</b-nav-item>
+        <b-nav-item href="/register">Register</b-nav-item>
+        <b-nav-item href="/login">Login</b-nav-item>
         <b-nav-item href="#">Contacts</b-nav-item>
       </b-navbar-nav>
     </b-navbar>

@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <body>
-      <form class="box" action="login.html" method="POST">
+      <form class="box">
         <h1>Login</h1>
         <input type="email" name="" placeholder="Enter Email" id="email" />
         <input

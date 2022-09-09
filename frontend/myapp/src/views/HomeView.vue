@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <HomePage></HomePage>
     <img
       alt="Tracker logo"
       src="../assets/logo.jpeg"
@@ -7,18 +8,17 @@
       height="200"
     />
     <h1>New to The Self Tracker Application.</h1>
-    <HelloWorld></HelloWorld>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import HomePage from "@/components/HomePage.vue";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    HomePage,
   },
 };
 </script>

@@ -209,14 +209,17 @@ export default {
 
     <body class="container">
       <form class="form" onsubmit="return validateform()">
-        <h3>Sign Up</h3>
+        <h3 class="form text-center mt-2 mb-4">
+          Sign Up
+        </h3>
         <div class="form-group">
           <label>Username</label>
           <input type="text" class="form-control form-control-lg" placeholder="Username" required />
         </div>
         <div class="form-group">
           <label>Email address</label>
-          <input type="email" class="form-control form-control-lg" placeholder="email" required />
+          <input type="email" class="form-control form-control-lg" placeholder="email"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required />
         </div>
         <div class="form-group">
           <label>Password</label>
@@ -311,5 +314,9 @@ h3 {
 
 .invalid {
   color: red;
+}
+
+.login {
+  background-color: dodgerblue;
 }
 </style>

@@ -113,21 +113,29 @@ body {
     </b-navbar>
 
     <body class="container">
-      <form class="form">
-        <h3>Login</h3>
+      <br>
+      <h3 class="form text-center mt-2 mb-4">
+        Login
+      </h3>
+      <form>
         <div class="form-group">
           <label>Email address</label>
-          <input type="email" class="form-control form-control-lg" />
+          <input type="email" class="form-control form-control-lg" placeholder="email"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required />
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" class="form-control form-control-lg" />
+          <input type="password" class="form-control form-control-lg" placeholder="Password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
         </div>
         <button type="submit" class="btn btn-dark btn-lg btn-block">
           Login
         </button>
-        <p class="forgot-password text-right mt-2 mb-4">
+        <p>
           <router-link to="/forgot-password">Forgot password ?</router-link>
+        </p>
+        <p>
+          New User <router-link to="/register">Sign Up?</router-link>
         </p>
       </form>
     </body>

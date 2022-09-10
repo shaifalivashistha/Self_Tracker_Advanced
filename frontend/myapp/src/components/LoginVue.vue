@@ -9,44 +9,25 @@
         <b-nav-item href="#">Contacts</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
-
-    <body>
-      <form>
-        <h1>Login</h1>
-        <input type="email" name="" placeholder="Enter Email" id="email" />
-        <input
-          type="password"
-          name=""
-          placeholder="Enter password"
-          id="password"
-        />
-        <input type="submit" name="" value="Login" />
-        
-      </form>
-    </body>
+    <form>
+      <h3>Login</h3>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" class="form-control form-control-lg" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control form-control-lg" />
+      </div>
+      <button type="submit" class="btn btn-dark btn-lg btn-block">Login</button>
+      <p class="forgot-password text-right">
+        Already registered
+        <router-link :to="{ name: 'login' }">sign in?</router-link>
+      </p>
+    </form>
   </div>
-</template> -->
-<template>
-  <form>
-    <!-- Email input -->
-    <MDBInput type="email" label="Email address" id="form1Email" v-model="form1Email" wrapperClass="mb-4" />
-    <!-- Password input -->
-    <MDBInput type="password" label="Password" id="form1Password" v-model="form1Password" wrapperClass="mb-4" />
-    <!-- 2 column grid layout for inline styling -->
-    <MDBRow class="mb-4">
-      <MDBCol class="d-flex justify-content-center">
-        <!-- Checkbox -->
-        <MDBCheckbox label="Remember me" id="form1LoginCheck" v-model="form1LoginCheck" wrapperClass="mb-3 mb-md-0" />
-      </MDBCol>
-      <MDBCol>
-        <!-- Simple link -->
-        <a href="#!">Forgot password?</a>
-      </MDBCol>
-    </MDBRow>
-    <!-- Submit button -->
-    <MDBBtn color="primary" block> Sign in </MDBBtn>
-  </form>
 </template>
+
 <script>
 export default {
   name: "LoginVue",
@@ -117,4 +98,45 @@ body {
 .box input[type="submit"]:hover {
   background: #ffc400ec;
 }
-</style>
+</style> -->
+
+<template>
+  <div class="login">
+    <b-navbar toggleable="md" type="dark" variant="info">
+      <b-navbar-brand href="/login">Login</b-navbar-brand>
+      <b-navbar-nav>
+        <b-nav-item href="/">Home</b-nav-item>
+        <b-nav-item href="/about">About</b-nav-item>
+        <b-nav-item href="/register">Register</b-nav-item>
+        <b-nav-item href="#">Contacts</b-nav-item>
+      </b-navbar-nav>
+    </b-navbar>
+
+    <body class="container">
+      <form class="form">
+        <h3>Login</h3>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" class="form-control form-control-lg" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control form-control-lg" />
+        </div>
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+          Login
+        </button>
+        <p class="forgot-password text-right mt-2 mb-4">
+          <router-link to="/forgot-password">Forgot password ?</router-link>
+        </p>
+      </form>
+    </body>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {};
+  },
+};
+</script>

@@ -190,35 +190,126 @@ export default {
 <style scoped></style> -->
 
 <template>
-  <div class="vue-tempalte">
-    <form>
-      <h3>Sign Up</h3>
-      <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" class="form-control form-control-lg" />
-      </div>
-      <div class="form-group">
-        <label>Email address</label>
-        <input type="email" class="form-control form-control-lg" />
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control form-control-lg" />
-      </div>
-      <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Sign Up
-      </button>
-      <p class="forgot-password text-right">
-        Already registered
-        <router-link :to="{ name: 'login' }">sign in?</router-link>
-      </p>
-    </form>
+  <div class="login">
+    <b-navbar toggleable="md" type="dark" variant="info">
+      <b-navbar-brand href="/register">Sign Up</b-navbar-brand>
+      <b-navbar-nav>
+        <b-nav-item href="/">Home</b-nav-item>
+        <b-nav-item href="/login">Login</b-nav-item>
+        <b-nav-item href="/about">About</b-nav-item>
+        <b-nav-item href="#">Contacts</b-nav-item>
+      </b-navbar-nav>
+    </b-navbar>
+    <p class="alert alert-danger" role="alert" v-if="error_email">
+      {{ error_email }}
+    </p>
+    <p class="alert alert-danger" role="alert" v-if="error_password">
+      {{ error_password }}
+    </p>
+
+    <body class="container">
+      <form class="form" onsubmit="return validateform()">
+        <h3>Sign Up</h3>
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control form-control-lg" placeholder="Username" required />
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" class="form-control form-control-lg" placeholder="email" required />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control form-control-lg" placeholder="Password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
+        </div>
+        <button onclick="register()" type="submit" class="btn btn-dark btn-lg btn-block">
+          Sign Up
+        </button>
+      </form>
+    </body>
   </div>
 </template>
 <script>
 export default {
+  name: "UserRegister",
   data() {
-    return {};
+    return {
+      email: null,
+      password: "",
+      error_email: "",
+      error_password: "",
+      username: null,
+    };
+  },
+  methods: {
+    async register() {
+      try {
+        fetch("http://127.0.0.1:5000/api/user", {
+          method: "POST",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify({
+            email: this.email,
+            username: this.username,
+            password: this.password,
+          }),
+        })
+          .then((resp) => resp.json())
+          .then(async (register_data) => {
+            // const { response } = register_data;
+            console.log(register_data);
+            // console.log(response)
+            if (!this.username) {
+              this.error_email = "Please enter a valid username";
+            }
+            if (this.password == "") {
+              this.error_password = "Enter a valid password";
+            } else {
+              this.$router.push("login");
+            }
+            if (!this.email) {
+              this.error_email = "Please enter a valid email";
+              console.log("wrong mail");
+            } else if (!this.validEmail(this.email)) {
+              this.error_email = "Not valid email";
+            }
+            // this.$router.push("login");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } catch (error) {
+        console.log("Registration unsuccessful: ", error);
+      }
+    },
+    validEmail: function (email) {
+      var re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    validPassword: function () {
+      var pass = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/
+      if (this.password.value.match(pass)) {
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+      } else {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
+      }
+    }
   },
 };
 </script>
+
+<style scoped lang="scss">
+h3 {
+  text-align: center;
+}
+
+.invalid {
+  color: red;
+}
+</style>

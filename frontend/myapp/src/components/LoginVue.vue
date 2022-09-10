@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="loginPage">
     <b-navbar toggleable="md" type="dark" variant="info">
       <b-navbar-brand href="/login">Login</b-navbar-brand>
@@ -21,11 +21,32 @@
           id="password"
         />
         <input type="submit" name="" value="Login" />
+        
       </form>
     </body>
   </div>
+</template> -->
+<template>
+  <form>
+    <!-- Email input -->
+    <MDBInput type="email" label="Email address" id="form1Email" v-model="form1Email" wrapperClass="mb-4" />
+    <!-- Password input -->
+    <MDBInput type="password" label="Password" id="form1Password" v-model="form1Password" wrapperClass="mb-4" />
+    <!-- 2 column grid layout for inline styling -->
+    <MDBRow class="mb-4">
+      <MDBCol class="d-flex justify-content-center">
+        <!-- Checkbox -->
+        <MDBCheckbox label="Remember me" id="form1LoginCheck" v-model="form1LoginCheck" wrapperClass="mb-3 mb-md-0" />
+      </MDBCol>
+      <MDBCol>
+        <!-- Simple link -->
+        <a href="#!">Forgot password?</a>
+      </MDBCol>
+    </MDBRow>
+    <!-- Submit button -->
+    <MDBBtn color="primary" block> Sign in </MDBBtn>
+  </form>
 </template>
-' '
 <script>
 export default {
   name: "LoginVue",

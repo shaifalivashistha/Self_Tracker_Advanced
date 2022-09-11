@@ -4,6 +4,7 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import AboutView from "../views/AboutView.vue";
 import RegisterView from "../views/RegisterView.vue";
+import dashboard from "../views/dashboard.vue"
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ const routes = [
     name: "register",
     component: RegisterView,
   },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: dashboard
+  }
 ];
 
 const router = new VueRouter({

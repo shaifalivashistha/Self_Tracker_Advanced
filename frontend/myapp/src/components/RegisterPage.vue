@@ -214,19 +214,22 @@ export default {
         </h3>
         <div class="form-group">
           <label>Username</label>
-          <input type="text" class="form-control form-control-lg" placeholder="Username" required />
+          <input id="username" type="text" class="form-control form-control-lg" placeholder="Username" required />
         </div>
         <div class="form-group">
           <label>Email address</label>
-          <input type="email" class="form-control form-control-lg" placeholder="email"
+          <input id="email" onchange="validate()" type="email" class="form-control form-control-lg" placeholder="email"
             pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required />
         </div>
+        <p class="alert alert-danger" role="alert" v-if="error_email">
+          {{ error_email }}
+        </p>
         <div class="form-group">
           <label>Password</label>
           <input type="password" class="form-control form-control-lg" placeholder="Password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
         </div>
-        <button onclick="register()" type="submit" class="btn btn-dark btn-lg btn-block">
+        <button id="submit" onclick="register()" type="submit" class="btn btn-dark btn-lg btn-block">
           Sign Up
         </button>
       </form>
@@ -248,7 +251,7 @@ export default {
   methods: {
     async register() {
       try {
-        fetch("http://127.0.0.1:5000/api/user", {
+        fetch("http://localhost:8081/api/user", {
           method: "POST",
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -302,7 +305,7 @@ export default {
         letter.classList.remove("valid");
         letter.classList.add("invalid");
       }
-    }
+    },
   },
 };
 </script>
@@ -314,9 +317,5 @@ h3 {
 
 .invalid {
   color: red;
-}
-
-.login {
-  background-color: dodgerblue;
 }
 </style>

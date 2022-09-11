@@ -18,11 +18,18 @@ nav {
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #46be16;
 
     &.router-link-exact-active {
       color: #42b983;
     }
   }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  // background-image: url("~@/assets/back.jpeg");
+  background-size: cover;
 }
 </style>

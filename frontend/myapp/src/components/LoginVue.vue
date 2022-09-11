@@ -128,7 +128,7 @@ body {
           <input type="password" class="form-control form-control-lg" placeholder="Password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
         </div>
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button onclick="login()" type="submit" class="btn btn-dark btn-lg btn-block">
           Login
         </button>
         <p>
@@ -146,5 +146,8 @@ export default {
   data() {
     return {};
   },
+  login() {
+    this.$router.push({ name: "dashboard" })
+  }
 };
 </script>

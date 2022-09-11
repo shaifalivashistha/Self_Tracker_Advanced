@@ -1,6 +1,6 @@
 <template>
   <div id="hello">
-    <b-navbar toggleable="md" type="dark" variant="info">
+    <b-navbar fixed="top" toggleable="md" type="dark" variant="info">
       <b-navbar-brand href="/">Home</b-navbar-brand>
       <b-navbar-nav>
         <b-nav-item href="/about">About</b-nav-item>

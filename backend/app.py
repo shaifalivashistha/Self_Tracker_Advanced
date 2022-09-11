@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from application.api import api
 from application.models import db
 
@@ -28,6 +28,10 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     return render_template('register.html')
+
+@app.route('/dashboard', methods=['GET, POST'])
+def dashboard():
+    return redirect(url_for('dashboard'))
 
 if __name__ == '__main__':
     app.run(debug=True)

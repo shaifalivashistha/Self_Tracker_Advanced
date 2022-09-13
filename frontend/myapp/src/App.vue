@@ -29,7 +29,8 @@ nav {
 body {
   margin: 0;
   padding: 0;
-  // background-image: url("~@/assets/trackBack.jpeg");
-  background-size: cover;
+  background-image: url("~@/assets/img1.jpeg");
+  background-color: plum;
+  background-size: auto;
 }
 </style>

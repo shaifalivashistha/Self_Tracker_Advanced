@@ -102,6 +102,7 @@ body {
 
 <template>
   <div class="login">
+    <h1><em>The Self Tracker</em></h1>
     <b-navbar toggleable="md" type="dark" variant="info">
       <b-navbar-brand href="/login">Login</b-navbar-brand>
       <b-navbar-nav>
@@ -147,7 +148,34 @@ export default {
     return {};
   },
   login() {
-    this.$router.push({ name: "dashboard" })
+    const data = {
+      method: 'POST',
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: this.email,
+        password: this.password
+      })
+    };
+    fetch('https://jsonplaceholder.typicode.com/invalid-url', requestOptions)
+      .then(async response => {
+        const data = await response.json();
+
+        // check for error response
+        if (!response.ok) {
+          // get error message from body or default to response status
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
+        }
+
+        this.postId = data.id;
+      })
+      .catch(error => {
+        this.errorMessage = error;
+        console.error('There was an error!', error);
+      });
   }
 };
 </script>

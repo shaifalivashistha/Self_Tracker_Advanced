@@ -1,13 +1,12 @@
 <template>
   <div class="login">
-    <h1><em>The Self Tracker</em></h1>
+    <!-- <h1><em>The Self Tracker</em></h1> -->
     <b-navbar toggleable="md" type="dark" variant="info">
       <b-navbar-brand href="/login">Login</b-navbar-brand>
       <b-navbar-nav>
         <b-nav-item href="/">Home</b-nav-item>
         <b-nav-item href="/about">About</b-nav-item>
         <b-nav-item href="/register">Register</b-nav-item>
-        <b-nav-item href="#">Contacts</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
 
@@ -62,8 +61,46 @@ export default {
   },
   methods: {
     async login() {
-      this.$router.push('dashboard');
-    }
+      try {
+        fetch("http://127.0.0.1:5000/login?include_auth_token", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify({
+            email: this.email,
+            password: this.password,
+          }),
+        })
+          .then((resp) => {
+            return resp.json();
+          })
+          .then(async (login_data) => {
+            const { response } = login_data;
+            if (response.errors) {
+              const { email, password } = response.errors;
+              console.log({ email, password });
+              this.error_email = email ? email[0] : "";
+              this.error_password = password ? password[0] : "";
+              console.log(this.error_email, this.error_password);
+            } else {
+              this.auth = response.user.authentication_token;
+              sessionStorage.setItem(
+                "auth-token",
+                response.user.authentication_token
+              );
+              sessionStorage.setItem("email", this.email);
+              this.$router.push("dashboard");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } catch (error) {
+        console.log("Can't login in: ", error);
+      }
+    },
   },
 }
 </script>
+

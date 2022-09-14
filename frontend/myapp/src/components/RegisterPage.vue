@@ -6,7 +6,6 @@
         <b-nav-item href="/">Home</b-nav-item>
         <b-nav-item href="/login">Login</b-nav-item>
         <b-nav-item href="/about">About</b-nav-item>
-        <b-nav-item href="#">Contacts</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
     <p class="alert alert-danger" role="alert" v-if="error_email">
@@ -17,18 +16,19 @@
     </p>
 
     <body class="container">
-      <form class="form" onsubmit="return validateform()">
+      <form>
         <h3 class="form text-center mt-2 mb-4">
           Sign Up
         </h3>
         <div class="form-group">
           <label>Username</label>
-          <input id="username" type="text" class="form-control form-control-lg" placeholder="Username" required />
+          <input id="username" type="text" class="form-control form-control-lg" placeholder="Username" required
+            autocomplete="off" />
         </div>
         <div class="form-group">
           <label>Email address</label>
-          <input id="email" onchange="validate()" type="email" class="form-control form-control-lg" placeholder="email"
-            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required />
+          <input id="email" type="email" class="form-control form-control-lg" placeholder="email"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required autocomplete="off" />
         </div>
         <p class="alert alert-danger" role="alert" v-if="error_email">
           {{ error_email }}
@@ -36,9 +36,9 @@
         <div class="form-group">
           <label>Password</label>
           <input type="password" class="form-control form-control-lg" placeholder="Password"
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="off" />
         </div>
-        <button id="submit" onclick="register()" type="submit" class="btn btn-dark btn-lg btn-block">
+        <button id="submit" @click="register" type="submit" class="btn btn-dark btn-lg btn-block">
           Sign Up
         </button>
       </form>
@@ -58,61 +58,89 @@ export default {
     };
   },
   methods: {
+    // async register() {
+    //   try {
+    //     fetch("http://127.0.0.1:5000/register", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json;charset=utf-8",
+    //       },
+    //       body: JSON.stringify({
+    //         email: this.email,
+    //         username: this.username,
+    //         password: this.password,
+    //       }),
+    //     })
+    //       .then((resp) => resp.json())
+    //       .then(async (register_data) => {
+    //         console.log(register_data);
+    //         if (!this.username) {
+    //           this.error_email = "Please enter a valid username";
+    //         }
+    //         if (this.password == "") {
+    //           this.error_password = "Enter a valid password";
+    //         } else {
+    //           this.$router.push("login");
+    //         }
+    //         if (!this.email) {
+    //           this.error_email = "Please enter a valid email";
+    //           console.log("wrong mail");
+    //         } else if (!this.validEmail(this.email)) {
+    //           this.error_email = "Not valid email";
+    //         }
+    //       })
+    //       .catch((error) => {
+    //         console.log(error);
+    //       });
+    //   } catch (error) {
+    //     console.log("Registration unsuccessful: ", error);
+    //   }
+    // },
+    // validEmail: function (email) {
+    //   var re =
+    //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    //   return re.test(email);
+    // },
+    // validPassword: function () {
+    //   var pass = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/
+    //   if (this.password.value.match(pass)) {
+    //     letter.classList.remove("invalid");
+    //     letter.classList.add("valid");
+    //   } else {
+    //     letter.classList.remove("valid");
+    //     letter.classList.add("invalid");
+    //   }
+    // },
+
     async register() {
       try {
-        fetch("http://localhost:8081/api/user", {
+        fetch("http://127.0.0.1:5000/register", {
           method: "POST",
           headers: {
-            "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json;charset=utf-8",
           },
-          body: JSON.stringify({
-            email: this.email,
-            username: this.username,
-            password: this.password,
-          }),
+          body: JSON.stringify({ email: this.email, password: this.password }),
         })
-          .then((resp) => resp.json())
+          .then((resp) => {
+            return resp.json();
+          })
           .then(async (register_data) => {
-            // const { response } = register_data;
-            console.log(register_data);
-            // console.log(response)
-            if (!this.username) {
-              this.error_email = "Please enter a valid username";
-            }
-            if (this.password == "") {
-              this.error_password = "Enter a valid password";
+            const { response } = register_data;
+            if (response.errors) {
+              const { email, password } = response.errors;
+              console.log({ email, password });
+              this.error_email = email ? email[0] : "";
+              this.error_password = password ? password[0] : "";
+              console.log(this.error_email, this.error_password);
             } else {
               this.$router.push("login");
             }
-            if (!this.email) {
-              this.error_email = "Please enter a valid email";
-              console.log("wrong mail");
-            } else if (!this.validEmail(this.email)) {
-              this.error_email = "Not valid email";
-            }
-            // this.$router.push("login");
           })
           .catch((error) => {
             console.log(error);
           });
       } catch (error) {
         console.log("Registration unsuccessful: ", error);
-      }
-    },
-    validEmail: function (email) {
-      var re =
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
-    },
-    validPassword: function () {
-      var pass = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/
-      if (this.password.value.match(pass)) {
-        letter.classList.remove("invalid");
-        letter.classList.add("valid");
-      } else {
-        letter.classList.remove("valid");
-        letter.classList.add("invalid");
       }
     },
   },

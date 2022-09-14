@@ -4,7 +4,6 @@
             <b-navbar-brand href="/">Home</b-navbar-brand>
             <b-navbar-nav>
                 <b-nav-item href="/about">About</b-nav-item>
-                <b-nav-item href="#">Contacts</b-nav-item>
             </b-navbar-nav>
             <b-nav-item-dropdown right>
                 <template #button-content>
@@ -14,7 +13,10 @@
                 <b-dropdown-item href="/login">Sign Out</b-dropdown-item>
             </b-nav-item-dropdown>
         </b-navbar>
-        <h1>This is my Dashboard page.</h1>
+        <h1> Welcome to the Self tracker.</h1>
+        <h2>Hello.</h2>
+        <h4> Hi We welcome you to track your routine and manage it. So, <strong> Let's Track
+                it!!</strong> with <strong> The Self Tracker.</strong> </h4>
     </div>
 </template>
   

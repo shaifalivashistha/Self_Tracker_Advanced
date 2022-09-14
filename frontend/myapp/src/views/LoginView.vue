@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h1><em>The Self Tracker</em></h1>
+    <!-- <h1><em>The Self Tracker</em></h1> -->
     <LoginVue></LoginVue>
   </div>
 </template>

@@ -29,7 +29,7 @@ nav {
 body {
   margin: 0;
   padding: 0;
-  background-image: url("~@/assets/img1.jpeg");
+  // background-image: url("~@/assets/img1.jpeg");cd 
   background-color: plum;
   background-size: auto;
 }

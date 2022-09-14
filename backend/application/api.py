@@ -7,7 +7,7 @@ from flask_restful import abort
 
 
 
-from models import *
+from .models import *
 
 api = Api()
 

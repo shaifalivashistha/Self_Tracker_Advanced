@@ -1,5 +1,5 @@
 <template>
-    <div id="dash">
+    <div id="dashboard">
         <h1> Welcome to the Self tracker.</h1>
         <h2> Hello</h2>
         <DashboardPage></DashboardPage>

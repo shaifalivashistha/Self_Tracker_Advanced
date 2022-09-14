@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for
 from application.api import api
-from application.models import db
-
+from application.database import db
+from flask_cors import CORS
+import  json
 
 app = Flask(__name__)
+
+CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///livesess.sqlite3'
 app.config['SECRET_KEY'] = 'secretkey'
@@ -18,20 +21,7 @@ def database():
 
 @app.route('/')
 def home():
-    return render_template('home.html')
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    # if request.methods  == 'POST':
-    return render_template('login.html')
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    return render_template('register.html')
-
-@app.route('/dashboard', methods=['GET, POST'])
-def dashboard():
-    return redirect(url_for('dashboard'))
+    return "The Tracker App is Running"
 
 if __name__ == '__main__':
     app.run(debug=True)

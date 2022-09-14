@@ -9,7 +9,7 @@ from flask_restful import abort
 
 from .models import *
 
-api = Api()
+# api = Api()
 
 
 #-------------------------------------------USER API-------------------------------------------------#
@@ -232,7 +232,3 @@ class LogAPI(Resource):
 
 #-----------------------------------------------------------------------------------------#
 
-
-api.add_resource(UserAPI, '/api/users/', '/api/users/<int:user_id>')
-api.add_resource(TrackerAPI, '/api/trackers/','/api/trackers/<int:tracker_id>/')#'/api/users/<int:user_id>/trackers/', '/api/users/<int:user_id>/trackers/<int:tracker_id>')
-api.add_resource(LogAPI, )#'/api/users/<int:user_id>/trackers/<int:tracker_id>/logs/', '/api/users/<int:user_id>/trackers/<int:tracker_id>/logs/<int:log_id>')

@@ -16,8 +16,17 @@ app.app_context().push()
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///livesess.sqlite3'
-app.config['SECRET_KEY'] = 'secretkey'
+app.config['SECRET_KEY'] = 'Th1s1sas3cr3tk3y'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECURITY_PASSWORD_HASH'] = "bcrypt"    
+app.config['SECURITY_PASSWORD_SALT'] = "S3cr3tPassword"
+app.config['SECURITY_REGISTERABLE'] = True
+app.config['SECURITY_CONFIRMABLE'] = False
+app.config['SECURITY_SEND_REGISTER_EMAIL'] = False
+app.config['SECURITY_UNAUTHORIZED_VIEW'] = None
+app.config['SECURITY_POST_LOGIN_VIEW'] = '/dashboard/email'
+app.config['WTF_CSRF_ENABLED'] = False
+app.config['SECURITY_REDIRECT_HOST'] = 'localhost:8080'
 db.init_app(app)
 api.init_app(app)
 

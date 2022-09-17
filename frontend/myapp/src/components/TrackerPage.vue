@@ -9,7 +9,7 @@
                 <template #button-content>
                     User
                 </template>
-                <b-dropdown-item href="#">Profile</b-dropdown-item>
+                <b-dropdown-item href="/dashboard">Dashboard</b-dropdown-item>
                 <b-dropdown-item href="/login">Sign Out</b-dropdown-item>
             </b-nav-item-dropdown>
         </b-navbar>
@@ -17,13 +17,12 @@
         <h2>Hello.</h2>
         <h4> Hi We welcome you to track your routine and manage it. So, <strong> Let's Track
                 it!!</strong> with <strong> The Self Tracker.</strong> </h4>
-        <!-- <button class="ui  button is-success" type="button"><a href="/{{username}}/create_tracker">Add</a></button> -->
     </div>
 </template>
   
 <script>
 export default {
-    name: "DashboardPage",
+    name: "HomePage",
 };
 </script>
 <style scoped lang="scss">

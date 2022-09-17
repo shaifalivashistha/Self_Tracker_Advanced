@@ -30,7 +30,7 @@ const routes = [
     component: RegisterView,
   },
   {
-    path: "/dashboard",
+    path: "/dashboard/*",
     name: "dashboard",
     component: dashboard
   }

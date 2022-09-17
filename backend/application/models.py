@@ -6,17 +6,16 @@ from .database import db
 class User(db.Model, UserMixin):
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(200), nullable=False)
     username = db.Column(db.String(200), unique=True, nullable=False)
     email = db.Column(db.String(200), unique=True, nullable=False)
     password = db.Column(db.String(300), nullable=False)
     active = db.Column(db.Boolean())
-    fs_uniquifier = db.Column(db.String(255), unique=True, nullable=False)
+    fs_uniquifier = db.Column(db.String(255), unique=True)
     trackers = db.relationship(
-        "tracker", secondary="UserTracker", backref="user", cascade="all,delete"
+        "Tracker", secondary="UserTracker", backref="User", cascade="all,delete"
     )
     roles = db.relationship(
-        "Role", secondary="roles_users", backref=db.backref("user", lazy="dynamic")
+        "Role", secondary="roles_users", backref=db.backref("User", lazy=True)
     )
 
 
@@ -28,7 +27,7 @@ class Tracker(db.Model):
     type = db.Column(db.String(10), nullable=False)
     date_created = db.Column(db.DateTime(timezone=True), default=datetime.utcnow)
     logs = db.relationship(
-        "logs", secondary="TrackerLog", backref="tracker", cascade="all,delete"
+        "Logs", secondary="TrackerLog", backref="tracker", cascade="all,delete"
     )
 
 

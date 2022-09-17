@@ -23,7 +23,7 @@
           {{ error_password }}
         </p>
       </div>
-      <form>
+      <div>
         <div class="form-group">
           <label>Email address</label>
           <input v-model="email" id="email" type="email" class="form-control form-control-lg" placeholder="email"
@@ -43,7 +43,7 @@
         <p>
           New User <router-link to="/register">Sign Up?</router-link>
         </p>
-      </form>
+      </div>
     </body>
   </div>
 </template>
@@ -62,7 +62,7 @@ export default {
   methods: {
     async login() {
       try {
-        fetch("http://127.0.0.1:5000/login?include_auth_token", {
+        fetch("http://127.0.0.1:5000/login", {//?include_auth_token", {
           method: "POST",
           headers: {
             "Content-Type": "application/json;charset=utf-8",

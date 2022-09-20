@@ -11,7 +11,6 @@
     <p>
       <b-button href="/register">Register</b-button>
     </p>
-
   </div>
 </template>
 
@@ -25,7 +24,6 @@ export default {
   },
 };
 </script>
-
 
 <style>
 body {

@@ -5,25 +5,33 @@ from flask_restful import fields
 from flask_restful import marshal_with
 from flask_restful import abort
 
-
+# from ..app import user_datastore
+from flask_security import (
+    SQLAlchemyUserDatastore,
+    Security,
+    auth_required,
+    current_user,
+    hash_password,
+)
 from .models import *
 
 # api = Api()
 
-
+user_datastore = SQLAlchemyUserDatastore(db, User, Role)
+security = Security(user_datastore)
 # -------------------------------------------USER API-------------------------------------------------#
 
 
 user_data_req = reqparse.RequestParser()
 user_data_req.add_argument("username", type=str, required=True)
-user_data_req.add_argument("name", type=str, required=True)
+user_data_req.add_argument("email", type=str, required=True)
 user_data_req.add_argument("password", type=str, required=True)
 
 
 user_field = {
     "id": fields.Integer,
     "username": fields.String,
-    "name": fields.String,
+    "email": fields.String,
     "password": fields.String,
     "url": fields.Url(absolute=True),
 }
@@ -43,16 +51,22 @@ class UserAPI(Resource):
             user = User.query.all()
             return user
 
-    @marshal_with(user_field)
     def post(self):
         user_data = user_data_req.parse_args()
+        # user_datastore.create_user(
+        #     email=user_data.email,
+        #     username=user_data.username,
+        #     password=hash_password(user_data.password),
+        # )
         user = User(
             username=user_data.username,
             email=user_data.email,
             password=user_data.password,
         )
         db.session.add(user)
+
         db.session.commit()
+        # user = User.query.filter_by(email=user_data.email).first()
         return user
 
     @marshal_with(user_field)

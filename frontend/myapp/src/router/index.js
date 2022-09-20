@@ -4,7 +4,7 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import AboutView from "../views/AboutView.vue";
 import RegisterView from "../views/RegisterView.vue";
-import dashboard from "../views/dashboard.vue"
+import dashboardView from "../views/dashboardView.vue";
 
 Vue.use(VueRouter);
 
@@ -32,8 +32,13 @@ const routes = [
   {
     path: "/dashboard/*",
     name: "dashboard",
-    component: dashboard
-  }
+    component: dashboardView,
+  },
+  // {
+  // path: "/dashboard/",
+  // name: "create_trackers",
+  // component: create_tracker
+  // }
 ];
 
 const router = new VueRouter({

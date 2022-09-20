@@ -1,0 +1,831 @@
+2022-09-19 21:43:26,932 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-19 21:43:26,933 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-19 21:43:26,936 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-19 21:43:27,272 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-19 21:43:27,275 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-19 21:48:16,045 INFO werkzeug Thread-2 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-19 21:48:16,078 INFO werkzeug Thread-3 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mPOST /login?include_auth_token HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,086 INFO werkzeug Thread-4 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-19 21:48:16,088 INFO werkzeug Thread-5 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,101 INFO werkzeug Thread-6 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-19 21:48:16,104 INFO werkzeug Thread-7 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,141 INFO werkzeug Thread-8 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,148 INFO werkzeug Thread-9 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,168 INFO werkzeug Thread-10 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,185 INFO werkzeug Thread-11 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,190 INFO werkzeug Thread-12 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,198 INFO werkzeug Thread-13 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,202 INFO werkzeug Thread-14 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,205 INFO werkzeug Thread-15 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,211 INFO werkzeug Thread-16 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,222 INFO werkzeug Thread-17 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,226 INFO werkzeug Thread-18 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,230 INFO werkzeug Thread-19 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,236 INFO werkzeug Thread-20 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,240 INFO werkzeug Thread-21 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,249 INFO werkzeug Thread-22 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,261 INFO werkzeug Thread-23 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,268 INFO werkzeug Thread-24 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 21:48:16,273 INFO werkzeug Thread-25 : 127.0.0.1 - - [19/Sep/2022 21:48:16] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,100 INFO werkzeug Thread-26 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-19 22:06:34,132 INFO werkzeug Thread-27 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mPOST /login?include_auth_token HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,181 INFO werkzeug Thread-28 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "OPTIONS /dashboard/a%40sa.com HTTP/1.1" 200 -
+2022-09-19 22:06:34,195 INFO werkzeug Thread-29 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,209 INFO werkzeug Thread-30 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "OPTIONS /dashboard/a%40sa.com?username=asa HTTP/1.1" 200 -
+2022-09-19 22:06:34,223 INFO werkzeug Thread-31 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,273 INFO werkzeug Thread-32 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,287 INFO werkzeug Thread-33 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,298 INFO werkzeug Thread-34 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,313 INFO werkzeug Thread-35 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,319 INFO werkzeug Thread-36 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,327 INFO werkzeug Thread-37 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,334 INFO werkzeug Thread-38 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,352 INFO werkzeug Thread-39 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,362 INFO werkzeug Thread-40 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,373 INFO werkzeug Thread-41 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,382 INFO werkzeug Thread-42 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,389 INFO werkzeug Thread-43 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,395 INFO werkzeug Thread-44 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,401 INFO werkzeug Thread-45 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,407 INFO werkzeug Thread-46 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,414 INFO werkzeug Thread-47 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,419 INFO werkzeug Thread-48 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:06:34,425 INFO werkzeug Thread-49 : 127.0.0.1 - - [19/Sep/2022 22:06:34] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,037 INFO werkzeug Thread-50 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-19 22:15:20,068 INFO werkzeug Thread-51 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mPOST /login?include_auth_token HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,142 INFO werkzeug Thread-52 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,150 INFO werkzeug Thread-53 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "OPTIONS /dashboard/a%40sa.com?username=asa HTTP/1.1" 200 -
+2022-09-19 22:15:20,155 INFO werkzeug Thread-54 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,173 INFO werkzeug Thread-55 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,180 INFO werkzeug Thread-56 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,200 INFO werkzeug Thread-57 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,205 INFO werkzeug Thread-58 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,220 INFO werkzeug Thread-59 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,238 INFO werkzeug Thread-60 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,266 INFO werkzeug Thread-61 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,276 INFO werkzeug Thread-62 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,318 INFO werkzeug Thread-63 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,339 INFO werkzeug Thread-64 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,353 INFO werkzeug Thread-65 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,371 INFO werkzeug Thread-66 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,382 INFO werkzeug Thread-67 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,390 INFO werkzeug Thread-68 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,396 INFO werkzeug Thread-69 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,407 INFO werkzeug Thread-70 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,415 INFO werkzeug Thread-71 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:15:20,424 INFO werkzeug Thread-72 : 127.0.0.1 - - [19/Sep/2022 22:15:20] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:49,979 INFO werkzeug Thread-73 : 127.0.0.1 - - [19/Sep/2022 22:17:49] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-19 22:17:50,010 INFO werkzeug Thread-74 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mPOST /login?include_auth_token HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,070 INFO werkzeug Thread-75 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,082 INFO werkzeug Thread-76 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "OPTIONS /dashboard/a%40sa.com?username=asa HTTP/1.1" 200 -
+2022-09-19 22:17:50,089 INFO werkzeug Thread-77 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,127 INFO werkzeug Thread-78 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,139 INFO werkzeug Thread-79 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,149 INFO werkzeug Thread-80 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,170 INFO werkzeug Thread-81 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,182 INFO werkzeug Thread-82 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,198 INFO werkzeug Thread-83 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,211 INFO werkzeug Thread-84 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,222 INFO werkzeug Thread-85 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,244 INFO werkzeug Thread-86 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,268 INFO werkzeug Thread-87 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,280 INFO werkzeug Thread-88 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,288 INFO werkzeug Thread-89 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,295 INFO werkzeug Thread-90 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,306 INFO werkzeug Thread-91 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,319 INFO werkzeug Thread-92 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,335 INFO werkzeug Thread-93 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,344 INFO werkzeug Thread-94 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,355 INFO werkzeug Thread-95 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,573 INFO werkzeug Thread-96 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mPOST /login?include_auth_token HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,583 INFO werkzeug Thread-97 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,595 INFO werkzeug Thread-98 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "OPTIONS /dashboard/a%40sa.com?username=asa HTTP/1.1" 200 -
+2022-09-19 22:17:50,605 INFO werkzeug Thread-99 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,623 INFO werkzeug Thread-100 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,640 INFO werkzeug Thread-101 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,652 INFO werkzeug Thread-102 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,658 INFO werkzeug Thread-103 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,677 INFO werkzeug Thread-104 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,683 INFO werkzeug Thread-105 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,689 INFO werkzeug Thread-106 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,695 INFO werkzeug Thread-107 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,702 INFO werkzeug Thread-108 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,710 INFO werkzeug Thread-109 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,717 INFO werkzeug Thread-110 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,726 INFO werkzeug Thread-111 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,742 INFO werkzeug Thread-112 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,762 INFO werkzeug Thread-113 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,773 INFO werkzeug Thread-114 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,779 INFO werkzeug Thread-115 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,801 INFO werkzeug Thread-116 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:17:50,809 INFO werkzeug Thread-117 : 127.0.0.1 - - [19/Sep/2022 22:17:50] "[32mGET /dashboard/a%40sa.com?username=asa HTTP/1.1[0m" 302 -
+2022-09-19 22:18:01,896 INFO werkzeug Thread-118 : 127.0.0.1 - - [19/Sep/2022 22:18:01] "GET / HTTP/1.1" 200 -
+2022-09-19 22:23:11,155 INFO werkzeug Thread-119 : 127.0.0.1 - - [19/Sep/2022 22:23:11] "GET / HTTP/1.1" 200 -
+2022-09-19 22:23:11,232 INFO werkzeug Thread-120 : 127.0.0.1 - - [19/Sep/2022 22:23:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-09-20 02:55:28,482 INFO werkzeug Thread-121 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 02:55:28,539 INFO werkzeug Thread-122 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mPOST /login?include_auth_token HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,571 INFO werkzeug Thread-123 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-20 02:55:28,575 INFO werkzeug Thread-124 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,597 INFO werkzeug Thread-125 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-20 02:55:28,605 INFO werkzeug Thread-126 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,617 INFO werkzeug Thread-127 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,638 INFO werkzeug Thread-128 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,654 INFO werkzeug Thread-129 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,661 INFO werkzeug Thread-130 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,672 INFO werkzeug Thread-131 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,676 INFO werkzeug Thread-132 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,683 INFO werkzeug Thread-133 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,687 INFO werkzeug Thread-134 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,698 INFO werkzeug Thread-135 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,720 INFO werkzeug Thread-136 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,737 INFO werkzeug Thread-137 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,740 INFO werkzeug Thread-138 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,759 INFO werkzeug Thread-139 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,766 INFO werkzeug Thread-140 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,773 INFO werkzeug Thread-141 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,778 INFO werkzeug Thread-142 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,792 INFO werkzeug Thread-143 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 02:55:28,799 INFO werkzeug Thread-144 : 127.0.0.1 - - [20/Sep/2022 02:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,674 INFO werkzeug Thread-145 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 03:01:19,730 INFO werkzeug Thread-146 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mPOST /login?include_auth_token HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,756 INFO werkzeug Thread-147 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-20 03:01:19,759 INFO werkzeug Thread-148 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,793 INFO werkzeug Thread-149 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-20 03:01:19,795 INFO werkzeug Thread-150 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,817 INFO werkzeug Thread-151 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,825 INFO werkzeug Thread-152 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,845 INFO werkzeug Thread-153 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,854 INFO werkzeug Thread-154 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,859 INFO werkzeug Thread-155 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,864 INFO werkzeug Thread-156 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,868 INFO werkzeug Thread-157 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,876 INFO werkzeug Thread-158 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,879 INFO werkzeug Thread-159 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,890 INFO werkzeug Thread-160 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,894 INFO werkzeug Thread-161 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,897 INFO werkzeug Thread-162 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,900 INFO werkzeug Thread-163 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,908 INFO werkzeug Thread-164 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,911 INFO werkzeug Thread-165 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,914 INFO werkzeug Thread-166 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,918 INFO werkzeug Thread-167 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:01:19,922 INFO werkzeug Thread-168 : 127.0.0.1 - - [20/Sep/2022 03:01:19] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,384 INFO werkzeug Thread-169 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 03:04:45,417 INFO werkzeug Thread-170 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mPOST /login?include_auth_token HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,462 INFO werkzeug Thread-171 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-20 03:04:45,469 INFO werkzeug Thread-172 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,491 INFO werkzeug Thread-173 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-20 03:04:45,493 INFO werkzeug Thread-174 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,500 INFO werkzeug Thread-175 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,530 INFO werkzeug Thread-176 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,538 INFO werkzeug Thread-177 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,546 INFO werkzeug Thread-178 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,554 INFO werkzeug Thread-179 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,564 INFO werkzeug Thread-180 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,569 INFO werkzeug Thread-181 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,574 INFO werkzeug Thread-182 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,582 INFO werkzeug Thread-183 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,595 INFO werkzeug Thread-184 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,614 INFO werkzeug Thread-185 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,617 INFO werkzeug Thread-186 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,621 INFO werkzeug Thread-187 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,629 INFO werkzeug Thread-188 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,632 INFO werkzeug Thread-189 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,636 INFO werkzeug Thread-190 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,640 INFO werkzeug Thread-191 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:04:45,645 INFO werkzeug Thread-192 : 127.0.0.1 - - [20/Sep/2022 03:04:45] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,155 INFO werkzeug Thread-193 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 03:07:08,178 INFO werkzeug Thread-194 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mPOST /login?include_auth_token HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,183 INFO werkzeug Thread-195 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-20 03:07:08,185 INFO werkzeug Thread-196 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,244 INFO werkzeug Thread-197 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-20 03:07:08,262 INFO werkzeug Thread-198 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,279 INFO werkzeug Thread-199 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,291 INFO werkzeug Thread-200 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,296 INFO werkzeug Thread-201 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,301 INFO werkzeug Thread-202 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,305 INFO werkzeug Thread-203 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,309 INFO werkzeug Thread-204 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,323 INFO werkzeug Thread-205 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,337 INFO werkzeug Thread-206 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,350 INFO werkzeug Thread-207 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,369 INFO werkzeug Thread-208 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,376 INFO werkzeug Thread-209 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,380 INFO werkzeug Thread-210 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,384 INFO werkzeug Thread-211 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,388 INFO werkzeug Thread-212 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,398 INFO werkzeug Thread-213 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,402 INFO werkzeug Thread-214 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,416 INFO werkzeug Thread-215 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 03:07:08,424 INFO werkzeug Thread-216 : 127.0.0.1 - - [20/Sep/2022 03:07:08] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:11:58,364 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 20:11:58,365 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 20:11:58,366 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 20:11:58,815 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 20:11:58,817 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 20:12:17,005 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 20:12:17] "GET / HTTP/1.1" 200 -
+2022-09-20 20:12:17,029 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 20:12:17] "GET / HTTP/1.1" 200 -
+2022-09-20 20:12:18,448 INFO werkzeug Thread-4 : 127.0.0.1 - - [20/Sep/2022 20:12:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-09-20 20:12:18,482 INFO werkzeug Thread-5 : 127.0.0.1 - - [20/Sep/2022 20:12:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-09-20 20:14:09,296 INFO werkzeug Thread-7 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 20:14:09,583 INFO werkzeug Thread-8 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mPOST /register HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,685 INFO werkzeug Thread-9 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-20 20:14:09,691 INFO werkzeug Thread-10 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,706 INFO werkzeug Thread-11 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-20 20:14:09,711 INFO werkzeug Thread-12 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,718 INFO werkzeug Thread-13 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,725 INFO werkzeug Thread-14 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,729 INFO werkzeug Thread-15 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,738 INFO werkzeug Thread-16 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,761 INFO werkzeug Thread-17 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,770 INFO werkzeug Thread-18 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,780 INFO werkzeug Thread-19 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,792 INFO werkzeug Thread-20 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,975 INFO werkzeug Thread-21 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:09,987 INFO werkzeug Thread-22 : 127.0.0.1 - - [20/Sep/2022 20:14:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:10,001 INFO werkzeug Thread-23 : 127.0.0.1 - - [20/Sep/2022 20:14:10] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:10,011 INFO werkzeug Thread-24 : 127.0.0.1 - - [20/Sep/2022 20:14:10] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:10,030 INFO werkzeug Thread-25 : 127.0.0.1 - - [20/Sep/2022 20:14:10] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:10,037 INFO werkzeug Thread-26 : 127.0.0.1 - - [20/Sep/2022 20:14:10] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:10,050 INFO werkzeug Thread-27 : 127.0.0.1 - - [20/Sep/2022 20:14:10] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:10,059 INFO werkzeug Thread-28 : 127.0.0.1 - - [20/Sep/2022 20:14:10] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:10,071 INFO werkzeug Thread-29 : 127.0.0.1 - - [20/Sep/2022 20:14:10] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:14:10,201 INFO werkzeug Thread-30 : 127.0.0.1 - - [20/Sep/2022 20:14:10] "[32mGET /login HTTP/1.1[0m" 302 -
+2022-09-20 20:22:33,230 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 20:22:33,529 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 20:22:34,190 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 20:22:34,194 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 20:24:32,710 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 20:24:33,090 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 20:24:33,814 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 20:24:33,815 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 20:27:39,183 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 20:27:39,186 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 20:27:39,188 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 20:27:39,906 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 20:27:39,913 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 20:28:18,597 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 20:28:18] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 20:30:07,584 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 20:30:07] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 20:32:29,285 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 20:32:29,651 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 20:32:31,311 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 20:32:31,317 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 20:32:36,911 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 20:32:36] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 20:32:50,967 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 20:32:50,967 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 20:32:50,969 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 20:32:51,446 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 20:32:51,447 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 20:33:29,417 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 20:33:29] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 20:37:35,209 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 20:37:35] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 21:33:34,184 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 21:33:34,185 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 21:33:34,186 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 21:33:34,528 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 21:33:34,530 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 21:38:50,060 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 21:38:50] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 21:47:18,512 INFO werkzeug Thread-4 : 127.0.0.1 - - [20/Sep/2022 21:47:18] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 21:56:56,248 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 21:56:56,444 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 21:56:57,145 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 21:56:57,146 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:02:36,585 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 22:02:36,754 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:02:37,079 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:02:37,080 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:03:32,416 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 22:03:32,546 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:03:32,881 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:03:32,881 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:06:42,145 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 22:06:42] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 22:07:33,876 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 22:07:33] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 22:07:33,962 INFO werkzeug Thread-4 : 127.0.0.1 - - [20/Sep/2022 22:07:33] "POST /register HTTP/1.1" 200 -
+2022-09-20 22:15:25,849 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 22:15:26,017 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:15:26,618 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:15:26,619 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:15:51,335 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 22:15:51] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 22:15:51,392 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 22:15:51] "POST /register HTTP/1.1" 200 -
+2022-09-20 22:16:20,085 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 22:16:20,267 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:16:21,004 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:16:21,005 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:16:52,500 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 22:16:52] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 22:16:52,563 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 22:16:52] "POST /register HTTP/1.1" 200 -
+2022-09-20 22:18:42,131 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 22:18:42,131 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 22:18:42,132 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:18:42,534 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:18:42,534 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:19:30,423 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 22:19:30] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 22:19:30,463 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 22:19:30] "POST /register HTTP/1.1" 200 -
+2022-09-20 22:21:54,112 INFO werkzeug Thread-4 : 127.0.0.1 - - [20/Sep/2022 22:21:54] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 22:21:54,141 INFO werkzeug Thread-5 : 127.0.0.1 - - [20/Sep/2022 22:21:54] "POST /register HTTP/1.1" 200 -
+2022-09-20 22:21:58,579 INFO werkzeug Thread-6 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mPOST /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,583 INFO werkzeug Thread-7 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,589 INFO werkzeug Thread-8 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,594 INFO werkzeug Thread-9 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,601 INFO werkzeug Thread-10 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,604 INFO werkzeug Thread-11 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,609 INFO werkzeug Thread-12 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,612 INFO werkzeug Thread-13 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,615 INFO werkzeug Thread-14 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,618 INFO werkzeug Thread-15 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,624 INFO werkzeug Thread-16 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,627 INFO werkzeug Thread-17 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,635 INFO werkzeug Thread-18 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,648 INFO werkzeug Thread-19 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,652 INFO werkzeug Thread-20 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,656 INFO werkzeug Thread-21 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,658 INFO werkzeug Thread-22 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,661 INFO werkzeug Thread-23 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,664 INFO werkzeug Thread-24 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,666 INFO werkzeug Thread-25 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:21:58,671 INFO werkzeug Thread-26 : 127.0.0.1 - - [20/Sep/2022 22:21:58] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-20 22:24:48,518 INFO werkzeug Thread-27 : 127.0.0.1 - - [20/Sep/2022 22:24:48] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 22:24:53,639 INFO werkzeug Thread-28 : 127.0.0.1 - - [20/Sep/2022 22:24:53] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-20 22:29:11,254 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 22:29:11,255 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 22:29:11,257 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:29:11,833 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:29:11,834 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:30:23,252 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 22:30:23,403 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:30:23,796 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:30:23,796 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:44:22,649 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 22:44:22,652 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 22:44:22,655 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 22:44:22,655 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 22:44:22,657 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 22:44:22,657 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 22:44:22,658 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 22:44:22,660 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 22:44:22,677 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 22:44:22,678 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 22:44:22,695 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:44:23,440 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 22:44:23,442 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 22:44:23,444 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 22:44:23,444 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 22:44:23,444 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 22:44:23,444 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 22:44:23,445 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 22:44:23,446 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 22:44:23,455 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:44:23,456 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:44:34,362 DEBUG passlib.handlers.bcrypt Thread-2 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-20 22:44:34,366 DEBUG passlib.handlers.bcrypt Thread-2 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-20 22:44:34,628 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 22:44:34] "[32mGET /api/users HTTP/1.1[0m" 308 -
+2022-09-20 22:44:34,633 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 22:44:34] "GET /api/users/ HTTP/1.1" 200 -
+2022-09-20 22:44:34,760 INFO werkzeug Thread-4 : 127.0.0.1 - - [20/Sep/2022 22:44:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-09-20 22:46:04,004 INFO werkzeug Thread-5 : 127.0.0.1 - - [20/Sep/2022 22:46:04] "GET /api/users/1 HTTP/1.1" 200 -
+2022-09-20 22:48:51,001 INFO werkzeug Thread-7 : 127.0.0.1 - - [20/Sep/2022 22:48:51] "GET /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 22:48:51,149 INFO werkzeug Thread-8 : 127.0.0.1 - - [20/Sep/2022 22:48:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-09-20 22:50:03,854 INFO werkzeug Thread-9 : 127.0.0.1 - - [20/Sep/2022 22:50:03] "POST /login HTTP/1.1" 200 -
+2022-09-20 22:51:07,429 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 22:51:07,628 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:51:08,115 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 22:51:08,117 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 22:51:08,121 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 22:51:08,121 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 22:51:08,121 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 22:51:08,122 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 22:51:08,123 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 22:51:08,124 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 22:51:08,143 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:51:08,144 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:51:31,322 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 22:51:31,501 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:51:31,892 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 22:51:31,894 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 22:51:31,898 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 22:51:31,898 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 22:51:31,900 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 22:51:31,900 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 22:51:31,901 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 22:51:31,902 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 22:51:31,911 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:51:31,911 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:51:59,045 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 22:51:59,047 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 22:51:59,049 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 22:51:59,049 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 22:51:59,050 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 22:51:59,050 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 22:51:59,050 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 22:51:59,052 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 22:51:59,059 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 22:51:59,059 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 22:51:59,059 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:51:59,498 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 22:51:59,499 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 22:51:59,501 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 22:51:59,501 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 22:51:59,501 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 22:51:59,501 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 22:51:59,502 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 22:51:59,503 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 22:51:59,508 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:51:59,509 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:52:36,782 DEBUG passlib.handlers.bcrypt Thread-2 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-20 22:52:36,785 DEBUG passlib.handlers.bcrypt Thread-2 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-20 22:52:37,337 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 22:52:37] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2022-09-20 22:52:37,455 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 22:52:37] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2022-09-20 22:52:37,456 INFO werkzeug Thread-4 : 127.0.0.1 - - [20/Sep/2022 22:52:37] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2022-09-20 22:52:37,564 INFO werkzeug Thread-6 : 127.0.0.1 - - [20/Sep/2022 22:52:37] "GET /?__debugger__=yes&cmd=resource&f=less.png HTTP/1.1" 200 -
+2022-09-20 22:52:37,564 INFO werkzeug Thread-5 : 127.0.0.1 - - [20/Sep/2022 22:52:37] "GET /?__debugger__=yes&cmd=resource&f=more.png HTTP/1.1" 200 -
+2022-09-20 22:52:37,646 INFO werkzeug Thread-7 : 127.0.0.1 - - [20/Sep/2022 22:52:37] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2022-09-20 22:52:37,745 INFO werkzeug Thread-8 : 127.0.0.1 - - [20/Sep/2022 22:52:37] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2022-09-20 22:53:55,545 INFO werkzeug Thread-9 : 127.0.0.1 - - [20/Sep/2022 22:53:55] "GET /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 22:54:05,510 INFO werkzeug Thread-10 : 127.0.0.1 - - [20/Sep/2022 22:54:05] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2022-09-20 22:54:05,531 INFO werkzeug Thread-11 : 127.0.0.1 - - [20/Sep/2022 22:54:05] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2022-09-20 22:54:05,532 INFO werkzeug Thread-12 : 127.0.0.1 - - [20/Sep/2022 22:54:05] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2022-09-20 22:54:05,553 INFO werkzeug Thread-13 : 127.0.0.1 - - [20/Sep/2022 22:54:05] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2022-09-20 22:54:05,576 INFO werkzeug Thread-14 : 127.0.0.1 - - [20/Sep/2022 22:54:05] "GET /?__debugger__=yes&cmd=resource&f=more.png HTTP/1.1" 200 -
+2022-09-20 22:54:05,577 INFO werkzeug Thread-15 : 127.0.0.1 - - [20/Sep/2022 22:54:05] "GET /?__debugger__=yes&cmd=resource&f=less.png HTTP/1.1" 200 -
+2022-09-20 22:54:05,663 INFO werkzeug Thread-16 : 127.0.0.1 - - [20/Sep/2022 22:54:05] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2022-09-20 22:55:56,533 INFO werkzeug Thread-17 : 127.0.0.1 - - [20/Sep/2022 22:55:56] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 22:55:56,918 INFO werkzeug Thread-18 : 127.0.0.1 - - [20/Sep/2022 22:55:56] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-20 22:57:40,710 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/application/api.py', reloading
+2022-09-20 22:57:40,853 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:57:41,215 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 22:57:41,217 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 22:57:41,219 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 22:57:41,219 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 22:57:41,219 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 22:57:41,219 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 22:57:41,220 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 22:57:41,221 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 22:57:41,229 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:57:41,229 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:58:32,398 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 22:58:32] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 22:58:32,424 DEBUG passlib.handlers.bcrypt Thread-3 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-20 22:58:32,426 DEBUG passlib.handlers.bcrypt Thread-3 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-20 22:58:32,697 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 22:58:32] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-20 22:58:59,862 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/application/api.py', reloading
+2022-09-20 22:59:00,016 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:59:00,378 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 22:59:00,379 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 22:59:00,381 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 22:59:00,381 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 22:59:00,381 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 22:59:00,381 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 22:59:00,382 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 22:59:00,383 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 22:59:00,388 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:59:00,388 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:59:12,498 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 22:59:12,499 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 22:59:12,503 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 22:59:12,503 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 22:59:12,503 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 22:59:12,503 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 22:59:12,505 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 22:59:12,507 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 22:59:12,517 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 22:59:12,517 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 22:59:12,517 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 22:59:12,900 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 22:59:12,901 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 22:59:12,902 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 22:59:12,902 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 22:59:12,903 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 22:59:12,903 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 22:59:12,903 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 22:59:12,904 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 22:59:12,909 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 22:59:12,909 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 22:59:24,127 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 22:59:24] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 22:59:24,150 DEBUG passlib.handlers.bcrypt Thread-3 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-20 22:59:24,151 DEBUG passlib.handlers.bcrypt Thread-3 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-20 22:59:24,417 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 22:59:24] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-20 23:02:10,433 INFO werkzeug Thread-4 : 127.0.0.1 - - [20/Sep/2022 23:02:10] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:02:10,805 INFO werkzeug Thread-5 : 127.0.0.1 - - [20/Sep/2022 23:02:10] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:02:51,755 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:02:51,757 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:02:51,759 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:02:51,759 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:02:51,759 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:02:51,759 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:02:51,759 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:02:51,760 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:02:51,767 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 23:02:51,767 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 23:02:51,768 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 23:02:52,206 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:02:52,207 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:02:52,209 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:02:52,209 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:02:52,209 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:02:52,209 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:02:52,209 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:02:52,210 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:02:52,216 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 23:02:52,217 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 23:02:54,629 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 23:02:54] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:02:54,652 DEBUG passlib.handlers.bcrypt Thread-3 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-20 23:02:54,653 DEBUG passlib.handlers.bcrypt Thread-3 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-20 23:02:54,906 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 23:02:54] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:07:35,102 INFO werkzeug Thread-4 : 127.0.0.1 - - [20/Sep/2022 23:07:35] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:07:35,391 INFO werkzeug Thread-5 : 127.0.0.1 - - [20/Sep/2022 23:07:35] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:07:40,306 INFO werkzeug Thread-6 : 127.0.0.1 - - [20/Sep/2022 23:07:40] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:07:40,574 INFO werkzeug Thread-7 : 127.0.0.1 - - [20/Sep/2022 23:07:40] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:10:28,058 INFO werkzeug Thread-8 : 127.0.0.1 - - [20/Sep/2022 23:10:28] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:10:28,408 INFO werkzeug Thread-9 : 127.0.0.1 - - [20/Sep/2022 23:10:28] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:16:59,464 INFO werkzeug Thread-10 : 127.0.0.1 - - [20/Sep/2022 23:16:59] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:16:59,806 INFO werkzeug Thread-11 : 127.0.0.1 - - [20/Sep/2022 23:16:59] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-20 23:19:57,035 INFO werkzeug Thread-12 : 127.0.0.1 - - [20/Sep/2022 23:19:57] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 23:19:57,437 INFO werkzeug Thread-13 : 127.0.0.1 - - [20/Sep/2022 23:19:57] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-20 23:23:45,431 INFO werkzeug Thread-14 : 127.0.0.1 - - [20/Sep/2022 23:23:45] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 23:23:45,824 INFO werkzeug Thread-15 : 127.0.0.1 - - [20/Sep/2022 23:23:45] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-20 23:23:51,873 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-20 23:23:52,077 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 23:23:52,945 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:23:52,947 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:23:52,949 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:23:52,950 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:23:52,950 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:23:52,950 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:23:52,951 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:23:52,952 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:23:52,960 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 23:23:52,961 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 23:23:55,829 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 23:23:55] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 23:23:55,856 DEBUG passlib.handlers.bcrypt Thread-3 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-20 23:23:55,859 DEBUG passlib.handlers.bcrypt Thread-3 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-20 23:23:56,139 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 23:23:56] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-20 23:24:06,509 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:24:06,510 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:24:06,512 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:24:06,513 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:24:06,513 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:24:06,513 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:24:06,513 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:24:06,515 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:24:06,521 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 23:24:06,521 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 23:24:06,521 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 23:24:06,855 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:24:06,856 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:24:06,858 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:24:06,858 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:24:06,858 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:24:06,858 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:24:06,859 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:24:06,859 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:24:06,865 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 23:24:06,865 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 23:24:23,614 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 23:24:23] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 23:24:24,271 DEBUG passlib.handlers.bcrypt Thread-3 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-20 23:24:24,274 DEBUG passlib.handlers.bcrypt Thread-3 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-20 23:24:24,564 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 23:24:24] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-20 23:31:17,438 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/application/api.py', reloading
+2022-09-20 23:31:17,815 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 23:31:18,256 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:31:18,258 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:31:18,264 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:31:18,264 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:31:18,265 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:31:18,265 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:31:18,266 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:31:18,268 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:31:18,277 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 23:31:18,277 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 23:31:27,375 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/application/api.py', reloading
+2022-09-20 23:31:27,607 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 23:31:28,017 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:31:28,018 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:31:28,019 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:31:28,019 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:31:28,020 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:31:28,020 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:31:28,020 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:31:28,021 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:31:28,026 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 23:31:28,027 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 23:31:35,870 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:31:35,873 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:31:35,876 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:31:35,876 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:31:35,877 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:31:35,877 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:31:35,877 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:31:35,879 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:31:35,896 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 23:31:35,896 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 23:31:35,896 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 23:31:36,261 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:31:36,262 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:31:36,264 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:31:36,264 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:31:36,264 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:31:36,265 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:31:36,265 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:31:36,266 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:31:36,271 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 23:31:36,272 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 23:31:39,501 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 23:31:39] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 23:31:39,935 DEBUG passlib.handlers.bcrypt Thread-3 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-20 23:31:39,937 DEBUG passlib.handlers.bcrypt Thread-3 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-20 23:31:40,230 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 23:31:40] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-20 23:33:36,397 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/application/api.py', reloading
+2022-09-20 23:33:36,513 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 23:33:36,880 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:33:36,881 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:33:36,883 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:33:36,883 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:33:36,883 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:33:36,883 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:33:36,884 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:33:36,886 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:33:36,893 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 23:33:36,894 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 23:33:50,093 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 23:33:50] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 23:33:50,494 DEBUG passlib.handlers.bcrypt Thread-3 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-20 23:33:50,497 DEBUG passlib.handlers.bcrypt Thread-3 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-20 23:33:50,784 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 23:33:50] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-20 23:33:56,060 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:33:56,061 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:33:56,063 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:33:56,063 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:33:56,063 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:33:56,063 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:33:56,063 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:33:56,064 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:33:56,070 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-20 23:33:56,070 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-20 23:33:56,071 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-20 23:33:56,519 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-20 23:33:56,520 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-20 23:33:56,522 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-20 23:33:56,522 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-20 23:33:56,522 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-20 23:33:56,522 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-20 23:33:56,522 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-20 23:33:56,524 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-20 23:33:56,529 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-20 23:33:56,530 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-20 23:34:00,608 INFO werkzeug Thread-2 : 127.0.0.1 - - [20/Sep/2022 23:34:00] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-20 23:34:00,651 DEBUG passlib.handlers.bcrypt Thread-3 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-20 23:34:00,653 DEBUG passlib.handlers.bcrypt Thread-3 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-20 23:34:00,933 INFO werkzeug Thread-3 : 127.0.0.1 - - [20/Sep/2022 23:34:00] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-21 01:26:19,076 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-21 01:26:19,077 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-21 01:26:19,079 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-21 01:26:19,079 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-21 01:26:19,079 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-21 01:26:19,079 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-21 01:26:19,080 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-21 01:26:19,081 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-21 01:26:19,087 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 01:26:19,087 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-21 01:26:19,087 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-21 01:26:19,391 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-21 01:26:19,392 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-21 01:26:19,394 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-21 01:26:19,394 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-21 01:26:19,394 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-21 01:26:19,394 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-21 01:26:19,395 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-21 01:26:19,395 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-21 01:26:19,401 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-21 01:26:19,401 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-21 01:32:46,216 DEBUG passlib.handlers.bcrypt Thread-2 : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+  File "/home/shaifali/miniconda3/envs/pyenv/lib/python3.9/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-09-21 01:32:46,220 DEBUG passlib.handlers.bcrypt Thread-2 : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-09-21 01:32:46,473 INFO werkzeug Thread-2 : 127.0.0.1 - - [21/Sep/2022 01:32:46] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-21 01:32:46,880 INFO werkzeug Thread-3 : 127.0.0.1 - - [21/Sep/2022 01:32:46] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-21 01:33:10,796 INFO werkzeug Thread-4 : 127.0.0.1 - - [21/Sep/2022 01:33:10] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-21 01:33:11,054 INFO werkzeug Thread-5 : 127.0.0.1 - - [21/Sep/2022 01:33:11] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-21 01:33:51,448 INFO werkzeug Thread-6 : 127.0.0.1 - - [21/Sep/2022 01:33:51] "GET / HTTP/1.1" 200 -
+2022-09-21 01:33:51,518 INFO werkzeug Thread-7 : 127.0.0.1 - - [21/Sep/2022 01:33:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-09-21 01:33:59,295 INFO werkzeug Thread-8 : 127.0.0.1 - - [21/Sep/2022 01:33:59] "[33mGET /api/user/1 HTTP/1.1[0m" 404 -
+2022-09-21 01:34:03,028 INFO werkzeug Thread-9 : 127.0.0.1 - - [21/Sep/2022 01:34:03] "GET /api/users/1 HTTP/1.1" 200 -
+2022-09-21 01:34:08,131 INFO werkzeug Thread-10 : 127.0.0.1 - - [21/Sep/2022 01:34:08] "GET /api/users/ HTTP/1.1" 200 -
+2022-09-21 01:45:54,861 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-21 01:45:54,977 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-21 01:45:55,549 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-21 01:45:55,551 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-21 01:45:55,553 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-21 01:45:55,553 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-21 01:45:55,554 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-21 01:45:55,554 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-21 01:45:55,554 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-21 01:45:55,555 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-21 01:45:55,562 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-21 01:45:55,562 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613
+2022-09-21 01:45:56,567 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/application/api.py', reloading
+2022-09-21 01:45:56,631 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-21 01:45:56,930 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-21 01:45:56,931 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-21 01:45:56,933 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-21 01:45:56,933 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-21 01:45:56,933 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-21 01:45:56,933 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-21 01:45:56,933 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-21 01:45:56,934 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-21 01:45:56,940 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-21 01:45:56,940 INFO werkzeug MainThread :  * Debugger PIN: 135-205-613

@@ -17,28 +17,54 @@
 
     <body class="container">
       <form>
-        <h3 class="form text-center mt-2 mb-4">
-          Sign Up
-        </h3>
+        <h3 class="form text-center mt-2 mb-4">Sign Up</h3>
         <div class="form-group">
           <label>Username</label>
-          <input id="username" type="text" v-model="username" class="form-control form-control-lg"
-            placeholder="Username" required autocomplete="off" />
+          <input
+            id="username"
+            type="text"
+            v-model="username"
+            class="form-control form-control-lg"
+            placeholder="Username"
+            required
+            autocomplete="off"
+          />
         </div>
         <div class="form-group">
           <label>Email address</label>
-          <input id="email" type="email" v-model="email" class="form-control form-control-lg" placeholder="email"
-            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required autocomplete="off" />
+          <input
+            id="email"
+            type="email"
+            v-model="email"
+            class="form-control form-control-lg"
+            placeholder="email"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+            required
+            autocomplete="off"
+          />
         </div>
         <p class="alert alert-danger" role="alert" v-if="error_email">
           {{ error_email }}
         </p>
         <div class="form-group">
           <label>Password</label>
-          <input id="password" type="password" v-model="password" class="form-control form-control-lg"
-            placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="off" />
+          <input
+            id="password"
+            type="password"
+            v-model="password"
+            class="form-control form-control-lg"
+            placeholder="Password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            required
+            autocomplete="off"
+          />
         </div>
-        <button id="submit" @click="register" type="submit" class="btn btn-dark btn-lg btn-block">
+        <button
+          id="submit"
+          @click="register"
+          type="submit"
+          class="btn btn-dark btn-lg btn-block"
+        >
           Sign Up
         </button>
       </form>
@@ -114,7 +140,7 @@ export default {
     // },
     async register() {
       try {
-        console.log('HEllo');
+        console.log("HEllo");
         const myOptions = {
           // mode: "no-cors",
           method: "POST",
@@ -125,37 +151,37 @@ export default {
           body: JSON.stringify({
             username: this.username,
             email: this.email,
-            password: this.password
+            password: this.password,
           }),
-        }
+        };
         // console.log(myOptions);
         fetch("http://127.0.0.1:5000/register", myOptions)
           .then((resp) => {
-            console.log('HEllo then');
+            console.log("HEllo then");
             console.log(resp);
             return resp.json();
           })
           .then(async (register_data) => {
-            console.log('HEllo then2');
+            console.log("HEllo then2");
             const { response } = register_data;
             if (response.errors) {
-              console.log('HEllo if');
+              console.log("HEllo if");
               const { email, password } = response.errors;
               console.log({ email, password });
               this.error_email = email ? email[0] : "";
               this.error_password = password ? password[0] : "";
               console.log(this.error_email, this.error_password);
             } else {
-              console.log('HEllo else');
+              console.log("HEllo else");
               this.$router.push("login");
             }
           })
           .catch((error) => {
-            console.log('HEllo ctch');
+            console.log("HEllo ctch");
             console.log(error);
           });
       } catch (error) {
-        console.log('HEllo real ctch');
+        console.log("HEllo real ctch");
         console.log("Registration unsuccessful: ", error);
       }
     },

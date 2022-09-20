@@ -11,10 +11,8 @@
     </b-navbar>
 
     <body class="container">
-      <br>
-      <h3 class="form text-center mt-2 mb-4">
-        Login
-      </h3>
+      <br />
+      <h3 class="form text-center mt-2 mb-4">Login</h3>
       <div class="container">
         <p class="alert alert-danger" role="alert" v-if="error_email">
           {{ error_email }}
@@ -40,21 +38,22 @@
         <p>
           <router-link to="/forgot-password">Forgot password ?</router-link>
         </p>
-        <p>
-          New User <router-link to="/register">Sign Up?</router-link>
+        <p>New User <router-link to="/register">Sign Up?</router-link>
         </p>
       </div>
     </body>
   </div>
 </template>
 <script>
+
+const baseURL = "http://127.0.0.1:5000";
 export default {
   data() {
     return {
-      email: '',
-      password: '',
-      error_email: '',
-      error_password: '',
+      email: "",
+      password: "",
+      error_email: "",
+      error_password: "",
       auth: "",
       is_auth: false,
     };
@@ -62,26 +61,33 @@ export default {
   methods: {
     async login() {
       try {
-        fetch("http://127.0.0.1:5000/login", {//?include_auth_token", {
+        const login_data = {
+          email: this.email,
+          password: this.password,
+        };
+        const request_options = {
           method: "POST",
           headers: {
             "Content-Type": "application/json;charset=utf-8",
           },
-          body: JSON.stringify({
-            email: this.email,
-            password: this.password,
-          }),
-        })
-          .then((resp) => {
-            return resp.json();
-          })
+          body: JSON.stringify(login_data),
+        };
+        console.log("before fetch");
+        const response = await fetch(
+          `${baseURL}/login?include_auth_token`,
+          request_options
+        )
+          .then((resp) => resp.json())
           .then(async (login_data) => {
             const { response } = login_data;
+            console.log(login_data);
+
             if (response.errors) {
-              const { email, password } = response.errors;
-              console.log({ email, password });
-              this.error_email = email ? email[0] : "";
-              this.error_password = password ? password[0] : "";
+              if (response.errors[1]) {
+                this.error_email = response.errors[1];
+              }
+              this.error_password = response.errors[0];
+
               console.log(this.error_email, this.error_password);
             } else {
               this.auth = response.user.authentication_token;
@@ -91,16 +97,62 @@ export default {
               );
               sessionStorage.setItem("email", this.email);
               this.$router.push("dashboard");
+              console.log("its dashboard");
             }
           })
+          // .then((resp) => {
+          //   console.log("after fetch then 1");
+
+          //   if (!resp.ok) {
+          //     throw new Error("Network response was not OK");
+          //   }
+          //   resp.json();
+          // })
+          // .then(async (resp2) => {
+          //   this.auth = resp2.user.authentication_token;
+          //   sessionStorage.setItem(
+          //     "auth-token",
+          //     resp2.user.authentication_token
+          //   );
+          // })
           .catch((error) => {
-            console.log(error);
+            console.log("catch 1");
+            console.error("Error:", error);
           });
       } catch (error) {
-        console.log("Can't login in: ", error);
+        console.log("Try catch");
+        console.log("Hello real ctch");
+        console.log("Registration unsuccessful: ", error);
       }
     },
   },
-}
+  //   fetch(`${baseURL}/login?include_auth_token`, request_options)
+  //     .then((resp) => {
+  //      resp.json();
+  //     })
+  //     .then(async (login_data) => {
+  //       const { response } = login_data;
+  //       if (response.errors) {
+  //         const { email, password } = response.errors;
+  //         console.log({ email, password });
+  //         this.error_email = email ? email[0] : "";
+  //         this.error_password = password ? password[0] : "";
+  //         console.log(this.error_email, this.error_password);
+  //       } else {
+  //         this.auth = response.user.authentication_token;
+  //         sessionStorage.setItem(
+  //           "auth-token",
+  //           response.user.authentication_token
+  //         );
+  //         sessionStorage.setItem("email", this.email);
+  //         this.$router.push("dashboard");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // } catch (error) {
+  //   console.log("Can't login in: ", error);
+  // }
+};
 </script>
-

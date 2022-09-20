@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(200), unique=True, nullable=False)
     password = db.Column(db.String(300), nullable=False)
     active = db.Column(db.Boolean())
-    fs_uniquifier = db.Column(db.String(255), unique=True)
+    fs_uniquifier = db.Column(db.String(255), unique=True, nullable=False)
     trackers = db.relationship(
         "Tracker", secondary="UserTracker", backref="User", cascade="all,delete"
     )

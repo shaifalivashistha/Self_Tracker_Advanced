@@ -36,7 +36,7 @@
           <input id="password" type="password" v-model="password" ref="password" class="form-control form-control-lg"
             placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="off" />
         </div>
-        <button id="submit" @click="signup" type="submit" class="btn btn-dark btn-lg btn-block">
+        <button id="submit" @click="register" type="submit" class="btn btn-dark btn-lg btn-block">
           Sign Up
         </button>
       </div>
@@ -58,6 +58,58 @@ export default {
     };
   },
   methods: {
+    async register() {
+      const user_data = {
+        username: this.$refs.username.value,
+        email: this.$refs.email.value,
+        password: this.$refs.password.value,
+      };
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(user_data),
+      };
+      try {
+        console.log("Hello");
+        console.log(user_data);
+        const res = await fetch(`${baseURL}/register`, requestOptions);
+        console.log("Passed");
+        console.log(res);
+        if (res) {
+          console.log("first if");
+          if (res.ok) {
+            // const message = `An error has occured: ${res.status} - ${res.statusText}`;
+            const data = await res.json().catch(() => {
+              throw Error("Error message");
+            });
+            if (data) {
+              this.$router.push("login")
+              console.log(data);
+              return data;
+            } else {
+              throw Error(res.statusText);
+            }
+          }
+        }
+        console.log("Here 1121");
+      } catch (error) {
+        console.log("Hello real ctch");
+        console.log("Registration unsuccessful: ", error);
+      }
+    },
+
+    checkEmail(mail) {
+      var check = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      return check.test(mail)
+    },
+
+    checkPAss(pwd) {
+      var check = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+      return check.test(pwd)
+    }
     // async register() {
     //   try {
     //     fetch("http://127.0.0.1:5000/register", {
@@ -123,54 +175,6 @@ export default {
     //         console.log("Registration unsuccessful: ", error);
     //     }
     // }
-
-
-
-
-    async signup() {
-      const user_data = {
-        username: this.$refs.username.value,
-        email: this.$refs.email.value,
-        password: this.$refs.password.value,
-      };
-      const requestOptions = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(user_data),
-      };
-      try {
-        console.log("Hello");
-        console.log(user_data);
-        const res = await fetch(`${baseURL}/register`, requestOptions);
-        console.log("Passed");
-        console.log(res);
-        if (res) {
-          console.log("first if");
-          if (res.ok) {
-            // const message = `An error has occured: ${res.status} - ${res.statusText}`;
-            const data = await res.json().catch(() => {
-              throw Error("Error message");
-            });
-            if (data) {
-              this.$router.push("login")
-              console.log(data);
-              return data;
-            } else {
-              throw Error(res.statusText);
-            }
-          }
-        }
-        console.log("Here 1121");
-      } catch (error) {
-        console.log("Hello real ctch");
-        console.log("Registration unsuccessful: ", error);
-      }
-    },
-
-
-
     // async register() {
     //     const user_data = {
     //         username: this.$refs.username.value,

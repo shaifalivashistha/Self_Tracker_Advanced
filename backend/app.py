@@ -36,26 +36,24 @@ logging.basicConfig(
 
 app = Flask(__name__)
 
-api = Api(app)
 CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
-# app.app_context().push()
 
 app.config["DEBUG"] = True
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///trackerdb.sqlite3"
 app.config["SECRET_KEY"] = "Th1s1sas3cr3tk3y"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SECURITY_PASSWORD_HASH"] = "bcrypt"
+# app.config["SECURITY_PASSWORD_HASH"] = "bcrypt"
 app.config["SECURITY_PASSWORD_SALT"] = "S3cr3tPassword"
 app.config["SECURITY_TOKEN_AUTHENTICATION_HEADER"] = "Authentication-Token"
-app.config["SECURITY_REGISTERABLE"] = True
-app.config["SECURITY_CONFIRMABLE"] = False
-app.config["SECURITY_SEND_REGISTER_EMAIL"] = False
-app.config["SECURITY_UNAUTHORIZED_VIEW"] = None
-app.config["SECURITY_POST_LOGIN_VIEW"] = "/dashboard/email"
+# app.config["SECURITY_REGISTERABLE"] = True
+# app.config["SECURITY_CONFIRMABLE"] = False
+# app.config["SECURITY_SEND_REGISTER_EMAIL"] = False
+# app.config["SECURITY_UNAUTHORIZED_VIEW"] = None
+# app.config["SECURITY_POST_LOGIN_VIEW"] = "/dashboard/email"
 app.config["WTF_CSRF_ENABLED"] = False
-app.config["SECURITY_REDIRECT_HOST"] = "localhost:8080"
+# app.config["SECURITY_REDIRECT_HOST"] = "localhost:8080"
 db.init_app(app)
 api.init_app(app)
 
@@ -87,6 +85,7 @@ def home():
 @app.route("/register", methods=["POST", "GET"])
 def register():
     if request.method == "POST":
+        print("post in register")
         print(request.headers)
         data = request.get_json()
         print("DATA: ", data)
@@ -104,13 +103,18 @@ def register():
 
         else:
             print("no existing user data")
-            new_user = User(username=uname, email=email, password=pwd)
+            user_datastore.create_user(
+                email=email,
+                username=uname,
+                password=hash_password(pwd),
+            )
+            # new_user = User(username=uname, email=email, password=pwd)
             # new_user = User(username="uname", email=email, password=pwd)
-            db.session.add(new_user)
+            # db.session.add(new_user)
             db.session.commit()
             flash("Registration Successful")
-            # return redirect(url_for("login"))
-            return jsonify("abc")
+            return redirect(url_for("login"))
+            # return jsonify("abc")
     else:
         return redirect(url_for("register"))
 

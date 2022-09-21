@@ -5,20 +5,10 @@ from flask_restful import fields
 from flask_restful import marshal_with
 from flask_restful import abort
 
-# from ..app import user_datastore
-from flask_security import (
-    SQLAlchemyUserDatastore,
-    Security,
-    auth_required,
-    current_user,
-    hash_password,
-)
 from .models import *
 
-# api = Api()
+api = Api()
 
-user_datastore = SQLAlchemyUserDatastore(db, User, Role)
-security = Security(user_datastore)
 # -------------------------------------------USER API-------------------------------------------------#
 
 
@@ -53,11 +43,6 @@ class UserAPI(Resource):
 
     def post(self):
         user_data = user_data_req.parse_args()
-        # user_datastore.create_user(
-        #     email=user_data.email,
-        #     username=user_data.username,
-        #     password=hash_password(user_data.password),
-        # )
         user = User(
             username=user_data.username,
             email=user_data.email,
@@ -66,7 +51,6 @@ class UserAPI(Resource):
         db.session.add(user)
 
         db.session.commit()
-        # user = User.query.filter_by(email=user_data.email).first()
         return user
 
     @marshal_with(user_field)

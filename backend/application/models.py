@@ -9,6 +9,8 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(200), unique=True, nullable=False)
     email = db.Column(db.String(200), unique=True, nullable=False)
     password = db.Column(db.String(300), nullable=False)
+    sec_ques = db.Column(db.String(300), nullable=False)
+    sec_ans = db.Column(db.String(300), nullable=False)
     active = db.Column(db.Boolean())
     fs_uniquifier = db.Column(db.String(255), unique=True, nullable=False)
     trackers = db.relationship(

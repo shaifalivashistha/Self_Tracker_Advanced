@@ -5,6 +5,8 @@ import LoginView from "../views/LoginView.vue";
 import AboutView from "../views/AboutView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import dashboardView from "../views/dashboardView.vue";
+import createTrackerView from "../views/createTrackerView.vue"
+
 
 Vue.use(VueRouter);
 
@@ -30,15 +32,15 @@ const routes = [
     component: RegisterView,
   },
   {
-    path: "/dashboard",
+    path: "/dashboard/:email",
     name: "dashboard",
     component: dashboardView,
   },
-  // {
-  // path: "/dashboard/",
-  // name: "create_trackers",
-  // component: create_tracker
-  // }
+  {
+    path: "/dashboard/:email/create_tracker",
+    name: "createTrackerView",
+    component: createTrackerView
+  }
 ];
 
 const router = new VueRouter({

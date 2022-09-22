@@ -104,9 +104,10 @@ export default {
                     if (res) {
                         console.log("IN first IF block")
                         if (res.ok) {
-                            const data = await res.json().catch(() => {
-                                throw Error("Something Went Wrong")
-                            })
+                            const data = await res.json()
+                                .catch(() => {
+                                    throw Error("Something Went Wrong")
+                                })
                             if (data) {
                                 console.log(data)
                                 this.$router.push('login')

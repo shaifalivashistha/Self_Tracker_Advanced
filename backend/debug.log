@@ -504,3 +504,570 @@ passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passl
 2022-09-22 02:26:16,827 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
 2022-09-22 02:26:16,832 WARNING werkzeug MainThread :  * Debugger is active!
 2022-09-22 02:26:16,835 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 02:29:22,347 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 02:29:22,446 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 02:29:22,995 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 02:29:22,996 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 02:29:22,998 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 02:29:22,998 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 02:29:22,999 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 02:29:22,999 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 02:29:22,999 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 02:29:23,001 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 02:29:23,008 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 02:29:23,008 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 02:36:24,688 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 02:36:24] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:36:25,598 DEBUG passlib.handlers.bcrypt Thread-3 : detected 'bcrypt' backend, version '4.0.0'
+2022-09-22 02:36:25,599 DEBUG passlib.handlers.bcrypt Thread-3 : 'bcrypt' backend lacks $2$ support, enabling workaround
+2022-09-22 02:36:25,892 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 02:36:25] "[31m[1mPOST /login?include_auth_token HTTP/1.1[0m" 400 -
+2022-09-22 02:37:29,364 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 02:37:29] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:37:29,647 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 02:37:29] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:38:21,265 INFO werkzeug Thread-6 : 127.0.0.1 - - [22/Sep/2022 02:38:21] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-22 02:38:21,589 INFO werkzeug Thread-7 : 127.0.0.1 - - [22/Sep/2022 02:38:21] "[32mPOST /register HTTP/1.1[0m" 302 -
+2022-09-22 02:38:21,592 INFO werkzeug Thread-8 : 127.0.0.1 - - [22/Sep/2022 02:38:21] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-22 02:38:21,598 INFO werkzeug Thread-9 : 127.0.0.1 - - [22/Sep/2022 02:38:21] "GET /login HTTP/1.1" 200 -
+2022-09-22 02:38:43,022 INFO werkzeug Thread-10 : 127.0.0.1 - - [22/Sep/2022 02:38:43] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:38:44,607 INFO werkzeug Thread-11 : 127.0.0.1 - - [22/Sep/2022 02:38:44] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:40:48,407 INFO werkzeug Thread-12 : 127.0.0.1 - - [22/Sep/2022 02:40:48] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:40:48,798 INFO werkzeug Thread-13 : 127.0.0.1 - - [22/Sep/2022 02:40:48] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:41:12,847 INFO werkzeug Thread-14 : 127.0.0.1 - - [22/Sep/2022 02:41:12] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:41:13,133 INFO werkzeug Thread-15 : 127.0.0.1 - - [22/Sep/2022 02:41:13] "[31m[1mPOST /login?include_auth_token HTTP/1.1[0m" 400 -
+2022-09-22 02:41:23,756 INFO werkzeug Thread-16 : 127.0.0.1 - - [22/Sep/2022 02:41:23] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:41:24,039 INFO werkzeug Thread-17 : 127.0.0.1 - - [22/Sep/2022 02:41:24] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:43:40,479 INFO werkzeug Thread-18 : 127.0.0.1 - - [22/Sep/2022 02:43:40] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:43:40,773 INFO werkzeug Thread-19 : 127.0.0.1 - - [22/Sep/2022 02:43:40] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:44:41,000 INFO werkzeug Thread-20 : 127.0.0.1 - - [22/Sep/2022 02:44:41] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:44:41,293 INFO werkzeug Thread-21 : 127.0.0.1 - - [22/Sep/2022 02:44:41] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:46:28,761 INFO werkzeug Thread-22 : 127.0.0.1 - - [22/Sep/2022 02:46:28] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:46:30,449 INFO werkzeug Thread-23 : 127.0.0.1 - - [22/Sep/2022 02:46:30] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:47:02,666 INFO werkzeug Thread-24 : 127.0.0.1 - - [22/Sep/2022 02:47:02] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:47:02,951 INFO werkzeug Thread-25 : 127.0.0.1 - - [22/Sep/2022 02:47:02] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:47:18,510 INFO werkzeug Thread-26 : 127.0.0.1 - - [22/Sep/2022 02:47:18] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:47:18,832 INFO werkzeug Thread-27 : 127.0.0.1 - - [22/Sep/2022 02:47:18] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 02:55:11,560 INFO werkzeug Thread-28 : 127.0.0.1 - - [22/Sep/2022 02:55:11] "[33mOPTIONS /dashboard/null HTTP/1.1[0m" 404 -
+2022-09-22 02:56:26,276 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 02:56:27,027 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 02:56:27,689 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 02:56:27,690 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 02:56:27,693 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 02:56:27,693 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 02:56:27,693 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 02:56:27,693 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 02:56:27,694 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 02:56:27,695 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 02:56:27,701 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 02:56:27,701 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 03:01:27,958 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 03:01:27] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:01:29,245 DEBUG passlib.handlers.bcrypt Thread-3 : detected 'bcrypt' backend, version '4.0.0'
+2022-09-22 03:01:29,246 DEBUG passlib.handlers.bcrypt Thread-3 : 'bcrypt' backend lacks $2$ support, enabling workaround
+2022-09-22 03:01:29,518 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 03:01:29] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:02:02,319 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 03:02:02] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:02:02,607 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 03:02:02] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:02:40,829 INFO werkzeug Thread-6 : 127.0.0.1 - - [22/Sep/2022 03:02:40] "GET /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:02:40,924 INFO werkzeug Thread-7 : 127.0.0.1 - - [22/Sep/2022 03:02:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-09-22 03:02:58,174 INFO werkzeug Thread-8 : 127.0.0.1 - - [22/Sep/2022 03:02:58] "[32mPOST /login HTTP/1.1[0m" 302 -
+2022-09-22 03:02:58,201 INFO werkzeug Thread-9 : 127.0.0.1 - - [22/Sep/2022 03:02:58] "GET / HTTP/1.1" 200 -
+2022-09-22 03:04:32,862 INFO werkzeug Thread-10 : 127.0.0.1 - - [22/Sep/2022 03:04:32] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:04:33,136 INFO werkzeug Thread-11 : 127.0.0.1 - - [22/Sep/2022 03:04:33] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:06:02,568 INFO werkzeug Thread-12 : 127.0.0.1 - - [22/Sep/2022 03:06:02] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:06:02,844 INFO werkzeug Thread-13 : 127.0.0.1 - - [22/Sep/2022 03:06:02] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:06:43,169 INFO werkzeug Thread-14 : 127.0.0.1 - - [22/Sep/2022 03:06:43] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:06:43,449 INFO werkzeug Thread-15 : 127.0.0.1 - - [22/Sep/2022 03:06:43] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:08:32,710 INFO werkzeug Thread-16 : 127.0.0.1 - - [22/Sep/2022 03:08:32] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:08:34,302 INFO werkzeug Thread-17 : 127.0.0.1 - - [22/Sep/2022 03:08:34] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:08:56,662 INFO werkzeug Thread-18 : 127.0.0.1 - - [22/Sep/2022 03:08:56] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:08:56,946 INFO werkzeug Thread-19 : 127.0.0.1 - - [22/Sep/2022 03:08:56] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:09:27,655 INFO werkzeug Thread-20 : 127.0.0.1 - - [22/Sep/2022 03:09:27] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:09:27,935 INFO werkzeug Thread-21 : 127.0.0.1 - - [22/Sep/2022 03:09:27] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:42:08,646 INFO werkzeug Thread-22 : 127.0.0.1 - - [22/Sep/2022 03:42:08] "OPTIONS /dashboard/null HTTP/1.1" 200 -
+2022-09-22 03:42:08,772 INFO werkzeug Thread-23 : 127.0.0.1 - - [22/Sep/2022 03:42:08] "[35m[1mGET /dashboard/null HTTP/1.1[0m" 500 -
+2022-09-22 03:49:19,075 INFO werkzeug Thread-24 : 127.0.0.1 - - [22/Sep/2022 03:49:19] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 03:49:20,497 INFO werkzeug Thread-25 : 127.0.0.1 - - [22/Sep/2022 03:49:20] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 04:17:19,104 INFO werkzeug Thread-26 : 127.0.0.1 - - [22/Sep/2022 04:17:19] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 04:17:20,528 INFO werkzeug Thread-27 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 04:17:20,572 INFO werkzeug Thread-28 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "OPTIONS /dashboard/rs@sv.com HTTP/1.1" 200 -
+2022-09-22 04:17:20,620 INFO werkzeug Thread-29 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs@sv.com HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,629 INFO werkzeug Thread-30 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "OPTIONS /dashboard/rs%40sv.com?username=sv HTTP/1.1" 200 -
+2022-09-22 04:17:20,642 INFO werkzeug Thread-31 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,650 INFO werkzeug Thread-32 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,657 INFO werkzeug Thread-33 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,665 INFO werkzeug Thread-34 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,673 INFO werkzeug Thread-35 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,681 INFO werkzeug Thread-36 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,689 INFO werkzeug Thread-37 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,695 INFO werkzeug Thread-38 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,700 INFO werkzeug Thread-39 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,704 INFO werkzeug Thread-40 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,709 INFO werkzeug Thread-41 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,713 INFO werkzeug Thread-42 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,721 INFO werkzeug Thread-43 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,730 INFO werkzeug Thread-44 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,746 INFO werkzeug Thread-45 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,751 INFO werkzeug Thread-46 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,756 INFO werkzeug Thread-47 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,760 INFO werkzeug Thread-48 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,765 INFO werkzeug Thread-49 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 04:17:20,769 INFO werkzeug Thread-50 : 127.0.0.1 - - [22/Sep/2022 04:17:20] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:33,091 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 05:56:33,880 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 05:56:35,066 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 05:56:35,067 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 05:56:35,072 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 05:56:35,073 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 05:56:35,074 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 05:56:35,074 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 05:56:35,075 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 05:56:35,078 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 05:56:35,090 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 05:56:35,092 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 05:56:35,168 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "OPTIONS /dashboard/rs@sv.com HTTP/1.1" 200 -
+2022-09-22 05:56:35,188 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs@sv.com HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,192 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "OPTIONS /dashboard/rs%40sv.com?username=sv HTTP/1.1" 200 -
+2022-09-22 05:56:35,202 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,207 INFO werkzeug Thread-6 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,214 INFO werkzeug Thread-7 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,228 INFO werkzeug Thread-8 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,234 INFO werkzeug Thread-9 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,241 INFO werkzeug Thread-10 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,248 INFO werkzeug Thread-11 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,253 INFO werkzeug Thread-12 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,258 INFO werkzeug Thread-13 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,263 INFO werkzeug Thread-14 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,268 INFO werkzeug Thread-15 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,272 INFO werkzeug Thread-16 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,276 INFO werkzeug Thread-17 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,280 INFO werkzeug Thread-18 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,283 INFO werkzeug Thread-19 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,287 INFO werkzeug Thread-20 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,291 INFO werkzeug Thread-21 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,295 INFO werkzeug Thread-22 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,300 INFO werkzeug Thread-23 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 05:56:35,306 INFO werkzeug Thread-24 : 127.0.0.1 - - [22/Sep/2022 05:56:35] "[32mGET /dashboard/rs%40sv.com?username=sv HTTP/1.1[0m" 302 -
+2022-09-22 06:35:30,718 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 06:35:30,863 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 06:35:31,405 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 06:35:31,406 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 06:35:31,409 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 06:35:31,409 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 06:35:31,410 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 06:35:31,410 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 06:35:31,410 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 06:35:31,411 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 06:35:31,417 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 06:35:31,417 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 06:35:37,453 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 06:35:37,517 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 06:35:37,811 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 06:35:37,812 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 06:35:37,813 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 06:35:37,813 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 06:35:37,814 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 06:35:37,814 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 06:35:37,814 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 06:35:37,815 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 06:35:37,819 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 06:35:37,819 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 06:36:51,277 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 06:36:51,388 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 06:36:51,707 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 06:36:51,708 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 06:36:51,710 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 06:36:51,710 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 06:36:51,711 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 06:36:51,711 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 06:36:51,711 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 06:36:51,712 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 06:36:51,717 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 06:36:51,717 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 06:37:24,522 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 06:37:24] "OPTIONS /dashboard/rs@sv.com HTTP/1.1" 200 -
+2022-09-22 06:37:24,551 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 06:37:24] "GET /dashboard/rs@sv.com HTTP/1.1" 200 -
+2022-09-22 06:38:40,772 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 06:38:40] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-22 06:38:40,811 DEBUG passlib.handlers.bcrypt Thread-5 : detected 'bcrypt' backend, version '4.0.0'
+2022-09-22 06:38:40,812 DEBUG passlib.handlers.bcrypt Thread-5 : 'bcrypt' backend lacks $2$ support, enabling workaround
+2022-09-22 06:38:41,095 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 06:38:41] "[32mPOST /register HTTP/1.1[0m" 302 -
+2022-09-22 06:38:41,099 INFO werkzeug Thread-6 : 127.0.0.1 - - [22/Sep/2022 06:38:41] "OPTIONS /login HTTP/1.1" 200 -
+2022-09-22 06:38:41,102 INFO werkzeug Thread-7 : 127.0.0.1 - - [22/Sep/2022 06:38:41] "GET /login HTTP/1.1" 200 -
+2022-09-22 06:39:01,194 INFO werkzeug Thread-8 : 127.0.0.1 - - [22/Sep/2022 06:39:01] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 06:39:01,921 INFO werkzeug Thread-9 : 127.0.0.1 - - [22/Sep/2022 06:39:01] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-09-22 06:39:01,933 INFO werkzeug Thread-10 : 127.0.0.1 - - [22/Sep/2022 06:39:01] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:39:01,945 INFO werkzeug Thread-11 : 127.0.0.1 - - [22/Sep/2022 06:39:01] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:41:57,735 INFO werkzeug Thread-12 : 127.0.0.1 - - [22/Sep/2022 06:41:57] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:41:57,769 INFO werkzeug Thread-13 : 127.0.0.1 - - [22/Sep/2022 06:41:57] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:43:31,813 INFO werkzeug Thread-14 : 127.0.0.1 - - [22/Sep/2022 06:43:31] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:43:31,841 INFO werkzeug Thread-15 : 127.0.0.1 - - [22/Sep/2022 06:43:31] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:44:50,941 INFO werkzeug Thread-16 : 127.0.0.1 - - [22/Sep/2022 06:44:50] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:44:50,965 INFO werkzeug Thread-17 : 127.0.0.1 - - [22/Sep/2022 06:44:50] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:57:48,157 INFO werkzeug Thread-18 : 127.0.0.1 - - [22/Sep/2022 06:57:48] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:57:48,196 INFO werkzeug Thread-19 : 127.0.0.1 - - [22/Sep/2022 06:57:48] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:57:51,552 INFO werkzeug Thread-20 : 127.0.0.1 - - [22/Sep/2022 06:57:51] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 06:57:54,064 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 06:57:54,249 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 06:57:54,971 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 06:57:54,973 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 06:57:54,978 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 06:57:54,978 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 06:57:54,979 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 06:57:54,979 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 06:57:54,980 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 06:57:54,983 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 06:57:54,992 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 06:57:54,993 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 09:49:46,697 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 09:49:46] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 09:49:46,729 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 09:49:46] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 09:54:03,371 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 09:54:03,374 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 09:54:03,377 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 09:54:03,377 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 09:54:03,377 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 09:54:03,377 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 09:54:03,378 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 09:54:03,379 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 09:54:03,387 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-22 09:54:03,388 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-22 09:54:03,388 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 09:54:03,699 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 09:54:03,700 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 09:54:03,702 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 09:54:03,702 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 09:54:03,702 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 09:54:03,702 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 09:54:03,702 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 09:54:03,703 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 09:54:03,707 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 09:54:03,708 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 09:54:08,713 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 09:54:08] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 09:54:08,735 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 09:54:08] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:04:05,915 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 10:04:05] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:04:05,956 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 10:04:05] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:12:54,725 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:12:54,901 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:12:55,608 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:12:55,610 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:12:55,614 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:12:55,615 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:12:55,615 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:12:55,615 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:12:55,616 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:12:55,617 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:12:55,629 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:12:55,632 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:13:17,398 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:13:17] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:13:17,435 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:13:17] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:13:53,211 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:13:53,404 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:13:53,824 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:13:53,825 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:13:53,828 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:13:53,828 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:13:53,828 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:13:53,828 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:13:53,828 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:13:53,830 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:13:53,838 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:13:53,841 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:14:00,606 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:14:00] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:14:00,646 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:14:00] "[35m[1mGET /dashboard/test@mail.com HTTP/1.1[0m" 500 -
+2022-09-22 10:14:32,448 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 10:14:32] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:14:32,511 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 10:14:32] "[35m[1mGET /dashboard/test@mail.com HTTP/1.1[0m" 500 -
+2022-09-22 10:14:47,573 INFO werkzeug Thread-6 : 127.0.0.1 - - [22/Sep/2022 10:14:47] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:14:47,608 INFO werkzeug Thread-7 : 127.0.0.1 - - [22/Sep/2022 10:14:47] "[35m[1mGET /dashboard/test@mail.com HTTP/1.1[0m" 500 -
+2022-09-22 10:15:41,628 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:15:41,898 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:15:42,380 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:15:42,386 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:15:42,389 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:15:42,389 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:15:42,390 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:15:42,390 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:15:42,390 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:15:42,392 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:15:42,399 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:15:42,400 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:16:15,669 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:16:15,850 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:16:16,216 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:16:16,217 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:16:16,219 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:16:16,219 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:16:16,219 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:16:16,220 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:16:16,220 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:16:16,221 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:16:16,231 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:16:16,232 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:16:19,453 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:16:19,454 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:16:19,456 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:16:19,456 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:16:19,457 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:16:19,457 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:16:19,457 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:16:19,458 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:16:19,464 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-22 10:16:19,464 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-22 10:16:19,464 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:16:19,855 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:16:19,856 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:16:19,858 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:16:19,858 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:16:19,859 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:16:19,859 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:16:19,859 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:16:19,860 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:16:19,865 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:16:19,866 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:16:23,093 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:16:23] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:16:23,145 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:16:23] "[35m[1mGET /dashboard/test@mail.com HTTP/1.1[0m" 500 -
+2022-09-22 10:17:00,221 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:17:00,383 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:17:00,755 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:17:00,757 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:17:00,760 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:17:00,760 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:17:00,761 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:17:00,761 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:17:00,761 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:17:00,762 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:17:00,768 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:17:00,769 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:17:11,124 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:17:11] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:17:11,140 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:17:11] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:18:12,286 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:18:12,497 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:18:12,911 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:18:12,912 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:18:12,914 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:18:12,914 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:18:12,914 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:18:12,914 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:18:12,915 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:18:12,916 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:18:12,922 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:18:12,922 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:18:14,872 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:18:14] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:18:14,888 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:18:14] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:19:05,373 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:19:05,584 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:19:05,996 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:19:05,997 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:19:05,999 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:19:05,999 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:19:05,999 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:19:05,999 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:19:06,000 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:19:06,001 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:19:06,007 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:19:06,007 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:19:17,273 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:19:17] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:19:17,308 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:19:17] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:19:34,730 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 10:19:34] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:19:34,780 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 10:19:34] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:21:16,482 INFO werkzeug Thread-6 : 127.0.0.1 - - [22/Sep/2022 10:21:16] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:21:16,510 INFO werkzeug Thread-7 : 127.0.0.1 - - [22/Sep/2022 10:21:16] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:23:20,402 INFO werkzeug Thread-8 : 127.0.0.1 - - [22/Sep/2022 10:23:20] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:23:20,454 INFO werkzeug Thread-9 : 127.0.0.1 - - [22/Sep/2022 10:23:20] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:24:12,452 INFO werkzeug Thread-10 : 127.0.0.1 - - [22/Sep/2022 10:24:12] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:24:12,480 INFO werkzeug Thread-11 : 127.0.0.1 - - [22/Sep/2022 10:24:12] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:25:01,851 INFO werkzeug Thread-12 : 127.0.0.1 - - [22/Sep/2022 10:25:01] "OPTIONS /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:25:01,884 INFO werkzeug Thread-13 : 127.0.0.1 - - [22/Sep/2022 10:25:01] "GET /dashboard/test@mail.com HTTP/1.1" 200 -
+2022-09-22 10:40:57,904 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:40:58,131 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:40:58,804 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:40:58,805 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:40:58,808 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:40:58,808 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:40:58,808 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:40:58,808 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:40:58,809 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:40:58,810 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:40:58,816 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:40:58,817 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:42:33,112 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:42:33] "OPTIONS /dashboard/test@mail.com/create_tracker HTTP/1.1" 200 -
+2022-09-22 10:42:33,138 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:42:33] "GET /dashboard/test@mail.com/create_tracker HTTP/1.1" 200 -
+2022-09-22 10:44:21,541 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 10:44:21] "OPTIONS /dashboard/test@mail.com/create_tracker HTTP/1.1" 200 -
+2022-09-22 10:44:21,586 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 10:44:21] "GET /dashboard/test@mail.com/create_tracker HTTP/1.1" 200 -
+2022-09-22 10:44:49,988 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:44:49,990 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:44:49,992 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:44:49,993 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:44:49,994 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:44:49,994 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:44:49,994 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:44:49,996 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:44:50,004 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-22 10:44:50,004 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-22 10:44:50,005 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:44:50,560 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:44:50,562 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:44:50,564 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:44:50,564 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:44:50,565 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:44:50,565 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:44:50,565 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:44:50,566 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:44:50,570 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:44:50,572 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:45:27,662 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:45:27] "OPTIONS /dashboard/test@mail.com/create_tracker HTTP/1.1" 200 -
+2022-09-22 10:45:27,675 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:45:27] "GET /dashboard/test@mail.com/create_tracker HTTP/1.1" 200 -
+2022-09-22 10:47:31,897 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 10:47:31] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-22 10:47:31,926 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 10:47:31] "[32mPOST /register HTTP/1.1[0m" 302 -
+2022-09-22 10:47:31,932 INFO werkzeug Thread-6 : 127.0.0.1 - - [22/Sep/2022 10:47:31] "GET /register HTTP/1.1" 200 -
+2022-09-22 10:49:14,730 INFO werkzeug Thread-7 : 127.0.0.1 - - [22/Sep/2022 10:49:14] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-22 10:49:14,758 INFO werkzeug Thread-8 : 127.0.0.1 - - [22/Sep/2022 10:49:14] "[32mPOST /register HTTP/1.1[0m" 302 -
+2022-09-22 10:49:14,764 INFO werkzeug Thread-9 : 127.0.0.1 - - [22/Sep/2022 10:49:14] "GET /register HTTP/1.1" 200 -
+2022-09-22 10:50:01,371 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:50:01,558 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:50:02,135 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:50:02,137 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:50:02,140 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:50:02,140 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:50:02,140 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:50:02,140 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:50:02,141 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:50:02,142 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:50:02,148 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:50:02,148 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:50:16,225 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:50:16,387 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:50:16,740 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:50:16,741 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:50:16,743 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:50:16,743 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:50:16,744 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:50:16,744 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:50:16,745 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:50:16,746 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:50:16,751 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:50:16,752 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:50:20,282 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-22 10:50:20,289 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mPOST /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,300 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,308 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,311 INFO werkzeug Thread-6 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,314 INFO werkzeug Thread-7 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,319 INFO werkzeug Thread-8 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,328 INFO werkzeug Thread-9 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,331 INFO werkzeug Thread-10 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,344 INFO werkzeug Thread-11 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,347 INFO werkzeug Thread-12 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,353 INFO werkzeug Thread-13 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,357 INFO werkzeug Thread-14 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,364 INFO werkzeug Thread-15 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,366 INFO werkzeug Thread-16 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,372 INFO werkzeug Thread-17 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,376 INFO werkzeug Thread-18 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,380 INFO werkzeug Thread-19 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,383 INFO werkzeug Thread-20 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,385 INFO werkzeug Thread-21 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,386 INFO werkzeug Thread-22 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:50:20,390 INFO werkzeug Thread-23 : 127.0.0.1 - - [22/Sep/2022 10:50:20] "[32mGET /register HTTP/1.1[0m" 302 -
+2022-09-22 10:51:12,043 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/app.py', reloading
+2022-09-22 10:51:12,184 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:51:12,564 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:51:12,565 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:51:12,567 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:51:12,567 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:51:12,567 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:51:12,567 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:51:12,567 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:51:12,568 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:51:12,573 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:51:12,573 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:51:14,093 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:51:14] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-22 10:51:14,101 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:51:14] "[32mPOST /register HTTP/1.1[0m" 302 -
+2022-09-22 10:51:14,106 INFO werkzeug Thread-4 : 127.0.0.1 - - [22/Sep/2022 10:51:14] "GET /register HTTP/1.1" 200 -
+2022-09-22 10:52:12,525 INFO werkzeug Thread-5 : 127.0.0.1 - - [22/Sep/2022 10:52:12] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-22 10:52:12,564 DEBUG passlib.handlers.bcrypt Thread-6 : detected 'bcrypt' backend, version '4.0.0'
+2022-09-22 10:52:12,568 DEBUG passlib.handlers.bcrypt Thread-6 : 'bcrypt' backend lacks $2$ support, enabling workaround
+2022-09-22 10:52:17,928 INFO werkzeug Thread-6 : 127.0.0.1 - - [22/Sep/2022 10:52:17] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-22 10:52:20,117 INFO werkzeug Thread-7 : 127.0.0.1 - - [22/Sep/2022 10:52:20] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-22 10:52:21,040 INFO werkzeug Thread-8 : 127.0.0.1 - - [22/Sep/2022 10:52:21] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-22 10:52:21,355 INFO werkzeug Thread-9 : 127.0.0.1 - - [22/Sep/2022 10:52:21] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-22 10:52:21,577 INFO werkzeug Thread-10 : 127.0.0.1 - - [22/Sep/2022 10:52:21] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-22 10:52:21,726 INFO werkzeug Thread-11 : 127.0.0.1 - - [22/Sep/2022 10:52:21] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-22 10:52:23,314 INFO werkzeug Thread-12 : 127.0.0.1 - - [22/Sep/2022 10:52:23] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-22 10:52:43,357 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:52:43,359 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:52:43,361 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:52:43,361 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:52:43,362 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:52:43,362 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:52:43,362 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:52:43,363 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:52:43,369 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-22 10:52:43,369 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-22 10:52:43,370 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 10:52:43,773 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 10:52:43,774 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 10:52:43,776 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 10:52:43,776 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 10:52:43,776 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 10:52:43,776 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 10:52:43,776 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 10:52:43,777 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 10:52:43,781 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 10:52:43,782 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 10:52:55,873 INFO werkzeug Thread-2 : 127.0.0.1 - - [22/Sep/2022 10:52:55] "OPTIONS /register HTTP/1.1" 200 -
+2022-09-22 10:52:55,890 DEBUG passlib.handlers.bcrypt Thread-3 : detected 'bcrypt' backend, version '4.0.0'
+2022-09-22 10:52:55,891 DEBUG passlib.handlers.bcrypt Thread-3 : 'bcrypt' backend lacks $2$ support, enabling workaround
+2022-09-22 10:53:01,248 INFO werkzeug Thread-3 : 127.0.0.1 - - [22/Sep/2022 10:53:01] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2022-09-22 11:00:10,766 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 11:00:10,770 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 11:00:10,776 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 11:00:10,776 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 11:00:10,777 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 11:00:10,777 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 11:00:10,778 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 11:00:10,779 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 11:00:10,786 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-22 11:00:10,786 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-22 11:00:10,787 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 11:00:11,083 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 11:00:11,084 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 11:00:11,086 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 11:00:11,086 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 11:00:11,086 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 11:00:11,086 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 11:00:11,086 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 11:00:11,087 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 11:00:11,091 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 11:00:11,091 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 11:00:44,271 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/AppD2v2/AppDev2-Project/backend/application/models.py', reloading
+2022-09-22 11:00:44,369 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 11:00:44,734 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 11:00:44,735 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 11:00:44,737 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 11:00:44,737 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 11:00:44,737 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 11:00:44,737 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 11:00:44,738 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 11:00:44,738 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 11:00:44,746 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 11:00:44,749 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149
+2022-09-22 11:00:51,725 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 11:00:51,726 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 11:00:51,728 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 11:00:51,728 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 11:00:51,728 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 11:00:51,728 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 11:00:51,729 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 11:00:51,729 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 11:00:51,735 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-22 11:00:51,735 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-09-22 11:00:51,735 INFO werkzeug MainThread :  * Restarting with stat
+2022-09-22 11:00:52,056 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-09-22 11:00:52,057 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-09-22 11:00:52,059 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-09-22 11:00:52,059 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-09-22 11:00:52,059 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-09-22 11:00:52,059 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-09-22 11:00:52,059 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-09-22 11:00:52,060 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-09-22 11:00:52,065 WARNING werkzeug MainThread :  * Debugger is active!
+2022-09-22 11:00:52,065 INFO werkzeug MainThread :  * Debugger PIN: 107-415-149

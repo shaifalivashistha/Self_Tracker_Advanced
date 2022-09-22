@@ -116,7 +116,9 @@ def register():
             return redirect(url_for("login"))
             # return jsonify("abc")
     else:
-        return redirect(url_for("register"))
+        # print("RegisterPage")
+        # return redirect(url_for("register"))
+        return jsonify("Register Page")
 
 
 @app.route("/login", methods=["POST", "GET"])
@@ -142,19 +144,23 @@ def login():
                 return redirect(url_for("login"))
     else:
         print("Receiving")
-        return redirect(url_for("login"))
+        # return redirect(url_for("login"))
+        return "Login Page"
 
 
 @app.route("/dashboard/<email>")
 # @auth_required
 def dashboard(email):
+    print("App Dashboard")
+
     user_data = User.query.filter_by(email=email).first()
     username = user_data.username
     trackers = user_data.trackers
-    print("Here")
-    return redirect(
-        url_for("dashboard", email=email, tracekrs=trackers, username=username)
-    )
+    print(user_data)
+    # return redirect(
+    #     url_for("dashboard", email=email, tracekrs=trackers, username=username)
+    # )
+    return jsonify(user_data.trackers)
 
 
 @app.route("/logout")
@@ -163,25 +169,22 @@ def logout():
     return redirect(url_for("login"))
 
 
-# @app.route("/dashboard/<email>/create_tracker", methods=["POST", "GET"])
-# def create_tracker(email):
-#     if request.method == "GET":
+@app.route("/dashboard/<email>/create_tracker", methods=["POST", "GET"])
+def create_tracker(email):
+    if request.method == "GET":
+        return jsonify("creating tracker")
+    if request.method == "POST":
+        data = request.get_json()
+        Name = data["name"]
+        Description = data["description"]
+        Tracker_type = data["type"]
 
-#         return redirect(url_for("trackers"))
-#     if request.method == "POST":
-
-#         Name = request.form.get("_name_")
-#         Description = request.form.get("_description_")
-#         Tracker_type = request.form.get("_type_")
-
-#         new_tracker = Tracker(
-#             name=Name, description=Description, tracker_type=Tracker_type
-#         )
-#         user = User.query.filter_by(username=username).first()
-#         user.trackers.append(new_tracker)
-#         db.session.add(new_tracker)
-#         db.session.commit()
-#         return redirect(f"/{username}/dashboard")
+        new_tracker = Tracker(name=Name, description=Description, type=Tracker_type)
+        user = User.query.filter_by(email=email).first()
+        user.trackers.append(new_tracker)
+        db.session.add(new_tracker)
+        db.session.commit()
+        return redirect(url_for("dashboard", email=email))
 
 
 api.add_resource(UserAPI, "/api/users/", "/api/users/<int:id>")

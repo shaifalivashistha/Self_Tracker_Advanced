@@ -42,7 +42,7 @@
         <strong> Let's Track it!!</strong> with
         <strong> The Self Tracker.</strong>
       </h4>
-      <router-link tag="button" :to="`/dashboard/${email}/create_tracker`">Add Tracker</router-link>
+      <router-link :to="`/dashboard/${email}/create_tracker`">Add Tracker</router-link>
       <table align="center">
         <thead>
           <tr>
@@ -90,6 +90,7 @@
 </template>
 
 <script>
+const baseURL = "http://127.0.0.1:5000"
 export default {
   name: "DashboardPage",
   data() {
@@ -102,23 +103,49 @@ export default {
     };
 
   },
-  created() {
+  async created() {
     this.auth_token = sessionStorage.getItem("authentication-token"),
       this.email = sessionStorage.getItem("email")
     console.log(this.email)
-    return fetch(`http://127.0.0.1:5000/dashboard/${this.email}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-        "Authentication-Token": `${this.auth_token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        this.decks = data;
+    console.log(this.auth_token)
+    try {
+
+      const res = await fetch(`${baseURL}/dashboard/${this.email}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Authentication-Token": `${this.auth_token}`,
+        },
       })
-      .catch((error) => console.log(error));
+      if (res) {
+        console.log(res)
+        if (res.ok) {
+          console.log("res.ok")
+          // console.log(res.json())
+          // const data = await res
+          const data = await res.json().catch(() => {
+            throw Error("Something Went Wrong")
+          })
+          if (data) {
+            console.log(data)
+            this.trackers = data
+            // console.log(this.trackers)
+          }
+        }
+      }
+      else {
+        throw Error(res.statusText)
+      }
+    }
+    catch (err) {
+      console.log("Error", err)
+    }
+
   },
+
+  methods: {
+
+  }
 }
 
 </script>

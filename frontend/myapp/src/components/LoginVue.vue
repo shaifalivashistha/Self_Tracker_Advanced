@@ -55,7 +55,7 @@ export default {
       password: "",
       error_mail: "",
       error_pwd: "",
-      auth: "",
+      auth_token: "",
       is_auth: false,
     };
   },
@@ -73,38 +73,42 @@ export default {
         },
         body: JSON.stringify(user_data)
       }
-
       try {
-        const res = await fetch(`${baseURL}/login?include_auth_token`, request_options)
-
-        if (res) {
+        const response = await fetch(`${baseURL}/login?include_auth_token`, request_options)
+        if (response) {
           console.log("In first IF block")
-          if (res.ok) {
-            const data = await res.json().catch(() => {
+          if (response.ok) {
+            console.log("In res.ok if block")
+            const data = await response.json().catch(() => {
               throw Error("Something Went Wrong")
             })
             if (data) {
-              if (res.errors) {
-                if (res.errors[1]) {
-                  this.error_email = res.errors[1];
+              console.log("in data if block")
+              console.log(data)
+              if (response.errors) {
+                console.log("in res.errors if block")
+                if (response.errors[1]) {
+                  this.error_email = response.errors[1];
                 }
-                this.error_password = res.errors[0];
+                this.error_password = response.errors[0];
 
                 console.log(this.error_email, this.error_password);
               }
               else {
-                this.auth = res.user.authentication_token;
+                console.log("in res.errors else block")
+                this.auth = data.response.user.authentication_token;
                 sessionStorage.setItem(
                   "authentication-token",
-                  res.user.authentication_token
+                  data.response.user.authentication_token
                 );
                 sessionStorage.setItem("email", this.email);
-                this.$router.push("dashboard");
+                this.$router.push(`/dashboard/${this.email}`);
                 console.log("its dashboard");
               }
             }
             else {
-              throw Error(res.statusText)
+              console.log("in data else block")
+              throw Error(response.statusText)
             }
           }
         }

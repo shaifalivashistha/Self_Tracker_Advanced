@@ -1,46 +1,50 @@
 <template>
-  <div class="login">
-    <!-- <h1><em>The Self Tracker</em></h1> -->
-    <b-navbar toggleable="md" type="dark" variant="info">
-      <b-navbar-brand href="/login">Login</b-navbar-brand>
-      <b-navbar-nav>
-        <b-nav-item href="/">Home</b-nav-item>
-        <b-nav-item href="/about">About</b-nav-item>
-        <b-nav-item href="/register">Register</b-nav-item>
-      </b-navbar-nav>
-    </b-navbar>
 
-    <body class="container">
-      <br />
-      <h3 class="form text-center mt-2 mb-4">Login</h3>
-      <div class="container">
-        <p class="alert alert-danger" role="alert" v-if="error_mail">
-          {{ error_mail }}
-        </p>
-        <p class="alert alert-danger" role="alert" v-if="error_pwd">
-          {{ error_pwd }}
-        </p>
-      </div>
-      <form @submit.prevent="formLogin">
-        <div class="form-group">
-          <label>Email address</label>
-          <input v-model="email" id="email" type="email" class="form-control form-control-lg" placeholder="email"
-            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" autocomplete="off" required />
+  <div class="login">
+
+    <body class="cls">
+      <!-- <h1><em>The Self Tracker</em></h1> -->
+      <b-navbar toggleable="md" type="dark" variant="info">
+        <b-navbar-brand href="/login">Login</b-navbar-brand>
+        <b-navbar-nav>
+          <b-nav-item href="/">Home</b-nav-item>
+          <b-nav-item href="/about">About</b-nav-item>
+          <b-nav-item href="/register">Register</b-nav-item>
+        </b-navbar-nav>
+      </b-navbar>
+
+      <body class="container">
+        <br />
+        <h3 class="form text-center mt-2 mb-4">Login</h3>
+        <div class="container">
+          <p class="alert alert-danger" role="alert" v-if="error_mail">
+            {{ error_mail }}
+          </p>
+          <p class="alert alert-danger" role="alert" v-if="error_pwd">
+            {{ error_pwd }}
+          </p>
         </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input v-model="password" id="password" type="password" class="form-control form-control-lg"
-            placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="off" required />
-        </div>
-        <button id="" class="btn btn-dark btn-lg btn-block">
-          Login
-        </button>
-        <p>
-          <router-link to="/forgot-password">Forgot password ?</router-link>
-        </p>
-        <p>New User <router-link to="/register">Sign Up?</router-link>
-        </p>
-      </form>
+        <form @submit.prevent="formLogin">
+          <div class="form-group">
+            <label>Email address</label>
+            <input v-model="email" id="email" type="email" class="form-control form-control-lg" placeholder="email"
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" autocomplete="off" required />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input v-model="password" id="password" type="password" class="form-control form-control-lg"
+              placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="off" required />
+          </div>
+          <button id="" class="btn btn-dark btn-lg btn-block">
+            Login
+          </button>
+          <p>
+            <router-link to="/forgot-password">Forgot password ?</router-link>
+          </p>
+          <p>New User <router-link to="/register">Sign Up?</router-link>
+          </p>
+        </form>
+      </body>
     </body>
   </div>
 </template>
@@ -74,6 +78,7 @@ export default {
         body: JSON.stringify(user_data)
       }
       try {
+
         const response = await fetch(`${baseURL}/login?include_auth_token`, request_options)
         if (response) {
           console.log("In first IF block")

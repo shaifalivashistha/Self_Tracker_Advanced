@@ -40,6 +40,11 @@ const routes = [
     path: "/dashboard/:email/create_tracker",
     name: "createTrackerView",
     component: createTrackerView
+  },
+  {
+    path: "/login",
+    name: "logout",
+    component: LoginView
   }
 ];
 

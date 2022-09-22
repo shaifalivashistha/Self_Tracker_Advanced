@@ -1,11 +1,10 @@
 <template>
   <div id="tracker">
     <b-navbar toggleable="md" type="dark" variant="info">
-      <b-navbar-brand href="/register">Trackers</b-navbar-brand>
+      <b-navbar-brand href="#">Add Trackers</b-navbar-brand>
       <b-navbar-nav>
         <b-nav-item href="/dashboard/">Dashboard</b-nav-item>
-        <b-nav-item href="/logout">Login</b-nav-item>
-        <b-nav-item href="/about">About</b-nav-item>
+        <b-nav-item @click="logout">Logout</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
 
@@ -19,18 +18,28 @@
         </div>
         <div class="form-group">
           <label>Tracker Description</label>
-          <input id="tracker_des" type="email" v-model="tracker_des" ref="tracker_des"
+          <input id="tracker_des" type="text" v-model="tracker_des" ref="tracker_des"
             class="form-control form-control-lg" placeholder="Description" required autocomplete="off" />
         </div>
         <div class="form-group">
           <label>Tracker Type</label>
           <div>
-            <b-dropdown id="tracker_type" text="Select Tracker Type" class="m-md-2">
+            <b-dropdown id="tracker_type" text="Select Tracker Type" block variant="success" class="m-2"
+              menu-class="w-100">
               <b-dropdown-item>Numeric Tracker</b-dropdown-item>
               <b-dropdown-item>Boolean Tracker</b-dropdown-item>
               <b-dropdown-item>Multiplechoice Tracker</b-dropdown-item>
             </b-dropdown>
+            <b-dropdown id="tracker_type" block name="tracker_type" v-model="tracker_type.TestSelectedOption"
+              text="Select Tracker Type" variant="success" class="m-md-2">
+              <b-dropdown-item block disabled value="0">Select an Item</b-dropdown-item>
+              <b-dropdown-item block v-for="types in tracker_type.types" :key="types.value" :value="types.value"
+                @click="tracker_type.TestSelectedOption = types.value">
+                {{types.text}}
+              </b-dropdown-item>
+            </b-dropdown>
           </div>
+
         </div>
         <button type="submit" class="btn btn-dark btn-lg btn-block">
           Add Tracker
@@ -50,8 +59,29 @@ export default {
       auth_token: "",
       tracker_name: "",
       tracker_des: "",
-      tracker_type: "",
-      auth
+      tracker_type: {
+        originalValue: [],
+        TestSelectedOption: "numeric",
+        disabled: false,
+        readonly: false,
+        visible: true,
+        color: "",
+        class: "m-md-2",
+        types: [
+          {
+            "value": "numeric",
+            "text": "Numeric Tracker"
+          },
+          {
+            "value": "boolean",
+            "text": "Boolean Tracker"
+          },
+          {
+            "value": "multiple choice",
+            "text": "MultipleChoice Tracker"
+          }
+        ]
+      }
 
     }
   },
@@ -68,6 +98,7 @@ export default {
       }
     }
     try {
+
       const res = await fetch(`${baseURL}/dashboard/${this.email}/create_tracker`, req_opt)
 
       if (res) {
@@ -95,7 +126,19 @@ export default {
         tracker_name: this.tracker_name,
         tracker_des: this.tracker_des,
         tracker_type: this.tracker_type
+
       }
+      console.log(this.email)
+      console.log(this.auth_token)
+      console.log(this.tracker_name)
+      console.log(this.tracker_des)
+      console.log(this.tracker_type)
+    },
+    async logout() {
+      console.log(this.auth_token)
+      console.log("in logout")
+      sessionStorage.removeItem("authentication-token")
+
     }
   }
 };

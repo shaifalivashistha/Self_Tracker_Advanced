@@ -73,6 +73,8 @@ def create_user():
             email="shaifali@abc.com",
             username="Shaifali",
             password=hash_password("1602RS"),
+            sec_ques="Your Fav food",
+            sec_ans="Rajma Chawal",
         )
     db.session.commit()
 
@@ -92,6 +94,8 @@ def register():
         uname = data["username"]
         email = data["email"]
         pwd = data["password"]
+        sec_Q = data["sec_que"]
+        sec_A = data["sec_ans"]
         print(uname, email, pwd)
 
         user_data = User.query.filter_by(email=email).first()
@@ -107,6 +111,8 @@ def register():
                 email=email,
                 username=uname,
                 password=hash_password(pwd),
+                sec_ques=sec_Q,
+                sec_ans=sec_A,
             )
             # new_user = User(username=uname, email=email, password=pwd)
             # new_user = User(username="uname", email=email, password=pwd)

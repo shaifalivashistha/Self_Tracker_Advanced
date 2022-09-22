@@ -30,7 +30,7 @@ body {
   margin: 0;
   padding: 0;
   // background-image: url("~@/assets/img1.jpeg");cd
-  background-color: plum;
+  background-color: rgb(56, 156, 223);
   background-size: auto;
 }
 </style>

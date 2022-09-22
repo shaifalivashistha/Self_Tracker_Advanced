@@ -46,8 +46,8 @@
                     <br />
                     <select id="sec_que" v-model="sec_que" name="sec_que">
                         <option value="">-- Select Question --</option>
-                        <option id="food">Your Favourite Food</option>
-                        <option id="hobby">Your Hobby</option>
+                        <option id="Your Favourite Food">Your Favourite Food</option>
+                        <option id="Your Hobby">Your Hobby</option>
                     </select>
                     <br />
                     <br />

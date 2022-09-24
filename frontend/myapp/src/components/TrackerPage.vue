@@ -12,32 +12,26 @@
       <form @submit.prevent="AddTrackerSubmit">
         <h3 class="form text-center mt-2 mb-4">Create Your Tracker here</h3>
         <div class="form-group">
-          <label>Tracker Name</label>
+          <h5>Tracker Name:</h5>
           <input id="tracker_name" type="text" v-model="tracker_name" ref="tracker_name"
             class="form-control form-control-lg" placeholder="Tracker Name" required autocomplete="off" />
         </div>
         <div class="form-group">
-          <label>Tracker Description</label>
+          <h5>Tracker Description:</h5>
           <input id="tracker_des" type="text" v-model="tracker_des" ref="tracker_des"
             class="form-control form-control-lg" placeholder="Description" required autocomplete="off" />
         </div>
         <div class="form-group">
-          <label>Tracker Type</label>
           <div>
-            <b-dropdown id="tracker_type" text="Select Tracker Type" block variant="success" class="m-2"
-              menu-class="w-100">
-              <b-dropdown-item>Numeric Tracker</b-dropdown-item>
-              <b-dropdown-item>Boolean Tracker</b-dropdown-item>
-              <b-dropdown-item>Multiplechoice Tracker</b-dropdown-item>
-            </b-dropdown>
-            <b-dropdown id="tracker_type" block name="tracker_type" v-model="tracker_type.TestSelectedOption"
-              text="Select Tracker Type" variant="success" class="m-md-2">
-              <b-dropdown-item block disabled value="0">Select an Item</b-dropdown-item>
-              <b-dropdown-item block v-for="types in tracker_type.types" :key="types.value" :value="types.value"
-                @click="tracker_type.TestSelectedOption = types.value">
-                {{types.text}}
-              </b-dropdown-item>
-            </b-dropdown>
+            <h5>Select Tracker Type:</h5>
+            <b-form-group>
+              <b-form-radio-group id="radio-group-2" v-model="tracker_type
+              " name="radio-options">
+                <b-form-radio value="numeric">Numeric Tracker</b-form-radio>
+                <b-form-radio value="boolean">Boolean Tracker</b-form-radio>
+                <b-form-radio value="multiple choice">Multiple Choice Tracker</b-form-radio>
+              </b-form-radio-group>
+            </b-form-group>
           </div>
 
         </div>
@@ -59,66 +53,15 @@ export default {
       auth_token: "",
       tracker_name: "",
       tracker_des: "",
-      tracker_type: {
-        originalValue: [],
-        TestSelectedOption: "numeric",
-        disabled: false,
-        readonly: false,
-        visible: true,
-        color: "",
-        class: "m-md-2",
-        types: [
-          {
-            "value": "numeric",
-            "text": "Numeric Tracker"
-          },
-          {
-            "value": "boolean",
-            "text": "Boolean Tracker"
-          },
-          {
-            "value": "multiple choice",
-            "text": "MultipleChoice Tracker"
-          }
-        ]
-      }
+      tracker_type: "",
 
     }
   },
   async created() {
     this.auth_token = sessionStorage.getItem("authentication-token"),
       this.email = sessionStorage.getItem("email")
-    console.log(this.email)
-    console.log(this.auth_token)
-    const req_opt = {
-      methods: "GET",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-        "Authentication-Token": `${this.auth_token}`,
-      }
-    }
-    try {
-
-      const res = await fetch(`${baseURL}/dashboard/${this.email}/create_tracker`, req_opt)
-
-      if (res) {
-        if (res.ok) {
-          console.log("res.ok")
-          const data = await res.json().catch(() => {
-            throw Error("Something Wnet Wrong")
-          })
-          if (data) {
-            console.log(data)
-          }
-        }
-      }
-      else {
-        throw Error(res.statusText)
-      }
-    }
-    catch (err) {
-      console.log("Error", err)
-    }
+    // console.log(this.email)
+    // console.log(this.auth_token)
   },
   methods: {
     async AddTrackerSubmit() {
@@ -126,18 +69,44 @@ export default {
         tracker_name: this.tracker_name,
         tracker_des: this.tracker_des,
         tracker_type: this.tracker_type
-
       }
-      console.log(this.email)
-      console.log(this.auth_token)
-      console.log(this.tracker_name)
-      console.log(this.tracker_des)
-      console.log(this.tracker_type)
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Authentication-Token": `${this.auth_token}`,
+        },
+        body: JSON.stringify(tracker_data)
+      }
+      try {
+        const res = await fetch(`${baseURL}/dashboard/${this.email}/create_tracker`, requestOptions)
+
+        if (res) {
+          console.log("post response fetch", res)
+          if (res.ok) {
+
+            const data = await res.json()
+            if (data) {
+              console.log("post fetch data ->", data)
+              this.$router.push(`/dashboard/${this.email}`)
+              return data
+            }
+            else {
+              throw Error(res.statusText)
+            }
+          }
+        }
+      }
+      catch (err) {
+        console.log("Tracker Request failed", err)
+      }
     },
     async logout() {
+
       console.log(this.auth_token)
       console.log("in logout")
       sessionStorage.removeItem("authentication-token")
+      this.$router.push({ path: "/login", replace: true })
 
     }
   }

@@ -1,4 +1,3 @@
-import os
 from flask import (
     Flask,
     render_template,
@@ -72,7 +71,7 @@ def create_user():
         user_datastore.create_user(
             email="shaifali@abc.com",
             username="Shaifali",
-            password=hash_password("1602RS"),
+            password=hash_password("1602RSsv"),
             sec_ques="Your Fav food",
             sec_ans="Rajma Chawal",
         )
@@ -106,7 +105,6 @@ def register():
             return redirect(url_for("register"))
 
         else:
-            print("no existing user data")
             user_datastore.create_user(
                 email=email,
                 username=uname,
@@ -166,7 +164,7 @@ def dashboard(email):
     # return redirect(
     #     url_for("dashboard", email=email, tracekrs=trackers, username=username)
     # )
-    return jsonify(user_data.trackers)
+    return jsonify(username)
 
 
 @app.route("/logout")
@@ -177,20 +175,23 @@ def logout():
 
 @app.route("/dashboard/<email>/create_tracker", methods=["POST", "GET"])
 def create_tracker(email):
-    if request.method == "GET":
-        return jsonify("creating tracker")
     if request.method == "POST":
         data = request.get_json()
-        Name = data["name"]
-        Description = data["description"]
-        Tracker_type = data["type"]
+        print("DATA :", data)
+        Name = data["tracker_name"]
+        Description = data["tracker_des"]
+        Tracker_type = data["tracker_type"]
 
         new_tracker = Tracker(name=Name, description=Description, type=Tracker_type)
+        print()
         user = User.query.filter_by(email=email).first()
         user.trackers.append(new_tracker)
         db.session.add(new_tracker)
         db.session.commit()
+        print("Tracker Added Successfully")
         return redirect(url_for("dashboard", email=email))
+    else:
+        return jsonify(email)
 
 
 api.add_resource(UserAPI, "/api/users/", "/api/users/<int:id>")

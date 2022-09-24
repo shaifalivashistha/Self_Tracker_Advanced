@@ -47,21 +47,24 @@ class UserAPI(Resource):
             username=user_data.username,
             email=user_data.email,
             password=user_data.password,
+            sec_ques=user_data.sec_que,
+            sec_ans=user_data.sec_ans,
         )
         db.session.add(user)
 
         db.session.commit()
         return user
 
-    @marshal_with(user_field)
     def put(self, id=None):
         if id:
             user_data = User.query.get(id)
             new_user_data = user_data_req.parse_args()
             new_user = User(
+                email=new_user_data.email,
                 username=new_user_data.username,
-                name=new_user_data.name,
                 password=new_user_data.password,
+                sec_ques=new_user_data.sec_que,
+                sec_ans=new_user_data.sec_ans,
             )
             if user_data:
                 try:
@@ -111,8 +114,8 @@ tracker_field = {
 
 class TrackerAPI(Resource):
     @marshal_with(tracker_field)
-    def get(self, tracker_id=None):
-        tracker_data = Tracker.query.get(tracker_id)
+    def get(self, id=None):
+        tracker_data = Tracker.query.get(id)
         if tracker_data:
             return tracker_data
         else:
@@ -122,9 +125,9 @@ class TrackerAPI(Resource):
     def post(self):
         tracker_data = tracker_data_req.parse_args()
         tracker = Tracker(
-            tracker_name=tracker_data.tracker_name,
+            tracker_name=tracker_data.name,
             description=tracker_data.description,
-            tracker_type=tracker_data.tracker_type,
+            tracker_type=tracker_data.type,
         )
         db.session.add(tracker)
         db.session.commit()
@@ -136,9 +139,9 @@ class TrackerAPI(Resource):
             tracker_data = Tracker.query.get(tracker_id)
             new_tracker_data = tracker_data_req.parse_args()
             new_tracker = Tracker(
-                tracker_name=new_tracker_data.tracker_name,
+                tracker_name=new_tracker_data.name,
                 description=new_tracker_data.description,
-                tracker_type=new_tracker_data.tracker_type,
+                tracker_type=new_tracker_data.type,
             )
             if tracker_data:
                 try:

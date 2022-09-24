@@ -61,7 +61,7 @@
             <td>
               {{ tracker.type }}
             </td>
-            <td>{{ tracker.date_created.date() }}</td>
+            <td>{{ tracker.date_created }}</td>
             <td v-if="tracker.type === 'numeric'">
 
               <router-link tag="button" :to="`/${email}/${tracker.id}/logs`">
@@ -108,33 +108,41 @@ export default {
       this.email = sessionStorage.getItem("email")
     console.log(this.email)
     console.log(this.auth_token)
-    try {
 
-      const res = await fetch(`${baseURL}/dashboard/${this.email}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-          "Authentication-Token": `${this.auth_token}`,
-        },
-      })
-      if (res) {
-        console.log(res)
-        if (res.ok) {
-          console.log("res.ok")
-          // console.log(res.json())
-          // const data = await res
-          const data = await res.json().catch(() => {
-            throw Error("Something Went Wrong")
-          })
-          if (data) {
-            console.log(data)
-            this.trackers = data
-            // console.log(this.trackers)
+    const req_opt = {
+      methods: "GET",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Authentication-Token": `${this.auth_token}`,
+      }
+    }
+    try {
+      const res = await fetch(`${baseURL}/dashboard/${this.email}`, req_opt)
+      if (this.auth_token) {
+
+        if (res) {
+          console.log(res)
+          if (res.ok) {
+            console.log("res.ok")
+            // console.log(res.json())
+            // const data = await res
+            const data = await res.json().catch(() => {
+              throw Error("Something Went Wrong")
+            })
+            if (data) {
+              console.log(data)
+              this.trackers = data
+              // console.log(this.trackers)
+            }
           }
+        }
+        else {
+          throw Error(res.statusText)
         }
       }
       else {
-        throw Error(res.statusText)
+        this.$router.push('login')
+        throw Error("Authentication Failed!! Login Again.")
       }
     }
     catch (err) {
@@ -144,7 +152,18 @@ export default {
   },
 
   methods: {
-
+    async deleteTracker() {
+      console.log("Tracker Deleted Successfully")
+      return ""
+    },
+    async updateTracker() {
+      console.log("Tracker Updated Successfully")
+      return ""
+    },
+    async addTrackerLogs() {
+      console.log("Logs Added to Tracker Successfully")
+      return ""
+    }
   }
 }
 
@@ -166,5 +185,22 @@ li {
 
 a {
   color: #42b983;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 </style>

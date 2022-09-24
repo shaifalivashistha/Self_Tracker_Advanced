@@ -23,6 +23,9 @@
           <p class="alert alert-danger" role="alert" v-if="error_pwd">
             {{ error_pwd }}
           </p>
+          <p class="alert alert-danger" role="alert" v-if="errors">
+            {{ errors }}
+          </p>
         </div>
         <form @submit.prevent="formLogin">
           <div class="form-group">
@@ -61,6 +64,7 @@ export default {
       error_pwd: "",
       auth_token: "",
       is_auth: false,
+      errors: ""
     };
   },
   methods: {
@@ -81,6 +85,7 @@ export default {
 
         const response = await fetch(`${baseURL}/login?include_auth_token`, request_options)
         if (response) {
+          console.log(response)
           console.log("In first IF block")
           if (response.ok) {
             console.log("In res.ok if block")
@@ -115,6 +120,8 @@ export default {
               console.log("in data else block")
               throw Error(response.statusText)
             }
+          } else {
+            this.errors = "Invalid User Data"
           }
         }
       }

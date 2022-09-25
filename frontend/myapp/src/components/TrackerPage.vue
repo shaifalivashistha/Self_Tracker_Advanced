@@ -70,6 +70,7 @@ export default {
         tracker_des: this.tracker_des,
         tracker_type: this.tracker_type
       }
+
       const requestOptions = {
         method: "POST",
         headers: {
@@ -82,10 +83,12 @@ export default {
         const res = await fetch(`${baseURL}/dashboard/${this.email}/create_tracker`, requestOptions)
 
         if (res) {
-          console.log("post response fetch", res)
+          console.log(res)
           if (res.ok) {
 
-            const data = await res.json()
+            const data = await res.json().catch(() => {
+              throw Error("Something Went Wrong")
+            })
             if (data) {
               console.log("post fetch data ->", data)
               this.$router.push(`/dashboard/${this.email}`)

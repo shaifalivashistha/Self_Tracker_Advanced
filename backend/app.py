@@ -20,7 +20,7 @@ from flask_security import (
     current_user,
     hash_password,
 )
-
+from matplotlib.figure import Figure
 import logging
 
 
@@ -161,10 +161,29 @@ def dashboard(email):
     username = user_data.username
     trackers = user_data.trackers
     print(user_data)
+    print(trackers)
     # return redirect(
     #     url_for("dashboard", email=email, tracekrs=trackers, username=username)
     # )
-    return jsonify(username)
+    tr_list = []
+    for tracker in trackers:
+        tr_list.append(tracker)
+
+    trck_dict = {}
+    count = 0
+    for i in tr_list:
+        count += 1
+        Dtrack = {
+            "id": i.id,
+            "name": i.name,
+            "description": i.description,
+            "type": i.type,
+            "date_created": i.date_created,
+        }
+        trck_dict[count] = Dtrack
+    print(trck_dict)
+
+    return jsonify(trck_dict)
 
 
 @app.route("/logout")
@@ -194,6 +213,125 @@ def create_tracker(email):
         return jsonify(email)
 
 
+@app.route("/<email>/update/<int:id>", methods=["GET", "POST"])
+def update(email, id=None):
+    trackers = Tracker.query.filter_by(id=id).first()
+    if request.method == "POST":
+        if trackers:
+            Tracker_type = trackers.tracker_type
+            db.session.delete(trackers)
+            db.session.commit()
+            Name = request.form.get("_name_")
+            Description = request.form.get("_description_")
+
+            new_tracker = Tracker(
+                name=Name, description=Description, tracker_type=Tracker_type
+            )
+            user = User.query.filter_by(email=email).first()
+            user.trackers.append(new_tracker)
+            db.session.add(new_tracker)
+            db.session.commit()
+            flash("User Added Successfully!")
+            return redirect(f"/{email}/dashboard")
+    return render_template("update.html", trackers=trackers, email=email)
+
+
+@app.route("/<string:username>/<int:id>/logs", methods=["GET", "POST"])
+def log(username, id):
+    str = ""
+    parent_tracker = Tracker.query.filter_by(id=id).first()
+    if request.method == "GET":
+        all_logs = parent_tracker.logs
+        if parent_tracker.tracker_type == "Numeric":
+            data = {x.timestamp: x.value for x in all_logs}
+            fig = Figure()
+            axis = fig.add_subplot(1, 1, 1)
+            axis.plot(data.keys(), data.values())
+            axis.set(xlabel="Time Stamp", ylabel="Value")
+            fig.savefig("static/graph.png")
+            return render_template(
+                "numerical.html",
+                tracks=all_logs,
+                str=str,
+                src="static/graph.png",
+                parent_tracker=parent_tracker,
+                username=username,
+            )
+        if parent_tracker.tracker_type == "Boolean":
+            return render_template(
+                "boolean.html",
+                tracks=all_logs,
+                str=str,
+                parent_tracker=parent_tracker,
+                username=username,
+            )
+
+    elif request.method == "POST":
+        Timestamp = Logs.query.get("timestamp")
+        my_log = parent_tracker.tracker_type
+        my_value = request.form.get("_value_")
+        my_note = request.form.get("_note_")
+
+        new_log = Logs(log=my_log, value=my_value, note=my_note, timestamp=Timestamp)
+        parent_tracker.logs.append(new_log)
+        db.session.add(new_log)
+        db.session.commit()
+        str = "Log Added Successfully"
+
+        return redirect(f"/{username}/{id}/logs")
+
+
+@app.route("/<string:username>/<int:id>/delete", methods=["GET", "POST"])
+def delete(id, username):
+    new_tracker = Tracker.query.get_or_404(id)
+
+    try:
+        db.session.delete(new_tracker)
+        db.session.commit()
+        return redirect(f"/{username}/dashboard")
+    except:
+
+        return "There was a problem deleting that task."
+
+
+@app.route("/<string:username>/<int:tracker_id>/<int:log_id>/delete", methods=["GET"])
+def delete_log(username, tracker_id, log_id):
+    log_needed = Logs.query.get_or_404(log_id)
+
+    try:
+        db.session.delete(log_needed)
+        db.session.commit()
+        return redirect(f"/{username}/{tracker_id}/logs")
+    except:
+
+        return "There was a problem deleting that task."
+
+
+@app.route(
+    "/<string:username>/<int:tracker_id>/<int:log_id>/update", methods=["GET", "POST"]
+)
+def update_log(username, tracker_id, log_id):
+    log_needed = Logs.query.filter_by(id=log_id).first()
+    if request.method == "POST":
+        if log_needed:
+            Tracker_type = log_needed.log
+            db.session.delete(log_needed)
+            db.session.commit()
+            val = request.form.get("_value_")
+            note = request.form.get("_note_")
+
+            new_log = Logs(log=Tracker_type, value=val, note=note)
+            parent_tracker = Tracker.query.filter_by(id=tracker_id).first()
+            parent_tracker.logs.append(new_log)
+            db.session.add(new_log)
+            db.session.commit()
+            flash("Log updated Successfully!")
+            return redirect(f"/{username}/{tracker_id}/logs")
+    return render_template(
+        "update_log.html", log=log_needed, tracker_id=tracker_id, username=username
+    )
+
+
 api.add_resource(UserAPI, "/api/users/", "/api/users/<int:id>")
 api.add_resource(
     TrackerAPI, "/api/trackers/", "/api/trackers/<int:tracker_id>/"
@@ -204,69 +342,3 @@ api.add_resource(
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-# import os
-# from flask import Flask
-# from flask_restful import Resource, Api
-# from application.config import LocalDevelopmentConfig
-# from application.database import db
-# from sqlalchemy.orm import scoped_session, sessionmaker
-# from flask_security import (
-#     Security,
-#     SQLAlchemySessionUserDatastore,
-#     SQLAlchemyUserDatastore,
-# )
-# from application.models import User, Role
-# from flask_login import LoginManager
-# from flask_cors import CORS
-# from flask_security import utils
-
-# from application.api import *
-
-
-# import logging
-
-
-# app = None
-# api = None
-
-
-# def create_app():
-#     app = Flask(__name__, template_folder="templates")
-#     CORS(app)
-
-#     if os.getenv("ENV", "development") == "production":
-#         app.logger.info("Currently no production config is setup.")
-#         raise Exception("Currently no production config is setup.")
-#     else:
-#         app.logger.info("Staring Local Development.")
-#         print("Staring Local Development")
-#         app.config.from_object(LocalDevelopmentConfig)
-#     db.init_app(app)
-#     app.app_context().push()
-#     app.logger.info("App setup complete")
-#     # Setup Flask-Security
-#     user_datastore = SQLAlchemySessionUserDatastore(db.session, User, Role)
-#     security = Security(app, user_datastore)
-#     # user_datastore.create_user(username="thejeshgn",email='i@thejeshgn.com', password=utils.hash_password('password'), active=1)
-#     # db.session.commit()
-#     api = Api(app)
-#     app.app_context().push()
-#     return app, api
-
-
-# app, api = create_app()
-
-# api.add_resource(UserAPI, "/api/users/", "/api/users/<int:id>")
-# api.add_resource(TrackerAPI, "/api/trackers/", "/api/trackers/<int:id>/")
-# #     "/api/users/<int:id>/trackers/",
-# #     "/api/users/<int:id>/trackers/<int:id>",
-# # )
-# api.add_resource(LogAPI, "/api/logs/", "/api/logs/<int:id>")
-# #     "/api/users/<int:id>/trackers/<int:id>/logs/",
-# #     "/api/users/<int:id>/trackers/<int:id>/logs/<int:id>",
-# # )
-
-# if __name__ == "__main__":
-#     app.run(debug=True)

@@ -6,7 +6,9 @@ import AboutView from "../views/AboutView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import dashboardView from "../views/dashboardView.vue";
 import createTrackerView from "../views/createTrackerView.vue"
-
+import updateTrackerView from "../views/updateTrackerView.vue"
+import addLogView from "../views/addLogView.vue"
+import updateLogView from "../views/updateLogView"
 
 Vue.use(VueRouter);
 
@@ -20,6 +22,11 @@ const routes = [
     path: "/about",
     name: "about",
     component: AboutView,
+  },
+  {
+    path: "/login",
+    name: "logout",
+    component: LoginView
   },
   {
     path: "/login",
@@ -42,10 +49,22 @@ const routes = [
     component: createTrackerView
   },
   {
-    path: "/login",
-    name: "logout",
-    component: LoginView
+    path: "",
+    name: "updateTrackerView",
+    component: updateTrackerView
+  },
+  {
+    path: "",
+    name: "addLogView",
+    component: addLogView
+  },
+  {
+    path: "",
+    name: "updateLogView",
+    component: updateLogView
   }
+
+
 ];
 
 const router = new VueRouter({

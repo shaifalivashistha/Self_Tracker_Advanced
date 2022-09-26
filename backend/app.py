@@ -129,6 +129,7 @@ def register():
 def login():
     if request.method == "POST":
         data = request.get_json()
+        session["id"] = data["id"]
         session["email"] = data["email"]
         session["pwd"] = data["password"]
 
@@ -215,29 +216,30 @@ def create_tracker(email):
 
 @app.route("/<email>/update/<int:id>", methods=["GET", "POST"])
 def update(email, id=None):
+
     trackers = Tracker.query.filter_by(id=id).first()
     if request.method == "POST":
         if trackers:
             Tracker_type = trackers.tracker_type
             db.session.delete(trackers)
             db.session.commit()
-            Name = request.form.get("_name_")
-            Description = request.form.get("_description_")
+            data = request.json()
+            name = data["tracker_name"]
+            description = data["tracker_des"]
 
-            new_tracker = Tracker(
-                name=Name, description=Description, tracker_type=Tracker_type
-            )
+            new_tracker = Tracker(name=name, description=description, type=Tracker_type)
             user = User.query.filter_by(email=email).first()
             user.trackers.append(new_tracker)
             db.session.add(new_tracker)
             db.session.commit()
             flash("User Added Successfully!")
-            return redirect(f"/{email}/dashboard")
+            return redirect(f"/dashboard/{email}")
     return render_template("update.html", trackers=trackers, email=email)
 
 
-@app.route("/<string:username>/<int:id>/logs", methods=["GET", "POST"])
-def log(username, id):
+@app.route("/<string:email>/<int:id>/logs", methods=["GET", "POST"])
+def log(email, id):
+    print(data)
     str = ""
     parent_tracker = Tracker.query.filter_by(id=id).first()
     if request.method == "GET":
@@ -255,7 +257,7 @@ def log(username, id):
                 str=str,
                 src="static/graph.png",
                 parent_tracker=parent_tracker,
-                username=username,
+                email=email,
             )
         if parent_tracker.tracker_type == "Boolean":
             return render_template(
@@ -263,38 +265,42 @@ def log(username, id):
                 tracks=all_logs,
                 str=str,
                 parent_tracker=parent_tracker,
-                username=username,
+                email=email,
             )
 
     elif request.method == "POST":
         Timestamp = Logs.query.get("timestamp")
-        my_log = parent_tracker.tracker_type
-        my_value = request.form.get("_value_")
-        my_note = request.form.get("_note_")
+        data = request.json()
+        name = data["name"]
+        value = data["value"]
+        note = data["note"]
+        timestamp = data["note"]
 
-        new_log = Logs(log=my_log, value=my_value, note=my_note, timestamp=Timestamp)
+        new_log = Logs(log=name, value=value, note=note, timestamp=timestamp)
         parent_tracker.logs.append(new_log)
         db.session.add(new_log)
         db.session.commit()
         str = "Log Added Successfully"
 
-        return redirect(f"/{username}/{id}/logs")
+        return redirect(f"/{email}/{id}/logs")
 
 
-@app.route("/<string:username>/<int:id>/delete", methods=["GET", "POST"])
-def delete(id, username):
+@app.route("/<email>/<int:id>/delete", methods=["GET", "POST"])
+def delete(id, email):
+    print("in app delete request")
     new_tracker = Tracker.query.get_or_404(id)
+    print(new_tracker)
 
     try:
         db.session.delete(new_tracker)
         db.session.commit()
-        return redirect(f"/{username}/dashboard")
+        return redirect(url_for("dashboard"), email=email)
     except:
 
         return "There was a problem deleting that task."
 
 
-@app.route("/<string:username>/<int:tracker_id>/<int:log_id>/delete", methods=["GET"])
+@app.route("/<string:email>/<int:tid>/<int:id>/delete", methods=["GET"])
 def delete_log(username, tracker_id, log_id):
     log_needed = Logs.query.get_or_404(log_id)
 
@@ -307,9 +313,7 @@ def delete_log(username, tracker_id, log_id):
         return "There was a problem deleting that task."
 
 
-@app.route(
-    "/<string:username>/<int:tracker_id>/<int:log_id>/update", methods=["GET", "POST"]
-)
+@app.route("/<string:email>/<int:id>/<int:log_id>/update", methods=["GET", "POST"])
 def update_log(username, tracker_id, log_id):
     log_needed = Logs.query.filter_by(id=log_id).first()
     if request.method == "POST":

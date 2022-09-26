@@ -60,20 +60,23 @@
             </td>
             <td>{{ tracker.date_created }}</td>
             <td v-if="tracker.type === 'numeric'">
-              <router-link tag="button" :to="`/${email}/${tracker.id}/logs`">
+              <router-link class="btn btn-info" tag="button" :to="`/${email}/${tracker.id}/logs`">
                 Add Logs</router-link>
             </td>
             <td v-else-if="tracker.type === 'boolean'">
-              <router-link tag="button" :to="`/${email}/${tracker.id}/logs`">Add Logs</router-link>
+              <router-link class="btn btn-info" tag="button" :to="`/${email}/${tracker.id}/logs`">Add Logs</router-link>
             </td>
             <td v-else="tracker.type === 'multiple choice'">
-              <router-link tag="button" :to="`/${email}/${tracker.id}/logs`">Add Logs</router-link>
+              <router-link class="btn btn-info" tag="button" :to="`/${email}/${tracker.id}/logs`">Add Logs</router-link>
             </td>
             <td>
-              <router-link tag="button" :to="`/${email}/delete/${tracker.id}/delete`">Delete</router-link>
+              <!-- <router-link class="btn btn-danger" tag="button" :to="`/${email}/${tracker.id}/delete`">Delete -->
+              <!-- </router-link> -->
+              <button type="button" class="btn btn-danger" @click="deleteTracker(tracker.id)">Delete</button>
             </td>
             <td>
-              <router-link tag="button" :to="`/${email}/update/${tracker.id}/update`">Update</router-link>
+              <router-link class="btn btn-success" tag="button" :to="`/tracker/update`">Update</router-link>
+              <!-- <button type="button" class="btn btn-success">Update</button> -->
             </td>
           </tr>
         </tbody>
@@ -141,15 +144,55 @@ export default {
       }
     }
     catch (err) {
-      console.log("Error", err)
+      console.log("Error in create", err)
     }
 
   },
 
   methods: {
-    async deleteTracker() {
-      console.log("Tracker Deleted Successfully")
-      return ""
+    async deleteTracker(id) {
+      const del_req_opt = {
+        methods: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Authentication-Token": `${this.auth_token}`,
+        }
+      }
+      try {
+        const res = await fetch(`${baseURL}/${this.email}/${id}/delete`, del_req_opt)
+        if (this.auth_token) {
+
+          if (res) {
+            // console.log(res)
+            if (res.ok) {
+              console.log("Tracker Deleted Successfully")
+              this.$router.go("dashboard", this.email)
+              // console.log("res.ok")
+              // // console.log(res.json())
+              // // const data = await res
+              // const data = await res.json().catch(() => {
+              //   throw Error("Something Went Wrong")
+              // })
+              // if (data) {
+              //   console.log("data block")
+              //   // console.log(data)
+              //   this.trck_result = data
+              //   console.log(data)
+              // }
+            }
+          }
+          else {
+            throw Error(res.statusText)
+          }
+        }
+        else {
+          this.$router.push('login')
+          throw Error("Authentication Failed!! Login Again.")
+        }
+      }
+      catch (err) {
+        console.log("Error in delete", err)
+      }
     },
     async updateTracker() {
       console.log("Tracker Updated Successfully")
@@ -188,10 +231,13 @@ table {
   width: 100%;
 }
 
-td,
+td {
+  text-align: center;
+}
+
 th {
   border: 1px solid #dddddd;
-  text-align: left;
+  text-align: center;
   padding: 8px;
 }
 

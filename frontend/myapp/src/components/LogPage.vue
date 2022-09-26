@@ -71,7 +71,7 @@ export default {
                 body: JSON.stringify(tracker_data)
             }
             try {
-                const res = await fetch(`${baseURL}/dashboard/${this.email}/create_tracker`, requestOptions)
+                const res = await fetch(`${baseURL}/${this.email}/${this.id}/logs`, requestOptions)
 
                 if (res) {
                     console.log("post response fetch", res)
@@ -100,7 +100,7 @@ export default {
             console.log(this.auth_token)
             console.log("in logout")
             sessionStorage.removeItem("authentication-token")
-            this.$router.push({ path: "/login", replace: true })
+            this.$router.push("login")
 
         }
     }

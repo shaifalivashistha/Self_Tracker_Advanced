@@ -91,7 +91,7 @@ export default {
             })
             if (data) {
               console.log("post fetch data ->", data)
-              this.$router.push(`/dashboard/${this.email}`)
+              this.$router.push(`/dashboard`)
               return data
             }
             else {

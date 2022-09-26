@@ -9,8 +9,8 @@
         </b-navbar>
 
         <body class="container">
-            <form @submit.prevent="AddTrackerSubmit">
-                <h3 class="form text-center mt-2 mb-4">Create Your Tracker here</h3>
+            <form @submit.prevent="UpdateTrackerSubmit">
+                <h3 class="form text-center mt-2 mb-4">x---Update Your Tracker---x</h3>
                 <div class="form-group">
                     <h5>Tracker Name:</h5>
                     <input id="tracker_name" type="text" v-model="tracker_name" ref="tracker_name"
@@ -21,22 +21,8 @@
                     <input id="tracker_des" type="text" v-model="tracker_des" ref="tracker_des"
                         class="form-control form-control-lg" placeholder="Description" required autocomplete="off" />
                 </div>
-                <div class="form-group">
-                    <div>
-                        <h5>Select Tracker Type:</h5>
-                        <b-form-group>
-                            <b-form-radio-group id="radio-group-2" v-model="tracker_type
-                            " name="radio-options">
-                                <b-form-radio value="numeric">Numeric Tracker</b-form-radio>
-                                <b-form-radio value="boolean">Boolean Tracker</b-form-radio>
-                                <b-form-radio value="multiple choice">Multiple Choice Tracker</b-form-radio>
-                            </b-form-radio-group>
-                        </b-form-group>
-                    </div>
-
-                </div>
                 <button type="submit" class="btn btn-dark btn-lg btn-block">
-                    Add Tracker
+                    Update Tracker
                 </button>
             </form>
         </body>
@@ -51,24 +37,54 @@ export default {
         return {
             email: "",
             auth_token: "",
+            tracker_details: {},
             tracker_name: "",
             tracker_des: "",
-            tracker_type: "",
+            tracker_type: ""
 
         }
     },
     async created() {
         this.auth_token = sessionStorage.getItem("authentication-token"),
             this.email = sessionStorage.getItem("email")
+        const get_req = {
+            methods: "GET",
+            headers: {
+                "Content-Type": "application/json;charset=utf-8",
+                "Authentication-Token": `${this.auth_token}`
+            }
+        }
+        try {
+            const get_response = await fetch(`${baseURL}/dashboard/${this.email}`, get_req)
+
+            if (this.auth_token) {
+                if (get_response) {
+                    if (get_response.ok) {
+                        const getResData = await get_response.json().catch(() => {
+                            throw Error("Something Went Wrong")
+                        })
+                        if (getResData) {
+                            console.log(getResData)
+                            this.tracker_details = getResData
+                            tracker_name = this.tracker_details.name,
+                                tracker_des = this.tracker_details.description,
+                                tracker_type = this.tracker_details.tracker_type
+                        }
+                    }
+                }
+            }
+        }
+        catch (err) {
+            console.log("Get response Error : ", err)
+        }
         // console.log(this.email)
         // console.log(this.auth_token)
     },
     methods: {
-        async AddTrackerSubmit() {
+        async UpdateTrackerSubmit() {
             const tracker_data = {
-                tracker_name: this.tracker_name,
+                tracker_name: tracker.tracker_name,
                 tracker_des: this.tracker_des,
-                tracker_type: this.tracker_type
             }
             const requestOptions = {
                 method: "POST",
@@ -79,7 +95,7 @@ export default {
                 body: JSON.stringify(tracker_data)
             }
             try {
-                const res = await fetch(`${baseURL}/dashboard/${this.email}/create_tracker`, requestOptions)
+                const res = await fetch(`${baseURL}/${this.email}/update/${this.tracker_details.id}`, requestOptions)
 
                 if (res) {
                     console.log("post response fetch", res)
@@ -100,7 +116,7 @@ export default {
                 }
             }
             catch (err) {
-                console.log("Tracker Request failed", err)
+                console.log("Tracker Update failed", err)
             }
         },
         async logout() {
@@ -108,7 +124,7 @@ export default {
             console.log(this.auth_token)
             console.log("in logout")
             sessionStorage.removeItem("authentication-token")
-            this.$router.push({ path: "/login", replace: true })
+            this.$router.replace("login")
 
         }
     }

@@ -25,11 +25,6 @@ const routes = [
   },
   {
     path: "/login",
-    name: "logout",
-    component: LoginView
-  },
-  {
-    path: "/login",
     name: "login",
     component: LoginView,
   },
@@ -39,7 +34,7 @@ const routes = [
     component: RegisterView,
   },
   {
-    path: "/dashboard/:email",
+    path: "/dashboard",
     name: "dashboard",
     component: dashboardView,
   },
@@ -49,7 +44,7 @@ const routes = [
     component: createTrackerView
   },
   {
-    path: "",
+    path: "/tracker/update",
     name: "updateTrackerView",
     component: updateTrackerView
   },
@@ -62,7 +57,7 @@ const routes = [
     path: "",
     name: "updateLogView",
     component: updateLogView
-  }
+  },
 
 
 ];

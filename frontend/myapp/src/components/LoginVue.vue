@@ -58,6 +58,7 @@ export default {
   name: "LoginVue",
   data() {
     return {
+      id: "",
       email: "",
       password: "",
       error_mail: "",
@@ -112,7 +113,7 @@ export default {
                   data.response.user.authentication_token
                 );
                 sessionStorage.setItem("email", this.email);
-                this.$router.push(`/dashboard/${this.email}`);
+                this.$router.push(`/dashboard`);
                 console.log("its dashboard");
               }
             }

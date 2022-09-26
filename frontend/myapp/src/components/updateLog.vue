@@ -3,42 +3,56 @@
         <b-navbar toggleable="md" type="dark" variant="info">
             <b-navbar-brand href="#">Add Trackers</b-navbar-brand>
             <b-navbar-nav>
-                <b-nav-item href="/dashboard/">Dashboard</b-nav-item>
-                <b-nav-item @click="logout">Logout</b-nav-item>
+                <b-nav-item href="/dashboard">Dashboard</b-nav-item>
+                <b-nav-item @click="logout()">Logout</b-nav-item>
             </b-navbar-nav>
         </b-navbar>
 
         <body class="container">
-            <form @submit.prevent="AddTrackerSubmit">
-                <h3 class="form text-center mt-2 mb-4">Create Your Tracker here</h3>
-                <div class="form-group">
-                    <h5>Tracker Name:</h5>
-                    <input id="tracker_name" type="text" v-model="tracker_name" ref="tracker_name"
-                        class="form-control form-control-lg" placeholder="Tracker Name" required autocomplete="off" />
-                </div>
-                <div class="form-group">
-                    <h5>Tracker Description:</h5>
-                    <input id="tracker_des" type="text" v-model="tracker_des" ref="tracker_des"
-                        class="form-control form-control-lg" placeholder="Description" required autocomplete="off" />
-                </div>
-                <div class="form-group">
-                    <div>
-                        <h5>Select Tracker Type:</h5>
-                        <b-form-group>
-                            <b-form-radio-group id="radio-group-2" v-model="tracker_type
-                            " name="radio-options">
-                                <b-form-radio value="numeric">Numeric Tracker</b-form-radio>
-                                <b-form-radio value="boolean">Boolean Tracker</b-form-radio>
-                                <b-form-radio value="multiple choice">Multiple Choice Tracker</b-form-radio>
-                            </b-form-radio-group>
-                        </b-form-group>
+            <div>
+                <form @submit.prevent="UpdateNumericLog()">
+                    <h3 class="form text-center mt-2 mb-4">Create Your Tracker here</h3>
+                    <div class="form-group">
+                        <h5>Log Value</h5>
+                        <input id="log_value" type="number" v-model="log_value" ref="log_value"
+                            class="form-control form-control-lg" placeholder="Log Value" required autocomplete="off" />
                     </div>
+                    <div class="form-group">
+                        <h5>Log Note:</h5>
+                        <input id="log_note" type="text" v-model="log_note" ref="log_note"
+                            class="form-control form-control-lg" placeholder="log note" required autocomplete="off" />
+                    </div>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">
+                        Update Log
+                    </button>
+                </form>
+            </div>
+            <div>
+                <form @submit.prevent="UpdateBooleanLog()">
+                    <h3 class="form text-center mt-2 mb-4">Update your logs</h3>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <div>
+                                <h5>Log Value:</h5>
+                                <b-form-group>
+                                    <b-form-radio-group id="log_value" v-model="log_value
+                                    " name="radio-options">
+                                        <b-form-radio value="Yes">Yes</b-form-radio>
+                                        <b-form-radio value="No">No</b-form-radio>
+                                    </b-form-radio-group>
+                                </b-form-group>
+                            </div>
 
-                </div>
-                <button type="submit" class="btn btn-dark btn-lg btn-block">
-                    Add Tracker
-                </button>
-            </form>
+                        </div>
+                        <h5>Log Note</h5>
+                        <input id="log_note" type="text" v-model="log_note" ref="log_note"
+                            class="form-control form-control-lg" placeholder="Log Note" required autocomplete="off" />
+                    </div>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">
+                        Update Log
+                    </button>
+                </form>
+            </div>
         </body>
     </div>
 </template>
@@ -49,22 +63,25 @@ export default {
     name: "UpdateLog",
     data() {
         return {
+            trackerID: null,
             email: "",
             auth_token: "",
-            tracker_name: "",
-            tracker_des: "",
+            log_value: null,
+            log_note: "",
             tracker_type: "",
 
         }
     },
     async created() {
+
         this.auth_token = sessionStorage.getItem("authentication-token"),
             this.email = sessionStorage.getItem("email")
-        // console.log(this.email)
-        // console.log(this.auth_token)
+        this.trackerID = sessionStorage.getItem("id")
+        this.tracker_type = sessionStorage.getItem("tracker_type")
+
     },
     methods: {
-        async AddTrackerSubmit() {
+        async UpdateBooleanLog() {
             const tracker_data = {
                 tracker_name: this.tracker_name,
                 tracker_des: this.tracker_des,
@@ -108,9 +125,14 @@ export default {
             console.log(this.auth_token)
             console.log("in logout")
             sessionStorage.removeItem("authentication-token")
-            this.$router.push({ path: "/login", replace: true })
+            this.$router.go('login')
 
+        },
+        async UpdateNumericLog() {
+            console.log("numeric log updates")
+            return ""
         }
+
     }
 };
 </script>

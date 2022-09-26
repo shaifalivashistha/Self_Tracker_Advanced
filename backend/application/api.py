@@ -134,14 +134,15 @@ class TrackerAPI(Resource):
         return tracker
 
     @marshal_with(tracker_field)
-    def put(self, tracker_id=None):
-        if tracker_id:
-            tracker_data = Tracker.query.get(tracker_id)
+    def put(self, id=None):
+        if id:
+            tracker_data = Tracker.query.get(id)
+            old_tracker_type = tracker_data.type
             new_tracker_data = tracker_data_req.parse_args()
             new_tracker = Tracker(
                 tracker_name=new_tracker_data.name,
                 description=new_tracker_data.description,
-                tracker_type=new_tracker_data.type,
+                tracker_type=old_tracker_type,
             )
             if tracker_data:
                 try:

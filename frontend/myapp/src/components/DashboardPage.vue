@@ -1,6 +1,6 @@
 <template>
   <div id="dashboard">
-    <!-- <div>
+    <!-- <div v-if="!trck_result.length">
       <b-navbar fixed="top" toggleable="md" type="dark" variant="info">
         <b-navbar-brand href="/">Home</b-navbar-brand>
         <b-navbar-nav>
@@ -21,16 +21,14 @@
       </h4>
       <router-link tag="button" :to="`/dashboard/${email}/create_tracker`">Add Tracker</router-link>
     </div> -->
+
     <div>
       <b-navbar fixed="top" toggleable="md" type="dark" variant="info">
-        <b-navbar-brand href="/">Home</b-navbar-brand>
+        <b-navbar-brand href="#">Dashboard</b-navbar-brand>
         <b-navbar-nav>
           <b-nav-item href="/about">About</b-nav-item>
+          <b-nav-item @click="logout()">Logout</b-nav-item>
         </b-navbar-nav>
-        <b-nav-item-dropdown right>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="/login">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
       </b-navbar>
       <h1>Welcome to the Self tracker.</h1>
       <h2>Hello.</h2>
@@ -45,6 +43,7 @@
         <thead>
           <tr>
             <th>Tracker Name</th>
+            <th>Tracker Description</th>
             <th>Tracker Type</th>
             <th>Last Updated at</th>
             <th>Add Logs</th>
@@ -55,28 +54,39 @@
         <tbody>
           <tr v-for="tracker in trck_result">
             <td>{{ tracker.name }}</td>
+            <td>{{ tracker.description }}</td>
             <td>
               {{ tracker.type }}
             </td>
             <td>{{ tracker.date_created }}</td>
             <td v-if="tracker.type === 'numeric'">
-              <router-link class="btn btn-info" tag="button" :to="`/${email}/${tracker.id}/logs`">
-                Add Logs</router-link>
+              <router-link :to="`/user/tracker/numlog`">
+                <button type="button" class="btn btn-info btn-lg" @click="addNumTrackerLogs(tracker.id)">
+                  Add Logs</button>
+              </router-link>
             </td>
-            <td v-else-if="tracker.type === 'boolean'">
-              <router-link class="btn btn-info" tag="button" :to="`/${email}/${tracker.id}/logs`">Add Logs</router-link>
-            </td>
-            <td v-else="tracker.type === 'multiple choice'">
-              <router-link class="btn btn-info" tag="button" :to="`/${email}/${tracker.id}/logs`">Add Logs</router-link>
-            </td>
-            <td>
-              <!-- <router-link class="btn btn-danger" tag="button" :to="`/${email}/${tracker.id}/delete`">Delete -->
-              <!-- </router-link> -->
-              <button type="button" class="btn btn-danger" @click="deleteTracker(tracker.id)">Delete</button>
+            <td v-else="tracker.type === 'boolean'">
+              <router-link :to="`/user/tracker/boolean`">
+                <button type="button" class="btn btn-info btn-lg" @click="addBoolTrackerLogs(tracker.id)">
+                  Add Logs</button>
+              </router-link>
             </td>
             <td>
-              <router-link class="btn btn-success" tag="button" :to="`/tracker/update`">Update</router-link>
-              <!-- <button type="button" class="btn btn-success">Update</button> -->
+              <button type="button" class="btn btn-danger btn-lg" @click="deleteTracker(tracker.id)">Delete</button>
+            </td>
+            <td>
+              <!-- <button class="btn btn-success" @click="updateTracker(tracker.id)">
+                <router-link style="text-decoration: none; color: inherit" :to="`/${email}/update/${tracker.id}`">
+                  Update
+                </router-link>
+              </button> -->
+
+              <router-link :to="`/${email}/update/${tracker.id}`">
+                <button class="btn btn-success btn-lg" @click="updateTracker(tracker.id)">
+                  Update
+                </button>
+
+              </router-link>
             </td>
           </tr>
         </tbody>
@@ -120,17 +130,18 @@ export default {
         if (res) {
           // console.log(res)
           if (res.ok) {
-            console.log("res.ok")
+            // console.log("res.ok")
             // console.log(res.json())
             // const data = await res
             const data = await res.json().catch(() => {
               throw Error("Something Went Wrong")
             })
             if (data) {
-              console.log("data block")
+              // console.log("data block")
               // console.log(data)
               this.trck_result = data
-              console.log(data)
+              console.log(this.trck_result)
+              // console.log(data)
             }
           }
         }
@@ -151,6 +162,7 @@ export default {
 
   methods: {
     async deleteTracker(id) {
+      console.log(id)
       const del_req_opt = {
         methods: "GET",
         headers: {
@@ -159,26 +171,16 @@ export default {
         }
       }
       try {
+        console.log("delete trying before fetch")
         const res = await fetch(`${baseURL}/${this.email}/${id}/delete`, del_req_opt)
+        console.log("delete trying after fetch")
         if (this.auth_token) {
-
+          console.log("auth token check")
           if (res) {
-            // console.log(res)
+            console.log("have response")
             if (res.ok) {
               console.log("Tracker Deleted Successfully")
               this.$router.go("dashboard", this.email)
-              // console.log("res.ok")
-              // // console.log(res.json())
-              // // const data = await res
-              // const data = await res.json().catch(() => {
-              //   throw Error("Something Went Wrong")
-              // })
-              // if (data) {
-              //   console.log("data block")
-              //   // console.log(data)
-              //   this.trck_result = data
-              //   console.log(data)
-              // }
             }
           }
           else {
@@ -194,14 +196,24 @@ export default {
         console.log("Error in delete", err)
       }
     },
-    async updateTracker() {
-      console.log("Tracker Updated Successfully")
-      return ""
+    async updateTracker(id) {
+      console.log("its update tracker method", id)
+      console.log(id)
+      sessionStorage.setItem("id", id)
     },
-    async addTrackerLogs() {
+    async addNumTrackerLogs() {
       console.log("Logs Added to Tracker Successfully")
       return ""
+    },
+    async addBoolTrackerLogs() {
+      console.log("Logs Added to Tracker Successfully")
+      return ""
+    },
+    async logout() {
+      sessionStorage.removeItem("authentication-token")
+      this.$router.go("login")
     }
+
   }
 }
 

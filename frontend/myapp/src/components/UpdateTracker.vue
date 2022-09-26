@@ -1,15 +1,15 @@
 <template>
     <div id="update_tracker">
         <b-navbar toggleable="md" type="dark" variant="info">
-            <b-navbar-brand href="#">Add Trackers</b-navbar-brand>
+            <b-navbar-brand href="#">Update Trackers</b-navbar-brand>
             <b-navbar-nav>
-                <b-nav-item href="/dashboard/">Dashboard</b-nav-item>
-                <b-nav-item @click="logout">Logout</b-nav-item>
+                <b-nav-item href="/dashboard">Dashboard</b-nav-item>
+                <b-nav-item @click="logout()">Logout</b-nav-item>
             </b-navbar-nav>
         </b-navbar>
 
         <body class="container">
-            <form @submit.prevent="UpdateTrackerSubmit">
+            <form @submit.prevent="UpdateTrackerSubmit(id)">
                 <h3 class="form text-center mt-2 mb-4">x---Update Your Tracker---x</h3>
                 <div class="form-group">
                     <h5>Tracker Name:</h5>
@@ -35,6 +35,7 @@ export default {
     name: "UpdateTracker",
     data() {
         return {
+            id: null,
             email: "",
             auth_token: "",
             tracker_details: {},
@@ -46,7 +47,8 @@ export default {
     },
     async created() {
         this.auth_token = sessionStorage.getItem("authentication-token"),
-            this.email = sessionStorage.getItem("email")
+            this.email = sessionStorage.getItem("email"),
+            this.id = sessionStorage.getItem("id")
         const get_req = {
             methods: "GET",
             headers: {
@@ -59,16 +61,17 @@ export default {
 
             if (this.auth_token) {
                 if (get_response) {
+                    console.log("get reponse for update")
                     if (get_response.ok) {
+                        console.log("reponse is ok")
                         const getResData = await get_response.json().catch(() => {
                             throw Error("Something Went Wrong")
                         })
                         if (getResData) {
+                            console.log(this.id)
                             console.log(getResData)
                             this.tracker_details = getResData
-                            tracker_name = this.tracker_details.name,
-                                tracker_des = this.tracker_details.description,
-                                tracker_type = this.tracker_details.tracker_type
+                            // console.log(this.tracker_details[this.id])
                         }
                     }
                 }
@@ -81,9 +84,9 @@ export default {
         // console.log(this.auth_token)
     },
     methods: {
-        async UpdateTrackerSubmit() {
+        async UpdateTrackerSubmit(id) {
             const tracker_data = {
-                tracker_name: tracker.tracker_name,
+                tracker_name: this.tracker_name,
                 tracker_des: this.tracker_des,
             }
             const requestOptions = {
@@ -95,8 +98,12 @@ export default {
                 body: JSON.stringify(tracker_data)
             }
             try {
-                const res = await fetch(`${baseURL}/${this.email}/update/${this.tracker_details.id}`, requestOptions)
+                console.log(this.tracker_name)
+                console.log(this.tracker_des)
+                console.log(this.id)
+                const res = await fetch(`${baseURL}/${this.email}/update/${this.id}`, requestOptions)
 
+                // const res = await fetch(`${baseURL}/api/trackers/${id}`, requestOptions)
                 if (res) {
                     console.log("post response fetch", res)
                     if (res.ok) {
@@ -106,8 +113,10 @@ export default {
                         })
                         if (data) {
                             console.log("post fetch data ->", data)
-                            this.$router.push(`/dashboard/${this.email}`)
+                            sessionStorage.removeItem("tracker_id")
+                            this.$router.go('dashboard', this.email)
                             return data
+
                         }
                         else {
                             throw Error(res.statusText)
@@ -120,12 +129,8 @@ export default {
             }
         },
         async logout() {
-
-            console.log(this.auth_token)
-            console.log("in logout")
             sessionStorage.removeItem("authentication-token")
-            this.$router.replace("login")
-
+            this.$router.go("login")
         }
     }
 };

@@ -3,8 +3,8 @@
     <b-navbar toggleable="md" type="dark" variant="info">
       <b-navbar-brand href="#">Add Trackers</b-navbar-brand>
       <b-navbar-nav>
-        <b-nav-item href="/dashboard/">Dashboard</b-nav-item>
-        <b-nav-item @click="logout">Logout</b-nav-item>
+        <b-nav-item href="/dashboard">Dashboard</b-nav-item>
+        <b-nav-item @click="logout()">Logout</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
 
@@ -27,9 +27,12 @@
             <b-form-group>
               <b-form-radio-group id="radio-group-2" v-model="tracker_type
               " name="radio-options">
-                <b-form-radio value="numeric">Numeric Tracker</b-form-radio>
-                <b-form-radio value="boolean">Boolean Tracker</b-form-radio>
-                <b-form-radio value="multiple choice">Multiple Choice Tracker</b-form-radio>
+                <h6>
+                  <b-form-radio value="numeric">Numeric Tracker</b-form-radio>
+                </h6>
+                <h6>
+                  <b-form-radio value="boolean">Boolean Tracker</b-form-radio>
+                </h6>
               </b-form-radio-group>
             </b-form-group>
           </div>
@@ -109,7 +112,7 @@ export default {
       console.log(this.auth_token)
       console.log("in logout")
       sessionStorage.removeItem("authentication-token")
-      this.$router.push({ path: "/login", replace: true })
+      this.$router.replace("login")
 
     }
   }

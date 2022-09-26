@@ -7,8 +7,9 @@ import RegisterView from "../views/RegisterView.vue";
 import dashboardView from "../views/dashboardView.vue";
 import createTrackerView from "../views/createTrackerView.vue"
 import updateTrackerView from "../views/updateTrackerView.vue"
-import addLogView from "../views/addLogView.vue"
+import addNumLogView from "../views/addNumLogView.vue"
 import updateLogView from "../views/updateLogView"
+import BooleanView from "../views/BooleanView.vue"
 
 Vue.use(VueRouter);
 
@@ -44,17 +45,22 @@ const routes = [
     component: createTrackerView
   },
   {
-    path: "/tracker/update",
+    path: "/:email/update/:id",
     name: "updateTrackerView",
     component: updateTrackerView
   },
   {
-    path: "",
-    name: "addLogView",
-    component: addLogView
+    path: "/user/tracker/numlog",
+    name: "addNumLogView",
+    component: addNumLogView
   },
   {
-    path: "",
+    path: "/user/tracker/boolean",
+    name: "BooleanView",
+    component: BooleanView
+  },
+  {
+    path: "user/tracker/log/update",
     name: "updateLogView",
     component: updateLogView
   },

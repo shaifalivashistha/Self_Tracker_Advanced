@@ -1,6 +1,6 @@
 <template>
     <div class="update_log">
-        <UpdateTracker></UpdateTracker>
+        <UpdateLog></UpdateLog>
     </div>
 </template>
   

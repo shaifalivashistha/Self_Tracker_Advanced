@@ -87,15 +87,15 @@ export default {
         const response = await fetch(`${baseURL}/login?include_auth_token`, request_options)
         if (response) {
           console.log(response)
-          console.log("In first IF block")
+          // console.log("In first IF block")
           if (response.ok) {
-            console.log("In res.ok if block")
+            // console.log("In res.ok if block")
             const data = await response.json().catch(() => {
               throw Error("Something Went Wrong")
             })
             if (data) {
-              console.log("in data if block")
-              console.log(data)
+              // console.log("in data if block")
+              // console.log(data)
               if (response.errors) {
                 console.log("in res.errors if block")
                 if (response.errors[1]) {
@@ -103,10 +103,10 @@ export default {
                 }
                 this.error_password = response.errors[0];
 
-                console.log(this.error_email, this.error_password);
+                // console.log(this.error_email, this.error_password);
               }
               else {
-                console.log("in res.errors else block")
+                // console.log("in res.errors else block")
                 this.auth = data.response.user.authentication_token;
                 sessionStorage.setItem(
                   "authentication-token",
@@ -114,11 +114,11 @@ export default {
                 );
                 sessionStorage.setItem("email", this.email);
                 this.$router.push(`/dashboard`);
-                console.log("its dashboard");
+                // console.log("its dashboard");
               }
             }
             else {
-              console.log("in data else block")
+              // console.log("in data else block")
               throw Error(response.statusText)
             }
           } else {

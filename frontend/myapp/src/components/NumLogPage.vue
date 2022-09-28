@@ -3,13 +3,13 @@
         <b-navbar toggleable="md" type="dark" variant="info">
             <b-navbar-brand href="#">Add Logs</b-navbar-brand>
             <b-navbar-nav>
-                <b-nav-item href="/dashboard/">Dashboard</b-nav-item>
+                <b-nav-item href="/dashboard">Dashboard</b-nav-item>
                 <b-nav-item @click="logout()">Logout</b-nav-item>
             </b-navbar-nav>
         </b-navbar>
 
         <body class="container">
-            <form @submit.prevent="AddLogSubmit(id)">
+            <form @submit.prevent="AddLogSubmit()">
                 <h3 class="form text-center mt-2 mb-4">!!---Add Logs to your Tracker here---!!</h3>
                 <div class="form-group">
                     <h5>Log Value:</h5>
@@ -41,18 +41,19 @@
                     <tr v-for="log in log_result">
                         <td>{{ log.value }}</td>
                         <td>{{ log.note }}</td>
-                        <td>{{ log.date_created }}</td>
+                        <td>{{ log.timestamp }}</td>
                         <td>
                             <button type="button" class="btn btn-danger btn-lg"
-                                @click="deleteLog(log.id)">Delete</button>
+                                @click="deleteLog(log.log_id)">Delete</button>
                         </td>
                         <td>
-                            <router-link :to="`/${email}/update/${tracker.id}`">
-                                <button class="btn btn-success btn-lg" @click="updateLog(log.id)">
+                            <router-link :to="`/${email}/${trackerID}/${log.log_id}/update`">
+                                <button class="btn btn-success btn-lg"
+                                    @click="updateLog(log.log_id, log.log, log.value, log.note)">
                                     Update
                                 </button>
-
                             </router-link>
+
                         </td>
                     </tr>
                 </tbody>
@@ -71,12 +72,14 @@ export default {
     name: "NumLogPage",
     data() {
         return {
+            logID: null,
             trackerID: null,
             email: "",
             auth_token: "",
             log_value: null,
             log_note: "",
-            log_result: {}
+            log_result: {},
+
 
         }
     },
@@ -84,7 +87,7 @@ export default {
         this.auth_token = sessionStorage.getItem("authentication-token"),
             this.email = sessionStorage.getItem("email")
         this.trackerID = sessionStorage.getItem("id")
-
+        console.log(this.trackerID)
         const get_req_opt = {
             methods: "GET",
             headers: {
@@ -93,16 +96,21 @@ export default {
             }
         }
         try {
-            const get_res = fetch(`${baseURL}/${this.email}/${this.trackerID}/logs`, get_req_opt)
-
+            const get_res = await fetch(`${baseURL}/${this.email}/${this.trackerID}/logs`, get_req_opt)
+            console.log("sending get request")
             if (this.auth_token) {
                 if (get_res) {
+                    console.log("getting response fron get")
+                    console.log(get_res)
                     if (get_res.ok) {
+
+                        console.log("getting response fron get is ok")
                         const get_data = await get_res.json().catch(() => {
                             throw Error("Something Went Wrong")
                         })
-                        if (data) {
-                            console.log(data)
+                        if (get_data) {
+                            this.log_result = get_data
+                            console.log(this.log_result)
                         }
                     }
                 }
@@ -116,35 +124,35 @@ export default {
         async AddLogSubmit() {
             console.log(this.email)
             console.log(this.trackerID)
-            const tracker_data = {
+            const log_data = {
+                trackerID: this.trackerID,
                 log_value: this.log_value,
                 log_note: this.log_note,
             }
-            const requestOptions = {
+            const postRequestOptions = {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json;charset=utf-8",
                     "Authentication-Token": `${this.auth_token}`,
                 },
-                body: JSON.stringify(tracker_data)
+                body: JSON.stringify(log_data)
             }
             try {
-                const res = await fetch(`${baseURL}/${this.email}/${this.id}/logs`, requestOptions)
+                const post_res = await fetch(`${baseURL}/${this.email}/${this.trackerID}/logs`, postRequestOptions)
 
-                if (res) {
-                    console.log("post response fetch", res)
-                    if (res.ok) {
+                if (post_res) {
+                    console.log("post response fetch", post_res)
+                    if (post_res.ok) {
 
-                        const data = await res.json().catch(() => {
+                        const data = await post_res.json().catch(() => {
                             throw Error("Something Went Wrong")
                         })
                         if (data) {
-                            console.log("post fetch data ->", data)
-                            this.$router.push(`/dashboard/${this.email}`)
+                            this.$router.go()
                             return data
                         }
                         else {
-                            throw Error(res.statusText)
+                            throw Error(post_res.statusText)
                         }
                     }
                 }
@@ -153,13 +161,53 @@ export default {
                 console.log("Tracker Request failed", err)
             }
         },
+        async updateLog(id, type, value, note) {
+            sessionStorage.setItem("logID", id)
+            sessionStorage.setItem("trackerType", type)
+            sessionStorage.setItem("log_value", value)
+            sessionStorage.setItem("log_note", note)
+            console.log(id)
+            console.log(type)
+            console.log(value)
+            console.log(note)
+        },
+        async deleteLog(id) {
+            const del_req_opt = {
+                methods: "GET",
+                headers: {
+                    "Content-Type": "application/json;charset=utf-8",
+                    "Authentication-Token": `${this.auth_token}`,
+                }
+            }
+            try {
+                console.log("delete trying before fetch")
+                const res = await fetch(`${baseURL}/${this.email}/${this.trackerID}/${id}/delete`, del_req_opt)
+                console.log("delete trying after fetch")
+                if (this.auth_token) {
+                    console.log("auth token check")
+                    if (res) {
+                        console.log("have response")
+                        if (res.ok) {
+                            console.log("Tracker Deleted Successfully")
+                            this.$router.push(`/${this.email}/${this.trackerID}/logs`)
+                        }
+                    }
+                    else {
+                        throw Error(res.statusText)
+                    }
+                }
+                else {
+                    this.$router.push('login')
+                    throw Error("Authentication Failed!! Login Again.")
+                }
+            }
+            catch (err) {
+                console.log("Error in delete", err)
+            }
+        },
         async logout() {
-
-            console.log(this.auth_token)
-            console.log("in logout")
-            sessionStorage.removeItem("authentication-token")
-            this.$router.push("login")
-
+            sessionStorage.clear()
+            this.$router.push("/")
         }
     }
 };

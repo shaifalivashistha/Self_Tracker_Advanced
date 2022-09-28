@@ -1,7 +1,7 @@
 <template>
-    <div id="update_log">
+    <div id="UpdateLog">
         <b-navbar toggleable="md" type="dark" variant="info">
-            <b-navbar-brand href="#">Add Trackers</b-navbar-brand>
+            <b-navbar-brand href="#">Update Log</b-navbar-brand>
             <b-navbar-nav>
                 <b-nav-item href="/dashboard">Dashboard</b-nav-item>
                 <b-nav-item @click="logout()">Logout</b-nav-item>
@@ -10,8 +10,8 @@
 
         <body class="container">
             <div>
-                <form @submit.prevent="UpdateNumericLog()">
-                    <h3 class="form text-center mt-2 mb-4">Create Your Tracker here</h3>
+                <form @submit.prevent="UpdateNumericLog(id)">
+                    <h3 class="form text-center mt-2 mb-4">Update your logs here</h3>
                     <div class="form-group">
                         <h5>Log Value</h5>
                         <input id="log_value" type="number" v-model="log_value" ref="log_value"
@@ -27,8 +27,8 @@
                     </button>
                 </form>
             </div>
-            <div>
-                <form @submit.prevent="UpdateBooleanLog()">
+            <!-- <div>
+                <form @submit.prevent="UpdateBooleanLog(id)">
                     <h3 class="form text-center mt-2 mb-4">Update your logs</h3>
                     <div class="form-group">
                         <div class="form-group">
@@ -46,13 +46,13 @@
                         </div>
                         <h5>Log Note</h5>
                         <input id="log_note" type="text" v-model="log_note" ref="log_note"
-                            class="form-control form-control-lg" placeholder="Log Note" required autocomplete="off" />
+                            class="form-control form-control-lg" placeholder='' required autocomplete="off" />
                     </div>
                     <button type="submit" class="btn btn-dark btn-lg btn-block">
                         Update Log
                     </button>
                 </form>
-            </div>
+            </div> -->
         </body>
     </div>
 </template>
@@ -63,29 +63,60 @@ export default {
     name: "UpdateLog",
     data() {
         return {
+            logID: null,
             trackerID: null,
             email: "",
             auth_token: "",
             log_value: null,
             log_note: "",
             tracker_type: "",
-
         }
     },
     async created() {
 
         this.auth_token = sessionStorage.getItem("authentication-token"),
             this.email = sessionStorage.getItem("email")
+        this.log_value = sessionStorage.getItem("log_value")
+        this.log_note = sessionStorage.getItem("log_note")
+        this.logID = sessionStorage.getItem("logID")
         this.trackerID = sessionStorage.getItem("id")
-        this.tracker_type = sessionStorage.getItem("tracker_type")
+        this.tracker_type = sessionStorage.getItem("trackerType")
+        console.log("update log page successfully created")
+
+        const get_req_opt = {
+            methods: "GET",
+            headers: {
+                "Content-Type": "application/json;charset=utf-8",
+                "Authentication-Token": `${this.auth_token}`
+            }
+        }
+        try {
+            get_res = await fetch(`${baseURL}/${email}/${this.trackerID}/${logID}`, get_req_opt)
+            if (this.auth_token) {
+                console.log("getting response in update page")
+                if (get_res) {
+                    if (get_res.ok) {
+                        const get_data = await get_res.json().catch(() => {
+                            throw Error("Something went wrong")
+                        })
+                        if (get_data) {
+                            console.log(get_data)
+                        }
+                    }
+                }
+            }
+
+        }
+        catch (err) {
+            console.log(err)
+        }
 
     },
     methods: {
-        async UpdateBooleanLog() {
+        async UpdateBooleanLog(id) {
             const tracker_data = {
-                tracker_name: this.tracker_name,
-                tracker_des: this.tracker_des,
-                tracker_type: this.tracker_type
+                log_value: this.log_value,
+                log_note: this.log_note,
             }
             const requestOptions = {
                 method: "POST",
@@ -107,7 +138,7 @@ export default {
                         })
                         if (data) {
                             console.log("post fetch data ->", data)
-                            this.$router.push(`/dashboard/${this.email}`)
+                            this.$router.push(`/dashboard`)
                             return data
                         }
                         else {
@@ -121,15 +152,12 @@ export default {
             }
         },
         async logout() {
-
-            console.log(this.auth_token)
-            console.log("in logout")
-            sessionStorage.removeItem("authentication-token")
-            this.$router.go('login')
-
+            sessionStorage.clear()
+            this.$router.go("/")
         },
-        async UpdateNumericLog() {
+        async UpdateNumericLog(id) {
             console.log("numeric log updates")
+
             return ""
         }
 

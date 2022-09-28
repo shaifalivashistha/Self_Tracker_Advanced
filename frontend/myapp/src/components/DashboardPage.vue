@@ -60,13 +60,13 @@
             </td>
             <td>{{ tracker.date_created }}</td>
             <td v-if="tracker.type === 'numeric'">
-              <router-link :to="`/user/tracker/numlog`">
+              <router-link :to="`/${email}/${tracker.id}/logs`">
                 <button type="button" class="btn btn-info btn-lg" @click="addNumTrackerLogs(tracker.id)">
                   Add Logs</button>
               </router-link>
             </td>
             <td v-else="tracker.type === 'boolean'">
-              <router-link :to="`/user/tracker/boolean`">
+              <router-link :to="`/${email}/${tracker.id}/logs`">
                 <button type="button" class="btn btn-info btn-lg" @click="addBoolTrackerLogs(tracker.id)">
                   Add Logs</button>
               </router-link>
@@ -75,12 +75,6 @@
               <button type="button" class="btn btn-danger btn-lg" @click="deleteTracker(tracker.id)">Delete</button>
             </td>
             <td>
-              <!-- <button class="btn btn-success" @click="updateTracker(tracker.id)">
-                <router-link style="text-decoration: none; color: inherit" :to="`/${email}/update/${tracker.id}`">
-                  Update
-                </router-link>
-              </button> -->
-
               <router-link :to="`/${email}/update/${tracker.id}`">
                 <button class="btn btn-success btn-lg" @click="updateTracker(tracker.id)">
                   Update
@@ -126,22 +120,14 @@ export default {
     try {
       const res = await fetch(`${baseURL}/dashboard/${this.email}`, req_opt)
       if (this.auth_token) {
-
         if (res) {
-          // console.log(res)
           if (res.ok) {
-            // console.log("res.ok")
-            // console.log(res.json())
-            // const data = await res
             const data = await res.json().catch(() => {
               throw Error("Something Went Wrong")
             })
             if (data) {
-              // console.log("data block")
-              // console.log(data)
               this.trck_result = data
               console.log(this.trck_result)
-              // console.log(data)
             }
           }
         }
@@ -197,21 +183,24 @@ export default {
       }
     },
     async updateTracker(id) {
-      console.log("its update tracker method", id)
-      console.log(id)
+      // console.log("its update tracker method", id)
+      // console.log(id)
       sessionStorage.setItem("id", id)
     },
-    async addNumTrackerLogs() {
-      console.log("Logs Added to Tracker Successfully")
+    async addNumTrackerLogs(id) {
+      sessionStorage.setItem("id", id)
+      // console.log("Logs Added to Tracker Successfully")
       return ""
     },
-    async addBoolTrackerLogs() {
-      console.log("Logs Added to Tracker Successfully")
+    async addBoolTrackerLogs(id) {
+      // console.log("Logs Added to Tracker Successfully")
+      sessionStorage.setItem("id", id)
+
       return ""
     },
     async logout() {
-      sessionStorage.removeItem("authentication-token")
-      this.$router.go("login")
+      sessionStorage.clear()
+      this.$router.go("/")
     }
 
   }

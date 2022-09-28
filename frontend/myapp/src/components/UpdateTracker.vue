@@ -114,7 +114,7 @@ export default {
                         if (data) {
                             console.log("post fetch data ->", data)
                             sessionStorage.removeItem("tracker_id")
-                            this.$router.go('dashboard', this.email)
+                            this.$router.go(`/dashboard/${this.email}`)
                             return data
 
                         }
@@ -128,9 +128,9 @@ export default {
                 console.log("Tracker Update failed", err)
             }
         },
-        async logout() {
-            sessionStorage.removeItem("authentication-token")
-            this.$router.go("login")
+        logout() {
+            sessionStorage.clear()
+            this.$router.push("/")
         }
     }
 };

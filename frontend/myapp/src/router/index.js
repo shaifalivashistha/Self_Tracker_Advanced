@@ -50,17 +50,17 @@ const routes = [
     component: updateTrackerView
   },
   {
-    path: "/user/tracker/numlog",
+    path: "/:email/:id/logs",
     name: "addNumLogView",
     component: addNumLogView
   },
   {
-    path: "/user/tracker/boolean",
+    path: "/:email/:id/logs",
     name: "BooleanView",
     component: BooleanView
   },
   {
-    path: "user/tracker/log/update",
+    path: ":email/:id/:log_id/update",
     name: "updateLogView",
     component: updateLogView
   },

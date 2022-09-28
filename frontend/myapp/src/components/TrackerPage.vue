@@ -108,12 +108,8 @@ export default {
       }
     },
     async logout() {
-
-      console.log(this.auth_token)
-      console.log("in logout")
-      sessionStorage.removeItem("authentication-token")
-      this.$router.replace("login")
-
+      sessionStorage.clear()
+      this.$router.go("/")
     }
   }
 };

@@ -3,7 +3,7 @@
         <b-navbar toggleable="md" type="dark" variant="info">
             <b-navbar-brand href="#">Add Logs</b-navbar-brand>
             <b-navbar-nav>
-                <b-nav-item href="/dashboard/">Dashboard</b-nav-item>
+                <b-nav-item href="/dashboard">Dashboard</b-nav-item>
                 <b-nav-item @click="logout()">Logout</b-nav-item>
             </b-navbar-nav>
         </b-navbar>
@@ -60,7 +60,7 @@
                                 @click="deleteLog(tracker.id)">Delete</button>
                         </td>
                         <td>
-                            <router-link :to="`user/tracker/log/update`">
+                            <router-link :to="`${email}/${id}/${log_id}/update`">
                                 <button class="btn btn-success btn-lg">
                                     Update
                                 </button>

@@ -36,8 +36,8 @@ class Tracker(db.Model):
 class Logs(db.Model):
     __tablename__ = "logs"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-    name = db.Column(db.String(300))
+    timestamp = db.Column(db.DateTime(timezone=True), default=datetime.utcnow)
+    log = db.Column(db.String(300))
     value = db.Column(db.Integer, nullable=False)
     note = db.Column(db.String(300), nullable=True)
     # setting = db.Column(db.String(255), nullable = True)

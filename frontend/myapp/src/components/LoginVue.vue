@@ -113,7 +113,7 @@ export default {
                   data.response.user.authentication_token
                 );
                 sessionStorage.setItem("email", this.email);
-                this.$router.push(`/dashboard`);
+                this.$router.push(`/dashboard`, this.email);
                 // console.log("its dashboard");
               }
             }

@@ -86,21 +86,21 @@ def home():
 @app.route("/register", methods=["POST", "GET"])
 def register():
     if request.method == "POST":
-        print("post in register")
-        print(request.headers)
+        # print("post in register")
+        # print(request.headers)
         data = request.get_json()
-        print("DATA: ", data)
+        # print("DATA: ", data)
         uname = data["username"]
         email = data["email"]
         pwd = data["password"]
         sec_Q = data["sec_que"]
         sec_A = data["sec_ans"]
-        print(uname, email, pwd)
+        # print(uname, email, pwd)
 
         user_data = User.query.filter_by(email=email).first()
 
         if user_data:
-            print(user_data)
+            # print(user_data)
             flash("Email is Registered for another User!!! Try another Email.")
             return redirect(url_for("register"))
 
@@ -151,12 +151,12 @@ def login():
 
 
 @app.route("/dashboard/<email>")
-# @auth_required
 def dashboard(email):
 
     user_data = User.query.filter_by(email=email).first()
     username = user_data.username
     trackers = user_data.trackers
+    # print(trackers)
     tr_list = []
     for tracker in trackers:
         tr_list.append(tracker)
@@ -245,46 +245,46 @@ def log(email, id):
     parent_tracker = Tracker.query.filter_by(id=id).first()
     if request.method == "GET":
         all_logs = parent_tracker.logs
-        if parent_tracker.type == "numeric":
+        # print(all_logs)
+        log_list = []
+        for log in all_logs:
+            log_list.append(log)
+
+        log_dict = {}
+        count = 0
+        for log in log_list:
+            count += 1
+            Dlog = {
+                "log": log.log,
+                "log_id": log.id,
+                "value": log.value,
+                "note": log.note,
+                "timestamp": log.timestamp,
+            }
+            log_dict[count] = Dlog
             data = {x.timestamp: x.value for x in all_logs}
             fig = Figure()
             axis = fig.add_subplot(1, 1, 1)
             axis.plot(data.keys(), data.values())
             axis.set(xlabel="Time Stamp", ylabel="Value")
             fig.savefig("../frontend/myapp/src/assets/graph.png")
-            return jsonify("data")
-            return render_template(
-                "numerical.html",
-                tracks=all_logs,
-                str=str,
-                src="static/graph.png",
-                parent_tracker=parent_tracker,
-                email=email,
-            )
-        if parent_tracker.tracker_type == "Boolean":
-            return render_template(
-                "boolean.html",
-                tracks=all_logs,
-                str=str,
-                parent_tracker=parent_tracker,
-                email=email,
-            )
-
+            # print(log_dict)
+        return jsonify(log_dict)
     elif request.method == "POST":
         Timestamp = Logs.query.get("timestamp")
-        data = request.json()
-        name = data["name"]
-        value = data["value"]
-        note = data["note"]
-        timestamp = data["note"]
+        data = request.get_json()
+        id = data["trackerID"]
+        value = data["log_value"]
+        note = data["log_note"]
+        log = parent_tracker.type
 
-        new_log = Logs(log=name, value=value, note=note, timestamp=timestamp)
+        new_log = Logs(value=value, note=note, log=log)
         parent_tracker.logs.append(new_log)
         db.session.add(new_log)
         db.session.commit()
-        str = "Log Added Successfully"
+        print("Log Added Successfully")
 
-        return redirect(f"/{email}/{id}/logs")
+        return redirect(url_for("log", email=email, id=id))
 
 
 # -------------------------DELETE_TRACKER-------------------------#
@@ -305,14 +305,14 @@ def delete(id, email):
 # -------------------------DELETE_LOGS-------------------------#
 
 
-@app.route("/<string:email>/<int:tid>/<int:id>/delete", methods=["GET"])
-def delete_log(username, tracker_id, log_id):
+@app.route("/<string:email>/<int:id>/<int:log_id>/delete", methods=["GET"])
+def delete_log(email, id, log_id):
     log_needed = Logs.query.get_or_404(log_id)
 
     try:
         db.session.delete(log_needed)
         db.session.commit()
-        return redirect(f"/{username}/{tracker_id}/logs")
+        return redirect(f"/{email}/{id}/logs")
     except:
 
         return "There was a problem deleting that task."
@@ -322,35 +322,36 @@ def delete_log(username, tracker_id, log_id):
 
 
 @app.route("/<string:email>/<int:id>/<int:log_id>/update", methods=["GET", "POST"])
-def update_log(username, tracker_id, log_id):
+def update_log(email, id, log_id):
     log_needed = Logs.query.filter_by(id=log_id).first()
+    data = request.get_json()
+    print(data)
     if request.method == "POST":
         if log_needed:
             Tracker_type = log_needed.log
             db.session.delete(log_needed)
             db.session.commit()
-            val = request.form.get("_value_")
-            note = request.form.get("_note_")
+            new_val = data["log_value"]
+            new_note = data["log_note"]
 
-            new_log = Logs(log=Tracker_type, value=val, note=note)
-            parent_tracker = Tracker.query.filter_by(id=tracker_id).first()
+            new_log = Logs(log=Tracker_type, value=new_val, note=new_note)
+            parent_tracker = Tracker.query.filter_by(id=id).first()
             parent_tracker.logs.append(new_log)
             db.session.add(new_log)
             db.session.commit()
             flash("Log updated Successfully!")
-            return redirect(f"/{username}/{tracker_id}/logs")
-    return render_template(
-        "update_log.html", log=log_needed, tracker_id=tracker_id, username=username
-    )
+            return redirect(f"/{email}/{id}/logs")
+    return jsonify("update log form")
 
 
 # -------------------------API_ROUTES-------------------------#
 
 
 api.add_resource(UserAPI, "/api/users/", "/api/users/<int:id>")
-api.add_resource(TrackerAPI, "/api/trackers/", "/api/trackers/<int:tracker_id>/")
-api.add_resource(
-    LogAPI,
-)
+api.add_resource(TrackerAPI, "/api/trackers/", "/api/trackers/<int:id>/")
+api.add_resource(LogAPI, "/api/trackers/<int:id>/")
+api.add_resource(TrackerExportAPI, "/<email>/tracker/export")
+api.add_resource(LogsExportAPI, "/<email>/tracker/<int:id/logs/export")
+
 if __name__ == "__main__":
     app.run(debug=True)

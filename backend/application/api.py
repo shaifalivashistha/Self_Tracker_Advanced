@@ -4,6 +4,7 @@ from flask_restful import reqparse
 from flask_restful import fields
 from flask_restful import marshal_with
 from flask_restful import abort
+from .task import *
 
 from .models import *
 
@@ -251,3 +252,26 @@ class LogAPI(Resource):
 
 
 # -----------------------------------------------------------------------------------------#
+
+
+class TrackerExportAPI(Resource):
+    def get(self, email):
+        user_data = User.query.filter_by(email=email).first()
+        userID = user_data.id
+        trackerIDs = (
+            db.session.query(UserTracker)
+            .with_entities(UserTracker.tID)
+            .filter(UserTracker.uID == userID)
+            .all()
+        )
+        all_id = [id for (id,) in trackerIDs]
+        tracker = db.session.query(Tracker).filter(Tracker.id.in_(all_id)).all()
+        # deck_schema = DeckSchema(many=True)
+        # trackers_all = deck_schema.dump(tracker)
+        job_id = generate_csv.delay(tracker)
+        print(job_id)
+
+
+class LogsExportAPI(Resource):
+    def get(self, email, id):
+        user_data = User.query.filter_by(email=email).first()

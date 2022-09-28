@@ -1,5 +1,5 @@
 <template>
-    <div class="update_log">
+    <div class="UpdateLog">
         <UpdateLog></UpdateLog>
     </div>
 </template>

@@ -1,18 +1,17 @@
 <template>
   <div class="login">
-    <!-- <h1><em>The Self Tracker</em></h1> -->
-    <LoginVue></LoginVue>
+    <LoginPage></LoginPage>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import LoginVue from "@/components/LoginVue.vue";
+import LoginPage from "@/components/LoginPage.vue";
 
 export default {
   name: "LoginView",
   components: {
-    LoginVue,
+    LoginPage,
   },
 };
 </script>

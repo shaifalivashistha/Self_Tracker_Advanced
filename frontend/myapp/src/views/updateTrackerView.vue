@@ -1,16 +1,16 @@
 <template>
-    <div class="update_Tracker">
-        <UpdateTracker></UpdateTracker>
+    <div class="update_tracker">
+        <updateTrackerPage></updateTrackerPage>
     </div>
 </template>
   
 <script>
-import UpdateTracker from "@/components/UpdateTracker.vue";
+import updateTrackerPage from "@/components/updateTrackerPage.vue";
 
 export default {
     name: "updateTrackerView",
     components: {
-        UpdateTracker
+        updateTrackerPage
     },
 };
 </script>

@@ -1,19 +1,55 @@
-from sympy import re
 from application.workers import celery
-from datetime import datetime
-import csv
-import time
+from celery.schedules import crontab
+
+from .send_mail import *
+
+
+@celery.on_after_finalize.connect
+def setup_periodic_tasks(sender, **kwargs):
+    # sender.add_periodic_task(60.0, celery_summary_export.s(), name="Create A Report")
+    # sender.add_periodic_task(60.0, send_summary.s(), name="Summary Mail Scheduler")
+    # sender.add_periodic_task(
+    #     60.0,
+    #     send_reminder.s(),
+    #     name="Daily Reminder",
+    # )
+    sender.add_periodic_task(
+        crontab(day_of_month=31, hour=0, minute=0),
+        celery_summary_export.s(),
+        name="Create A Report",
+    )
+    sender.add_periodic_task(
+        crontab(day_of_month=1, hour=12, minute=0),
+        send_summary.s(),
+        name="Summary Mail Scheduler",
+    )
+    sender.add_periodic_task(
+        crontab(hour=17, minute=0),
+        send_reminder.s(),
+        name="Daily Reminder",
+    )
 
 
 @celery.task()
-def generate_csv(input):
-    with open(
-        "/Downloads/Mad2_Project/TrackerInfo.csv",
-        "w",
-        encoding="utf8",
-        newline="",
-    ) as output_file:
-        output = csv.DictWriter(output_file, fieldnames=input[0].keys(), restval="")
-        output.writeheader()
-        output.writerows(input)
-    return "CSV Generated"
+def celery_summary_export():
+    export()
+
+
+@celery.task()
+def send_summary():
+    send()
+
+
+@celery.task()
+def send_reminder():
+    remind()
+
+
+@celery.task()
+def trigerred_summary_export(username):
+    async_summary_export(username)
+
+
+@celery.task()
+def trigerred_events_export(username, trackerID):
+    async_events_export(username, trackerID)

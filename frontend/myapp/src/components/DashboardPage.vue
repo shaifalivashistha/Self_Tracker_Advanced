@@ -1,72 +1,63 @@
 <template>
   <div id="dashboard">
-    <!-- <div v-if="!trck_result.length">
-      <b-navbar fixed="top" toggleable="md" type="dark" variant="info">
-        <b-navbar-brand href="/">Home</b-navbar-brand>
-        <b-navbar-nav>
-          <b-nav-item href="/about">About</b-nav-item>
-        </b-navbar-nav>
-        <b-nav-item-dropdown right>
-          <template #button-content> </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="/login">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar>
-      <h1>Welcome to the Self tracker.</h1>
-      <h2>Hello.</h2>
-      <h4>
-        Hi We welcome you to track your routine and manage it. So,
-        <strong> Let's Track it!!</strong> with
-        <strong> The Self Tracker.</strong>
-      </h4>
-      <router-link tag="button" :to="`/dashboard/${email}/create_tracker`">Add Tracker</router-link>
-    </div> -->
-
     <div>
       <b-navbar fixed="top" toggleable="md" type="dark" variant="info">
-        <b-navbar-brand href="#">Dashboard</b-navbar-brand>
+        <b-navbar-brand :to="`/dashboard/${username}`">{{ username }}</b-navbar-brand>
         <b-navbar-nav>
-          <b-nav-item href="/about">About</b-nav-item>
           <b-nav-item @click="logout()">Logout</b-nav-item>
         </b-navbar-nav>
       </b-navbar>
       <h1>Welcome to the Self tracker.</h1>
-      <h2>Hello.</h2>
+      <!-- <h2>Hello!!</h2> -->
       <h4>
-        Hi We welcome you to track your routine and manage it. So,
-        <strong> Let's Track it!!</strong> with
-        <strong> The Self Tracker.</strong>
+        Hi {{username}}, welcome to your tracker dashboard.
+        <strong> Let's Track it</strong> with
+        <strong> Self Tracker!!</strong>
       </h4>
-      <router-link tag="button" :to="`/dashboard/${email}/create_tracker`">Add Tracker</router-link>
-      <div>----------x----------</div>
+      <div class="container">
+        <p id="error_txt" class="alert alert-danger" role="alert" v-if="error_txt">
+          {{ error_txt }}
+        </p>
+        <p id="success_msg" class="alert alert-success" role="alert" v-if="success_msg">
+          {{ success_msg }}
+        </p>
+      </div>
+      <div>
+        <router-link tag="button" :to="`/dashboard/${username}/create_tracker`">Add Tracker</router-link>
+      </div>
+      <br />
+      <div>
+        <button @click="ExportTrackers()">Export Trackers</button>
+      </div>
+      <div>----------Tracker Details----------</div>
       <table align="center">
         <thead>
           <tr>
-            <th>Tracker Name</th>
-            <th>Tracker Description</th>
-            <th>Tracker Type</th>
-            <th>Last Updated at</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Last Updated</th>
             <th>Add Logs</th>
-            <th>Delete Trackers</th>
-            <th>Update Trackers</th>
+            <th>Delete</th>
+            <th>Update</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="tracker in trck_result">
+          <tr v-for="tracker in tracker_data">
             <td>{{ tracker.name }}</td>
             <td>{{ tracker.description }}</td>
             <td>
               {{ tracker.type }}
             </td>
             <td>{{ tracker.date_created }}</td>
-            <td v-if="tracker.type === 'numeric'">
-              <router-link :to="`/${email}/${tracker.id}/logs`">
+            <td v-if="tracker.type == 'numeric'">
+              <router-link :to="`/${username}/${tracker.id}/numeric`">
                 <button type="button" class="btn btn-info btn-lg" @click="addNumTrackerLogs(tracker.id)">
                   Add Logs</button>
               </router-link>
             </td>
-            <td v-else="tracker.type === 'boolean'">
-              <router-link :to="`/${email}/${tracker.id}/logs`">
+            <td v-else-if="tracker.type == 'boolean'">
+              <router-link :to="`/${username}/${tracker.id}/boolean`">
                 <button type="button" class="btn btn-info btn-lg" @click="addBoolTrackerLogs(tracker.id)">
                   Add Logs</button>
               </router-link>
@@ -75,8 +66,9 @@
               <button type="button" class="btn btn-danger btn-lg" @click="deleteTracker(tracker.id)">Delete</button>
             </td>
             <td>
-              <router-link :to="`/${email}/update/${tracker.id}`">
-                <button class="btn btn-success btn-lg" @click="updateTracker(tracker.id)">
+              <router-link :to="`/${username}/${tracker.id}/update`">
+                <button class="btn btn-success btn-lg"
+                  @click="updateTracker(tracker.id, tracker.name, tracker.description)">
                   Update
                 </button>
 
@@ -95,114 +87,183 @@ export default {
   name: "DashboardPage",
   data() {
     return {
-      email: "",
+      username: "",
       auth_token: "",
-      trck_result: {},
-      err_case: "",
-      pass_case: "",
-      username: ""
+      tracker_data: {},
+      error_txt: "",
+      success_msg: "",
     };
-
   },
   async created() {
-    this.auth_token = sessionStorage.getItem("authentication-token"),
-      this.email = sessionStorage.getItem("email")
-    console.log(this.email)
-    console.log(this.auth_token)
+    this.auth_token = sessionStorage.getItem("authentication-token");
+    this.username = sessionStorage.getItem("username");
 
-    const req_opt = {
+    const requsetOptions = {
       methods: "GET",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
         "Authentication-Token": `${this.auth_token}`,
       }
-    }
+    };
     try {
-      const res = await fetch(`${baseURL}/dashboard/${this.email}`, req_opt)
-      if (this.auth_token) {
-        if (res) {
-          if (res.ok) {
-            const data = await res.json().catch(() => {
-              throw Error("Something Went Wrong")
-            })
-            if (data) {
-              this.trck_result = data
-              console.log(this.trck_result)
+      if (!!this.auth_token) {
+        fetch(`${baseURL}/dashboard/${this.username}`, requsetOptions)
+          .then(async response => {
+            if (!response.ok) {
+              throw Error(response.statusText);
             }
-          }
-        }
-        else {
-          throw Error(res.statusText)
-        }
+            const myResp = await response.json();
+            if (!!myResp) {
+              this.success_msg = myResp.msg;
+              this.tracker_data = myResp.stuff;
+            }
+            else {
+              throw Error("something went wrong (data not received)");
+            }
+
+          })
+          .catch(error => {
+            this.error_txt = error;
+            console.log("Could not create dashboard. Error: ", error);
+          });
       }
       else {
-        this.$router.push('login')
-        throw Error("Authentication Failed!! Login Again.")
+        this.logout();
+        throw Error("authentication failed");
       }
     }
-    catch (err) {
-      console.log("Error in create", err)
+    catch (error) {
+      this.error_txt = error;
+      console.log("Error: ", error);
     }
-
   },
 
   methods: {
-    async deleteTracker(id) {
-      console.log(id)
-      const del_req_opt = {
+    async deleteTracker(trackerID) {
+      const deleteRequestOptions = {
         methods: "GET",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
           "Authentication-Token": `${this.auth_token}`,
         }
-      }
+      };
       try {
-        console.log("delete trying before fetch")
-        const res = await fetch(`${baseURL}/${this.email}/${id}/delete`, del_req_opt)
-        console.log("delete trying after fetch")
-        if (this.auth_token) {
-          console.log("auth token check")
-          if (res) {
-            console.log("have response")
-            if (res.ok) {
-              console.log("Tracker Deleted Successfully")
-              this.$router.go("dashboard", this.email)
-            }
-          }
-          else {
-            throw Error(res.statusText)
-          }
+        if (!!this.auth_token) {
+          await fetch(`${baseURL}/${this.username}/${trackerID}/delete`, deleteRequestOptions)
+            .then(async response => {
+              if (!response.ok) {
+                throw Error(response.statusText);
+              }
+              const myResp = await response.json();
+              if (!!myResp) {
+                if (myResp.resp == "ok") {
+                  this.success_msg = myResp.msg;
+                  this.$router.go();
+                }
+                else {
+                  throw Error(myResp.msg);
+                }
+              }
+              else {
+                throw Error("something went wrong (data not received)");
+              }
+
+            })
+            .catch(error => {
+              this.error_txt = error;
+              console.log("Could not delete tracker. Error: ", error);
+            });
         }
         else {
-          this.$router.push('login')
-          throw Error("Authentication Failed!! Login Again.")
+          this.logout();
+          throw Error("authentication failed.")
         }
       }
-      catch (err) {
-        console.log("Error in delete", err)
+      catch (error) {
+        this.error_txt = error;
+        console.log("Error: ", error);
       }
     },
-    async updateTracker(id) {
-      // console.log("its update tracker method", id)
-      // console.log(id)
-      sessionStorage.setItem("id", id)
+    async updateTracker(trackerID, trackerName, trackerDescription) {
+      sessionStorage.setItem("trackerID", trackerID);
+      sessionStorage.setItem("trackerName", trackerName);
+      sessionStorage.setItem("trackerDescription", trackerDescription);
     },
-    async addNumTrackerLogs(id) {
-      sessionStorage.setItem("id", id)
-      // console.log("Logs Added to Tracker Successfully")
-      return ""
+    async addNumTrackerLogs(trackerID) {
+      sessionStorage.setItem("trackerID", trackerID);
     },
-    async addBoolTrackerLogs(id) {
-      // console.log("Logs Added to Tracker Successfully")
-      sessionStorage.setItem("id", id)
-
-      return ""
+    async addBoolTrackerLogs(trackerID) {
+      sessionStorage.setItem("trackerID", trackerID);
     },
     async logout() {
-      sessionStorage.clear()
-      this.$router.go("/")
-    }
-
+      const logoutRequestOptions = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Authentication-Token": `${this.auth_token}`,
+        },
+      };
+      await fetch(`${baseURL}/logout`, logoutRequestOptions)
+        .then(async response => {
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const myResp = await response.json();
+          sessionStorage.clear()
+          this.success_msg = myResp.msg;
+          this.$router.push({ path: `/login_page` })
+        })
+        .catch(error => {
+          this.error_txt = error;
+          console.log("Could not log out. Error: ", error);
+        });
+    },
+    async ExportTrackers() {
+      const temp_data = this.tracker_data
+      const exportTrackersRequestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Authentication-Token": `${this.auth_token}`,
+        },
+        body: JSON.stringify(temp_data)
+      }
+      try {
+        if (!!this.auth_token) {
+          await fetch(`${baseURL}/${this.username}/export_trackers`, exportTrackersRequestOptions)
+            .then(async response => {
+              if (!response.ok) {
+                throw Error(response.statusText);
+              }
+              const myResp = await response.json();
+              if (!!myResp) {
+                if (myResp.resp == "ok") {
+                  this.success_msg = myResp.msg;
+                  this.$router.go();
+                }
+                else {
+                  throw Error(myResp.msg);
+                }
+              }
+              else {
+                throw Error("something went wrong");
+              }
+            })
+            .catch(error => {
+              this.error_txt = error;
+              console.log("Failed to export. Error: ", error);
+            });
+        }
+        else {
+          this.logout();
+          throw Error("authentication failed");
+        }
+      }
+      catch (error) {
+        this.error_txt = error;
+        console.log("Failed to export. Error: ", error)
+      }
+    },
   }
 }
 

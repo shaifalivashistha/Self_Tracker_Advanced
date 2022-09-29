@@ -1,20 +1,17 @@
 <template>
   <div class="register">
-    <!-- <RegisterPage></RegisterPage> -->
-    <RegisterTest></RegisterTest>
+    <RegisterPage></RegisterPage>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import RegisterPage from "@/components/RegisterPage.vue";
-import RegisterTest from "@/components/RegisterTest.vue";
+import RegisterPage from "@/components/RegisterPage.vue";
 
 export default {
   name: "RegisterView",
   components: {
-    // RegisterPage,
-    RegisterTest
+    RegisterPage,
   },
 };
 </script>

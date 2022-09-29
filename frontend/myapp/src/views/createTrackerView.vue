@@ -1,17 +1,17 @@
 <template>
     <div class="create_tracker">
-        <TrackerPage></TrackerPage>
+        <createTrackerPage></createTrackerPage>
     </div>
 </template>
   
 <script>
 // @ is an alias to /src
-import TrackerPage from "@/components/TrackerPage.vue";
+import createTrackerPage from "@/components/createTrackerPage.vue";
 
 export default {
     name: "createTrackerView",
     components: {
-        TrackerPage,
+        createTrackerPage,
     },
 };
 </script>

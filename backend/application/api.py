@@ -1,3 +1,4 @@
+from flask import jsonify
 from flask_restful import Resource
 from flask_restful import Api
 from flask_restful import reqparse
@@ -254,24 +255,78 @@ class LogAPI(Resource):
 # -----------------------------------------------------------------------------------------#
 
 
-class TrackerExportAPI(Resource):
+def generate_csv(input):
+    with open("~/Downloads/Mad2_Project/TrackerInfo.csv", "w") as file:
+        myWriter = csv.writer(file)
+        writeHeader = True
+        for i in input.values():
+            if writeHeader:
+                myWriter.writerow(i.keys())
+                writeHeader = False
+            myWriter.writerow(i.values())
+        file.close()
+
+    # with open(
+    #     "/Downloads/Mad2_Project/TrackerInfo.csv", "w", encoding="utf8", newline="\n"
+    # ) as output_file:
+    #     output = csv.DictWriter(output_file, fieldnames=input[0].keys(), restval="")
+    #     output.writeheader()
+    #     output.writerows(input)
+    # return
+
+
+# -----------------------TRACKER EXPORT API------------------------#
+
+
+class ExportTrackerAPI(Resource):
     def get(self, email):
         user_data = User.query.filter_by(email=email).first()
-        userID = user_data.id
-        trackerIDs = (
-            db.session.query(UserTracker)
-            .with_entities(UserTracker.tID)
-            .filter(UserTracker.uID == userID)
-            .all()
-        )
-        all_id = [id for (id,) in trackerIDs]
-        tracker = db.session.query(Tracker).filter(Tracker.id.in_(all_id)).all()
-        # deck_schema = DeckSchema(many=True)
-        # trackers_all = deck_schema.dump(tracker)
-        job_id = generate_csv.delay(tracker)
-        print(job_id)
+        trackers = user_data.trackers
+        tracker_list = []
+        for tracker in trackers:
+            tracker_list.append(tracker)
+
+        tracker_dict = {}
+        idx = 0
+        for trck in tracker_list:
+            idx += 1
+            DictTrack = {
+                "id": trck.id,
+                "name": trck.name,
+                "description": trck.description,
+                "type": trck.type,
+                "date_created": trck.date_created,
+            }
+            tracker_dict[idx] = DictTrack
+        JDictTrck = jsonify(tracker_dict)
+        tracker_csv = generate_csv(JDictTrck)
+        return "Tracker Export job start", 200
 
 
-class LogsExportAPI(Resource):
+# -----------------------LOG EXPORT API------------------------#
+
+
+class ExportLogAPI(Resource):
     def get(self, email, id):
-        user_data = User.query.filter_by(email=email).first()
+        trackers = Tracker.query.filter_by(id=id).first()
+        all_logs = trackers.logs
+        log_list = []
+        for log in all_logs:
+            log_list.append(log)
+
+        log_dict = {}
+        idx = 0
+        for log in log_list:
+            idx += 1
+            Dlog = {
+                "log": log.log,
+                "log_id": log.id,
+                "value": log.value,
+                "note": log.note,
+                "timestamp": log.timestamp,
+            }
+            log_dict[idx] = Dlog
+
+        JDict_Logs = jsonify(log_dict)
+        generate_csv.delay(JDict_Logs)
+        return "Log Export job start", 200

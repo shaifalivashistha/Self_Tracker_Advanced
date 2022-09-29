@@ -27,7 +27,7 @@ class Tracker(db.Model):
     name = db.Column(db.String(300), nullable=False)
     description = db.Column(db.String(300), nullable=False)
     type = db.Column(db.String(10), nullable=False)
-    date_created = db.Column(db.DateTime(timezone=True), default=datetime.utcnow)
+    date_created = db.Column(db.DateTime(timezone=True), default=datetime.now)
     logs = db.relationship(
         "Logs", secondary="TrackerLog", backref="tracker", cascade="all,delete"
     )
@@ -36,7 +36,7 @@ class Tracker(db.Model):
 class Logs(db.Model):
     __tablename__ = "logs"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    timestamp = db.Column(db.DateTime(timezone=True), default=datetime.utcnow)
+    timestamp = db.Column(db.DateTime(timezone=True), default=datetime.now)
     log = db.Column(db.String(300))
     value = db.Column(db.Integer, nullable=False)
     note = db.Column(db.String(300), nullable=True)

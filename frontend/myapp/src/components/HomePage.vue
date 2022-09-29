@@ -1,12 +1,11 @@
 <template>
-  <div id="hello">
+  <div id="homePage">
     <b-navbar fixed="top" toggleable="md" type="dark" variant="info">
-      <b-navbar-brand href="/">Home</b-navbar-brand>
+      <b-navbar-brand :to="`/`">Tracker</b-navbar-brand>
       <b-navbar-nav>
         <b-nav-item href="/about">About</b-nav-item>
         <b-nav-item href="/register">Register</b-nav-item>
-        <b-nav-item href="/login">Login</b-nav-item>
-        <b-nav-item href="#">Contacts</b-nav-item>
+        <b-nav-item href="/login_page">Login</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
     <h1>This is my home page.</h1>
@@ -16,6 +15,9 @@
 <script>
 export default {
   name: "HomePage",
+  beforeMount() {
+    sessionStorage.clear();
+  },
 };
 </script>
 <style scoped lang="scss">

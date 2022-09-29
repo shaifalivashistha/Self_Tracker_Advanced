@@ -1,16 +1,16 @@
 <template>
-    <div class="UpdateLog">
-        <UpdateLog></UpdateLog>
+    <div class="update_log">
+        <updateLogPage></updateLogPage>
     </div>
 </template>
   
 <script>
-import UpdateLog from "@/components/updateLog.vue";
+import updateLogPage from "@/components/updateLogPage.vue";
 
 export default {
     name: "updateLogView",
     components: {
-        UpdateLog
+        updateLogPage
     },
 };
 </script>

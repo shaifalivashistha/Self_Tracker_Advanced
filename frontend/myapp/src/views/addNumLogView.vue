@@ -1,17 +1,17 @@
 <template>
-    <div class="numericalView">
-        <NumLogPage></NumLogPage>
+    <div class="numerical_view">
+        <addNumLogPage></addNumLogPage>
     </div>
 </template>
   
 <script>
 // @ is an alias to /src
-import NumLogPage from "@/components/NumLogPage.vue";
+import addNumLogPage from "@/components/addNumLogPage.vue";
 
 export default {
     name: "addNumLogView",
     components: {
-        NumLogPage,
+        addNumLogPage,
     },
 };
 </script>

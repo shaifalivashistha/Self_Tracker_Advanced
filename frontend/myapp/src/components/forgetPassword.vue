@@ -1,9 +1,11 @@
 <template>
     <div id="forget_password">
         <b-navbar toggleable="md" type="dark" variant="info">
-            <b-navbar-brand href="#">Add Trackers</b-navbar-brand>
+            <b-navbar-brand>Add Trackers</b-navbar-brand>
             <b-navbar-nav>
-                <b-nav-item href="/dashboard/">Dashboard</b-nav-item>
+                <b-nav-item>
+                    <router-link :to="'/dashboard/' + this.username">Dashboard</router-link>
+                </b-nav-item>
                 <b-nav-item @click="logout">Logout</b-nav-item>
             </b-navbar-nav>
         </b-navbar>

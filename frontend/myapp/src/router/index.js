@@ -4,12 +4,12 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import AboutView from "../views/AboutView.vue";
 import RegisterView from "../views/RegisterView.vue";
-import dashboardView from "../views/dashboardView.vue";
+import DashboardView from "../views/DashboardView.vue";
 import createTrackerView from "../views/createTrackerView.vue"
 import updateTrackerView from "../views/updateTrackerView.vue"
 import addNumLogView from "../views/addNumLogView.vue"
+import addBoolLogView from "../views/addBoolLogView.vue"
 import updateLogView from "../views/updateLogView"
-import BooleanView from "../views/BooleanView.vue"
 
 Vue.use(VueRouter);
 
@@ -25,46 +25,45 @@ const routes = [
     component: AboutView,
   },
   {
-    path: "/login",
-    name: "login",
-    component: LoginView,
-  },
-  {
     path: "/register",
     name: "register",
     component: RegisterView,
   },
   {
-    path: "/dashboard",
-    name: "dashboard",
-    component: dashboardView,
+    path: "/login_page",
+    name: "login",
+    component: LoginView,
   },
   {
-    path: "/dashboard/:email/create_tracker",
+    path: "/dashboard/:username",
+    name: "dashboard",
+    component: DashboardView,
+  },
+  {
+    path: "/dashboard/:username/create_tracker",
     name: "createTrackerView",
     component: createTrackerView
   },
   {
-    path: "/:email/update/:id",
+    path: "/:username/:trackerID/update",
     name: "updateTrackerView",
     component: updateTrackerView
   },
   {
-    path: "/:email/:id/logs",
+    path: "/:username/:trackerID/numeric",
     name: "addNumLogView",
     component: addNumLogView
   },
   {
-    path: "/:email/:id/logs",
-    name: "BooleanView",
-    component: BooleanView
+    path: "/:username/:trackerID/boolean",
+    name: "addBoolLogView",
+    component: addBoolLogView
   },
   {
-    path: ":email/:id/:log_id/update",
+    path: "/:username/:trackerID/:logID/update",
     name: "updateLogView",
     component: updateLogView
   },
-
 
 ];
 

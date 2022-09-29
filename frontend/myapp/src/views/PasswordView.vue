@@ -9,7 +9,7 @@
 import AddLogs from "@/components/LogPage.vue";
 
 export default {
-    name: "addLogView",
+    name: "AddLogView",
     components: {
         AddLogs,
     },

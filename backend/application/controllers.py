@@ -14,10 +14,12 @@ from .models import *
 from .task import *
 from .security import *
 from .database import *
+from .cache import cache
 
 import os
 import base64
 import os.path as osp
+import time
 from matplotlib.figure import Figure
 
 
@@ -101,7 +103,6 @@ def login():
             pswd = user_data.password
             username = user_data.username
             if verify_password(data["password"], pswd):
-                # print(username)
                 session["email"], session["pwd"], session["username"] = (
                     data["email"],
                     data["password"],
@@ -125,8 +126,8 @@ def login():
 
 
 @app.route("/dashboard/<string:username>", methods=["GET"])
+@cache.memoize()
 def dashboard(username):
-
     user_data = User.query.filter_by(username=username).first()
     trackerObjs = user_data.trackers
 
@@ -143,16 +144,16 @@ def dashboard(username):
             "type": tracker.type,
             "date_created": tracker.date_created,
         }
-
     return jsonify({"resp": "ok", "msg": "Trackers parsed", "stuff": tracker_dict})
 
 
 # -------------------------LOGOUT-------------------------#
 
 
-@app.route("/logout", methods=["GET"])
+@app.route("/logout_page", methods=["GET"])
 def logout():
     session.clear()
+    cache.clear()
     return jsonify({"resp": "ok", "msg": "Logged out"})
 
 
@@ -161,6 +162,7 @@ def logout():
 
 @app.route("/dashboard/<string:username>/create_tracker", methods=["POST", "GET"])
 def create_tracker(username):
+    cache.delete_memoized(dashboard, username)
     if request.method == "POST":
         data = request.get_json()
 
@@ -183,7 +185,6 @@ def create_tracker(username):
         axis.set(xlabel="Time Stamp", ylabel="Value")
         fig.savefig(f"../frontend/myapp/src/assets/{username}/{new_tracker.id}.png")
         return jsonify({"resp": "ok", "msg": "tracker successfully created"})
-        # return redirect(url_for("dashboard", username=username))
     else:
         return jsonify(
             {
@@ -191,7 +192,6 @@ def create_tracker(username):
                 "msg": f"Welcome to AddTracker page ({request.method} request received)",
             }
         )
-        # return jsonify(username)
 
 
 # -------------------------UPDATE_TRACKER-------------------------#
@@ -199,6 +199,7 @@ def create_tracker(username):
 
 @app.route("/<string:username>/<int:trackerID>/update", methods=["POST"])
 def update(username, trackerID):
+    cache.delete_memoized(dashboard, username)
     tracker = Tracker.query.filter_by(id=trackerID).first()
     data = request.get_json()
     if tracker:
@@ -210,10 +211,12 @@ def update(username, trackerID):
 # -------------------------CREATE_LOGS-------------------------#
 
 
-@app.route("/<string:username>/<int:trackerID>/logs", methods=["GET", "POST"])
+@app.route("/<string:username>/<int:trackerID>/logs", methods=["GET"])
+@cache.memoize()
 def log(username, trackerID):
     parent_tracker = Tracker.query.filter_by(id=trackerID).first()
     if request.method == "GET":
+        time.sleep(5)
         all_logs = parent_tracker.logs
         img_pth = f"../frontend/myapp/src/assets/{username}/{trackerID}.png"
         log_list = []
@@ -224,7 +227,6 @@ def log(username, trackerID):
             data = {x.timestamp: x.value for x in all_logs}
         else:
             data = {x.timestamp: 1 if x.value == "Yes" else 0 for x in all_logs}
-        # print(data)
         fig = Figure()
         axis = fig.add_subplot(1, 1, 1)
         axis.plot(data.keys(), data.values())
@@ -243,7 +245,6 @@ def log(username, trackerID):
                 "timestamp": log.timestamp,
             }
             log_dict[idx] = Dlog
-        # print(log_dict)
         return jsonify(
             {
                 "resp": "ok",
@@ -251,22 +252,46 @@ def log(username, trackerID):
                 "stuff": {"logData": log_dict, "encodedImage": encodedImage},
             }
         )
-    elif request.method == "POST":
-        data = request.get_json()
-        _, value, note, log = (
-            data["trackerID"],
-            data["log_value"],
-            data["log_note"],
-            parent_tracker.type,
-        )
 
-        new_log = Logs(value=value, note=note, log=log)
-        parent_tracker.logs.append(new_log)
-        db.session.add(new_log)
-        db.session.commit()
-        # flash("Log Added Successfully")
-        return jsonify({"resp": "ok", "msg": "new log added successfully"})
-        # return redirect(url_for("log", username=username, trackerID=trackerID))
+
+@app.route("/<string:username>/<int:trackerID>/bounce_log_cache", methods=["POST"])
+def bounce_log_cache(username, trackerID):
+    cache.delete_memoized(log, username, trackerID)
+    parent_tracker = Tracker.query.filter_by(id=trackerID).first()
+    img_pth = f"../frontend/myapp/src/assets/{username}/{trackerID}.png"
+    data = request.get_json()
+
+    new_log = Logs(
+        value=data["log_value"], note=data["log_note"], log=parent_tracker.type
+    )
+    parent_tracker.logs.append(new_log)
+    db.session.add(new_log)
+    db.session.commit()
+
+    with open(img_pth, "rb") as image_file:
+        encodedImage = str(base64.b64encode(image_file.read()).decode("utf-8"))
+
+    all_logs = parent_tracker.logs
+    log_list = []
+    for mylog in all_logs:
+        log_list.append(mylog)
+    log_dict = {}
+    for idx, mylog in enumerate(log_list):
+        Dlog = {
+            "log": mylog.log,
+            "logID": mylog.id,
+            "value": mylog.value,
+            "note": mylog.note,
+            "timestamp": mylog.timestamp,
+        }
+        log_dict[idx] = Dlog
+    return jsonify(
+        {
+            "resp": "ok",
+            "msg": "new log added and log cache cleared successfully",
+            "stuff": {"logData": log_dict, "encodedImage": encodedImage},
+        }
+    )
 
 
 # -------------------------DELETE_TRACKER-------------------------#
@@ -274,6 +299,7 @@ def log(username, trackerID):
 
 @app.route("/<string:username>/<int:trackerID>/delete", methods=["GET"])
 def delete(username, trackerID):
+    cache.delete_memoized(dashboard, username)
     targetTracker = Tracker.query.get_or_404(trackerID)
     try:
         db.session.delete(targetTracker)
@@ -294,13 +320,12 @@ def delete(username, trackerID):
 
 @app.route("/<string:username>/<int:trackerID>/<int:logID>/delete", methods=["GET"])
 def delete_log(username, trackerID, logID):
+    cache.delete_memoized(log, username, trackerID)
     myLog = Logs.query.get_or_404(logID)
-
     try:
         db.session.delete(myLog)
         db.session.commit()
         return jsonify({"resp": "ok", "msg": "Event deleted succesfully"})
-        # return redirect(url_for("log", username=username, trackerID=trackerID))
     except:
         return jsonify(
             {
@@ -315,6 +340,7 @@ def delete_log(username, trackerID, logID):
 
 @app.route("/<string:username>/<int:trackerID>/<int:logID>/update", methods=["POST"])
 def update_log(username, trackerID, logID):
+    cache.delete_memoized(log, username, trackerID)
     myLog = Logs.query.filter_by(id=logID).first()
     data = request.get_json()
     if myLog:
@@ -332,7 +358,6 @@ def export_tracker(username):
         )
     else:
         return jsonify({"resp": "not ok", "msg": "GET request received"})
-        # return redirect(url_for("dashboard", username=username))
 
 
 @app.route("/<string:username>/<int:trackerID>/export_events", methods=["GET", "POST"])
@@ -344,4 +369,3 @@ def export_events(username, trackerID):
         )
     else:
         return jsonify({"resp": "not ok", "msg": "GET request received"})
-        # return redirect(url_for("log", username=username, trackerID=trackerID))

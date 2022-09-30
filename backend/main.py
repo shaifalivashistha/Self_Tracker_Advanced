@@ -9,6 +9,7 @@ from application.api import *
 from application import workers
 from application.models import *
 from application.security import *
+from application.cache import cache
 from application.database import db
 from application.validation import *
 
@@ -50,6 +51,8 @@ def create_app():
     )
     celery.Task = workers.ContextTask
     app.app_context().push()
+
+    cache.init_app(app)
 
     return app, api, celery
 

@@ -94,6 +94,7 @@ export default {
 						this.auth_token = myResp.response.user.authentication_token;
 						sessionStorage.setItem("authentication-token", myResp.response.user.authentication_token);
 						sessionStorage.setItem("email", this.email);
+						this.myCallback();
 					}
 					else {
 						throw Error("could not authenticate (data not received)");
@@ -103,8 +104,6 @@ export default {
 					this.error_txt = error;
 					console.log("Log in failed. Error	: ", error);
 				});
-
-			this.myCallback();
 		},
 
 		myCallback: async function () {

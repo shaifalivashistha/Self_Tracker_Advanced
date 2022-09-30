@@ -130,6 +130,18 @@ export default {
             throw Error(response.statusText);
           }
           const myResp = await response.json();
+          this.success_msg = myResp.msg;
+        })
+        .catch(error => {
+          this.error_txt = error;
+          console.log("Could not log out. Error: ", error);
+        });
+      await fetch(`${baseURL}/logout_page`, logoutRequestOptions)
+        .then(async response => {
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const myResp = await response.json();
           sessionStorage.clear()
           this.success_msg = myResp.msg;
           this.$router.push({ path: `/login_page` })

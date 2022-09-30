@@ -160,7 +160,7 @@ export default {
             }
             try {
                 if (!!this.auth_token) {
-                    await fetch(`${baseURL}/${this.username}/${this.trackerID}/logs`, addLogEntryRequestOptions)
+                    await fetch(`${baseURL}/${this.username}/${this.trackerID}/bounce_log_cache`, addLogEntryRequestOptions)
                         .then(async response => {
                             if (!response.ok) {
                                 throw Error(response.statusText);
@@ -169,7 +169,6 @@ export default {
                             if (!!myResp) {
                                 if (myResp.resp == "ok") {
                                     this.success_msg = myResp.msg;
-                                    this.$router.go();
                                 }
                                 else {
                                     throw Error(myResp.msg);
@@ -183,6 +182,7 @@ export default {
                             this.error_txt = error;
                             console.log("Could not add entry to log. Error: ", error);
                         })
+                    this.$router.go();
                 }
                 else {
                     this.logout();
@@ -219,7 +219,6 @@ export default {
                             if (!!myResp) {
                                 if (myResp.resp == "ok") {
                                     this.success_msg = myResp.msg;
-                                    this.$router.go();
                                 }
                                 else {
                                     throw Error(myResp.msg);
@@ -233,6 +232,7 @@ export default {
                             this.error_txt = error;
                             console.log("Could not delete entry from log. Error: ", error);
                         })
+                    this.$router.go();
                 }
                 else {
                     this.logout();
@@ -253,6 +253,18 @@ export default {
                 },
             };
             await fetch(`${baseURL}/logout`, logoutRequestOptions)
+                .then(async response => {
+                    if (!response.ok) {
+                        throw Error(response.statusText);
+                    }
+                    const myResp = await response.json();
+                    this.success_msg = myResp.msg;
+                })
+                .catch(error => {
+                    this.error_txt = error;
+                    console.log("Could not log out. Error: ", error);
+                });
+            await fetch(`${baseURL}/logout_page`, logoutRequestOptions)
                 .then(async response => {
                     if (!response.ok) {
                         throw Error(response.statusText);

@@ -10,6 +10,14 @@
         <div>
             <button @click="ExportEvents()">Export Events</button>
         </div>
+        <div class="container">
+            <p id="error_txt" class="alert alert-danger" role="alert" v-if="error_txt">
+                {{ error_txt }}
+            </p>
+            <p id="success_msg" class="alert alert-success" role="alert" v-if="success_msg">
+                {{ success_msg }}
+            </p>
+        </div>
 
         <body class="container">
             <form @submit.prevent="addLogEntry()">

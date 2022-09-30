@@ -21,7 +21,6 @@ class LocalDevelopmentConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:///trackerdb.sqlite3"
     DEBUG = True
     SECRET_KEY = "Th1s1sas3cr3tk3y"
-    SECURITY_PASSWORD_HASH = "bcrypt"
     SECURITY_PASSWORD_SALT = "S3cr3tPassword"  # Read from ENV in your case
     SECURITY_CONFIRMABLE = False
     SECURITY_SEND_REGISTER_EMAIL = False

@@ -10,6 +10,7 @@ from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+from weasyprint import HTML
 from flask import current_app as app
 
 from .models import Logs, TrackerLog, User, Tracker, UserTracker
@@ -44,12 +45,11 @@ def export():
         file.close()
 
 
-def format_msg(user, mType="Daily"):
+def format_msg(data, mType="Daily"):
     template_pth = "reminder"
     if mType == "Summary":
         template_pth = "mail"
     with open(f"./templates/{template_pth}_template.html", "r") as msg_file:
-        data = {"name": user.username, "email": user.email}
         template = Template(msg_file.read())
         msg = template.render(data=data)
     return msg
@@ -85,14 +85,39 @@ def send_mail(to_address, subject, message, attachement=None):
 
 def send():
     user_list = User.query.all()
+
     for user in user_list:
-        msg = format_msg(user, "Summary")
-        print(user.username)
+        attachement_pth = f"/home/shaifali/Downloads/Mad2_Data/{user.username}/ExportedSummary_{str(date.today())}.pdf"
+        tIDs = (
+            UserTracker.query.with_entities(UserTracker.tID)
+            .filter(UserTracker.uID == user.id)
+            .all()
+        )
+
+        tracker_data = []
+        for tid in tIDs:
+            tracker = Tracker.query.filter_by(id=tid[0]).first()
+            temp_dict = {
+                "name": tracker.name,
+                "description": tracker.description,
+                "timestamp": tracker.date_created,
+                "type": tracker.type,
+            }
+            tracker_data.append(temp_dict)
+
+        send_data = {
+            "username": user.username,
+            "email": user.email,
+            "tracker_data": tracker_data,
+        }
+        msg = format_msg(send_data, "Summary")
+        html = HTML(string=msg)
+        html.write_pdf(target=attachement_pth)
         send_mail(
             user.email,
-            subject=f"Mitra {user.username} ko Patra",
+            subject=f"The Self Tracker app: {user.username}'s monthly summary report",
             message=msg,
-            attachement=f"/home/shaifali/Downloads/Mad2_Data/{user.username}/ExportedSummary_{str(date.today())}.csv",
+            attachement=attachement_pth,
         )
 
 
@@ -113,10 +138,11 @@ def remind():
                 flag = False
                 break
         if flag:
-            msg = format_msg(user, "Daily")
+            send_data = {"username": user.username, "date": str(date.today())}
+            msg = format_msg(send_data, "Daily")
             send_mail(
                 user.email,
-                subject=f"Mitra {user.username} maare jaoge",
+                subject=f"The Self Tracker: Reminder for logging your data",
                 message=msg,
             )
 

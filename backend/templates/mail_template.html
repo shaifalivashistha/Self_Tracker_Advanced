@@ -4,9 +4,29 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <p>Dear Chomu,</p>
-        <p>Kaise ho? Tumhara patra prapt hua. tumhare pitaji ke maut ki khabar padhkar dukh hua... kafi dukh hua :(</p>
-        <p>Tumne jo romanchak vali kitabein bheji thi unko padkar maza aaya. Gandhi ke langot vali kitab.</p>
-        <p>Tum zinda rahe to jaldi milenge.</p>
+        <p>Hi {{data.username}},</p>
+        <p>Thank you for using Self Tracker app. You data logs from the past month are listed below. Keep logging!!</p>
+        <table style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Tracker Name</th>
+                    <th>Tracker Description</th>
+                    <th>Tracker Type</th>
+                    <th>Last Update</th>
+                </tr>
+            </thead>
+            <body>
+                {% for element in data.tracker_data %}
+                <tr>
+                    <td>{{element.name}}</td>
+                    <td>{{element.description}}</td>
+                    <td>{{element.type}}</td>
+                    <td>{{element.timestamp}}</td>
+                </tr>
+                {% endfor %}
+            </body>
+        </table>
+        <p>Regards</p>
+        <p>Self Tracker Team</p>
     </body>
 </html>

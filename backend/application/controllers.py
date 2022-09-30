@@ -67,7 +67,7 @@ def register():
                 username=username,
                 password=hash_password(pwd),
                 sec_ques=sec_Q,
-                sec_ans=base64.b64encode(sec_A),
+                sec_ans=base64.b64encode(sec_A.encode("ascii")),
             )
             db.session.commit()
             user_fig_dir = f"../frontend/myapp/src/assets/{username}"
@@ -219,7 +219,12 @@ def log(username, trackerID):
         log_list = []
         for log in all_logs:
             log_list.append(log)
-        data = {x.timestamp: x.value for x in all_logs}
+        data = {}
+        if parent_tracker.type == "numeric":
+            data = {x.timestamp: x.value for x in all_logs}
+        else:
+            data = {x.timestamp: 1 if x.value == "Yes" else 0 for x in all_logs}
+        # print(data)
         fig = Figure()
         axis = fig.add_subplot(1, 1, 1)
         axis.plot(data.keys(), data.values())
@@ -322,7 +327,9 @@ def update_log(username, trackerID, logID):
 def export_tracker(username):
     if request.method == "POST":
         job = trigerred_summary_export(username)
-        return jsonify({"resp": "ok", "msg": f"{str(job)}, Status: 200"})
+        return jsonify(
+            {"resp": "ok", "msg": f"{str(job)}. Exported successfully. Status: 200"}
+        )
     else:
         return jsonify({"resp": "not ok", "msg": "GET request received"})
         # return redirect(url_for("dashboard", username=username))
@@ -332,7 +339,9 @@ def export_tracker(username):
 def export_events(username, trackerID):
     if request.method == "POST":
         job = trigerred_events_export(username, trackerID)
-        return jsonify({"resp": "ok", "msg": f"{str(job)}, Status: 200"})
+        return jsonify(
+            {"resp": "ok", "msg": f"{str(job)}. Exported successfully. Status: 200"}
+        )
     else:
         return jsonify({"resp": "not ok", "msg": "GET request received"})
         # return redirect(url_for("log", username=username, trackerID=trackerID))

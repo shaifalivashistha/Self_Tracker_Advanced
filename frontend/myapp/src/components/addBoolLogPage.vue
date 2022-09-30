@@ -69,6 +69,10 @@
                     </tr>
                 </tbody>
             </table>
+            <h4 align="center"> X----------Visualize----------X</h4>
+            <div align="center">
+                <img :src="'data:image/png;base64,' + this.file" />
+            </div>
         </body>
     </div>
 </template>

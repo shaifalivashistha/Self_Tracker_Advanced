@@ -6,28 +6,28 @@ from .send_mail import *
 
 @celery.on_after_finalize.connect
 def setup_periodic_tasks(sender, **kwargs):
-    # sender.add_periodic_task(60.0, celery_summary_export.s(), name="Create A Report")
-    # sender.add_periodic_task(60.0, send_summary.s(), name="Summary Mail Scheduler")
-    # sender.add_periodic_task(
-    #     60.0,
-    #     send_reminder.s(),
-    #     name="Daily Reminder",
-    # )
+    sender.add_periodic_task(30.0, celery_summary_export.s(), name="Create A Report")
+    sender.add_periodic_task(30.0, send_summary.s(), name="Summary Mail Scheduler")
     sender.add_periodic_task(
-        crontab(day_of_month=31, hour=0, minute=0),
-        celery_summary_export.s(),
-        name="Create A Report",
-    )
-    sender.add_periodic_task(
-        crontab(day_of_month=1, hour=12, minute=0),
-        send_summary.s(),
-        name="Summary Mail Scheduler",
-    )
-    sender.add_periodic_task(
-        crontab(hour=17, minute=0),
+        30.0,
         send_reminder.s(),
         name="Daily Reminder",
     )
+    # sender.add_periodic_task(
+    #     crontab(day_of_month=31, hour=0, minute=0),
+    #     celery_summary_export.s(),
+    #     name="Create A Report",
+    # )
+    # sender.add_periodic_task(
+    #     crontab(day_of_month=1, hour=12, minute=0),
+    #     send_summary.s(),
+    #     name="Summary Mail Scheduler",
+    # )
+    # sender.add_periodic_task(
+    #     crontab(hour=17, minute=0),
+    #     send_reminder.s(),
+    #     name="Daily Reminder",
+    # )
 
 
 @celery.task()

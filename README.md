@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-Self Tracker is a website that gives the user analytical results of its habits, health, mood, work, exersice data and helps the user to manage its daily routine on the base of that analysis. Learn more about working of Self Tracker by reading the documentation below.
+Self Tracker is a web application that gives the user analytical results of its habits, health, mood, work, exersice data and helps the user to manage its daily routine on the base of that analysis. Learn more about working of Self Tracker by reading the documentation below.
 </p>
 
 #### Index
